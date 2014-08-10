@@ -1,0 +1,51 @@
+.indexList {
+  margin: 0;
+  list-style: none;
+  .indexList--item {
+    position: relative;
+    margin-bottom: 18px;
+    padding: 16px;
+    background-color: $offWhite;
+    border: 1px solid $greyLight;
+    border-radius: 4px;
+    .title {
+      padding-right: 200px;
+      small {
+        font-size: 60%;
+        color: $greyMedLight;
+      }
+    }
+    .links {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      margin: 0;
+      padding: 4px 0 4px 12px;
+      border-left: 1px solid $greyLight;
+      list-style: none;
+      .links--item {
+        display: inline-block;
+        margin: 0 4px;
+      }
+    }
+  }
+}
+.indexTrashed {
+  margin-top: 40px;
+  border-top: 1px solid $greyLightest;
+  h2 {
+    padding: 20px 0;
+    font-size: 1.25rem;
+    color: $greyMedLight;
+    text-align: center;
+  }
+  .indexList {
+    @extend %clearfix;
+    .indexList--item {
+      float: left;
+      width: 46%;
+      margin: 0 2% 18px 2%;
+      background-color: $white;
+    }
+  }
+}

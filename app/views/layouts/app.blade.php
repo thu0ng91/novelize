@@ -8,7 +8,7 @@
 
     <title>Novelize Writing App</title>
 
-    {{ HTML::style('css/default.css')}}
+    {{ HTML::style('css/app.css')}}
     <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700|Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     @yield('head_styles')
 
@@ -17,7 +17,6 @@
 </head>
 
 <body id="app">
-
   @include('layouts.partials.app.navBar')
 
   <div class="container">
@@ -28,8 +27,7 @@
 
   @include('layouts.partials.app.adminBar')
 
-{{ HTML::script('js/min/bottom.min.js') }}
-@yield('foot_scripts')
-
+  {{ HTML::script('js/min/app.min.js') }}
+  @yield('foot_scripts')
 </body>
 </html>

@@ -1,0 +1,30 @@
+.pageHeader {
+  @extend %clearfix;
+  position: relative;
+  .title {
+    padding: 24px 0 10px;
+    font-size: 2.75rem;
+    font-family: $f_serif;
+    text-align: center;
+  }
+}
+.pageMenuBar {
+  min-height: 30px;
+  border: 1px solid $greyLight;
+  border-left: none;
+  border-right: none;
+  .columns-2 {
+    &.last {
+      text-align: right;
+    }
+  }
+}
+.pageMenu {
+  margin: 0;
+  list-style: none;
+}
+.pageMenu--item {
+  display: inline-block;
+  padding: 16px 6px;
+  font-size: 0.875rem;
+}

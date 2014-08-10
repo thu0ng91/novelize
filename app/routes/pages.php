@@ -21,7 +21,6 @@ Route::get( '/login', [
   'uses' => 'PagesController@getLogin'
 ]);
 
-
 Route::get( '/privacy', [
   'as' => 'privacy_page',
   'uses' => 'PagesController@getPrivacy'

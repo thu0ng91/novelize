@@ -8,7 +8,7 @@
 
     <title>Novelize Writing App</title>
 
-    {{ HTML::style('css/pages.css')}}
+    {{ HTML::style('css/page.css')}}
     <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700|Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
     @yield('head_styles')
 
@@ -16,16 +16,16 @@
     @yield('head_scripts')
 </head>
 
-<body id="page">
-
+<body id="page" class="@yield('body_class')">
   <div class="container">
     @include('layouts.partials.page.header')
+
+    @include('layouts.partials.messages')
 
     @yield('content')
   </div>
 
-  {{ HTML::script('js/min/bottom.min.js') }}
+  {{ HTML::script('js/min/page.min.js') }}
   @yield('foot_scripts')
-
 </body>
 </html>

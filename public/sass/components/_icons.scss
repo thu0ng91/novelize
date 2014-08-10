@@ -1,0 +1,38 @@
+.icon {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  p {
+    display: none;
+  }
+  &.settings {
+    background-image: url('../img/icons/settings.png');
+    &:hover {
+      background-image: url('../img/icons/settings-hover.png');
+    }
+  }
+  &.write {
+    background-image: url('../img/icons/write.png');
+    &:hover {
+      background-image: url('../img/icons/write-hover.png');
+    }
+  }
+  &.trash {
+    background-image: url('../img/icons/trash.png');
+    &:hover {
+      background-image: url('../img/icons/trash-hover.png');
+    }
+  }
+  &.restore {
+    background-image: url('../img/icons/restore.png');
+    &:hover {
+      background-image: url('../img/icons/restore-hover.png');
+    }
+  }
+  &.destroy {
+    background-image: url('../img/icons/destroy.png');
+    &:hover {
+      background-image: url('../img/icons/destroy-hover.png');
+    }
+  }
+}

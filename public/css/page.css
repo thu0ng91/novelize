@@ -1,0 +1,412 @@
+/* 
+ * Page CSS File
+ *
+ * This CSS file has been created with SASS
+ *
+ * Don't edit it directly!!!
+ */
+.hasColumns:before, .hasColumns:after {
+  content: "";
+  display: table;
+}
+.hasColumns:after {
+  clear: both;
+}
+.hasColumns {
+  zoom: 1;
+}
+
+.u-hidden {
+  display: none;
+}
+
+.u-flashed {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  line-height: 1;
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+article, aside, details, figcaption, figure, footer, header, nav, section {
+  display: block;
+}
+
+audio, canvas, video {
+  display: inline-block;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+b, strong {
+  font-weight: 700;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+  border: 0;
+}
+
+label, input, select, textarea {
+  font-size: 16px;
+  font-size: 1rem;
+  /* 16px */
+}
+
+input, select, textarea, label {
+  display: block;
+  font-family: inherit;
+  font-size: 100%;
+}
+
+input {
+  line-height: normal;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+select {
+  text-transform: none;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  width: auto;
+  display: inline;
+  margin: 0 6px;
+}
+
+button,
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button:-moz-focus-inner {
+  border: 0;
+}
+
+ul, ol {
+  margin: 0 0 0 2em;
+}
+
+ul {
+  list-style-type: square;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  color: #686868;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  color: #909090;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6, p {
+  font-size: 1rem;
+}
+
+small {
+  font-size: 80%;
+}
+
+.link {
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+}
+.link.text {
+  color: #de510c;
+  text-decoration: underline;
+}
+.link.text:hover {
+  color: #f25b11;
+  text-decoration: none;
+}
+.link.primary {
+  color: #de510c;
+}
+.link.primary:hover {
+  color: #f25b11;
+  border-bottom: 1px solid #f25b11;
+}
+.link.secondary {
+  color: #909090;
+}
+.link.secondary:hover {
+  color: #4d4d4d;
+  border-bottom: 1px solid #4d4d4d;
+}
+
+.button {
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.button.primary, .button.secondary {
+  padding: 10px 22px;
+  border-radius: 4px;
+}
+.button.primary {
+  background-color: #de510c;
+  color: white;
+}
+.button.primary:hover {
+  background-color: #f25b11;
+}
+.button.secondary {
+  background-color: #4d4d4d;
+  color: white;
+}
+.button.secondary:hover {
+  background-color: #686868;
+}
+.button.cta {
+  padding: 16px 48px;
+  background-color: #de510c;
+  border-radius: 4px;
+  font-size: 24px;
+  color: white;
+}
+.button.cta:hover {
+  background-color: #f25b11;
+}
+
+.icon {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.icon p {
+  display: none;
+}
+.icon.settings {
+  background-image: url("../img/icons/settings.png");
+}
+.icon.settings:hover {
+  background-image: url("../img/icons/settings-hover.png");
+}
+.icon.write {
+  background-image: url("../img/icons/write.png");
+}
+.icon.write:hover {
+  background-image: url("../img/icons/write-hover.png");
+}
+.icon.trash {
+  background-image: url("../img/icons/trash.png");
+}
+.icon.trash:hover {
+  background-image: url("../img/icons/trash-hover.png");
+}
+.icon.restore {
+  background-image: url("../img/icons/restore.png");
+}
+.icon.restore:hover {
+  background-image: url("../img/icons/restore-hover.png");
+}
+.icon.destroy {
+  background-image: url("../img/icons/destroy.png");
+}
+.icon.destroy:hover {
+  background-image: url("../img/icons/destroy-hover.png");
+}
+
+.alert {
+  margin: 10px 0;
+  padding: 6px 40px 6px 10px;
+  background-color: #f7f7f7;
+  border-right: 1px solid #eee;
+  border-left: 6px solid #eee;
+}
+.alert li, .alert p {
+  padding: 6px 0;
+  font-size: 0.875rem;
+  color: #de510c;
+}
+.alert.message {
+  border-left-color: #de510c;
+}
+.alert.success {
+  border-left-color: darkblue;
+}
+.alert.error {
+  border-left-color: darkred;
+}
+
+body {
+  min-width: 1000px;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -20px;
+}
+.logo img {
+  height: 40px;
+}
+
+.headerMenu {
+  padding-left: 240px;
+}
+.headerMenu ul {
+  margin: 0;
+  list-style: none;
+  text-align: right;
+}
+.headerMenu li {
+  display: inline-block;
+  padding: 10px;
+}
+
+.hasColumns .columns-2,
+.hasColumns .columns-3 {
+  float: left;
+}
+.hasColumns .columns-2 {
+  width: 50%;
+}
+.hasColumns .columns-3 {
+  width: 33.2%;
+}
+.hasColumns.withPadding {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.hasColumns.withPadding .columns-2,
+.hasColumns.withPadding .columns-3 {
+  float: left;
+}
+.hasColumns.withPadding .columns-2.first,
+.hasColumns.withPadding .columns-3.first {
+  margin-right: 2%;
+}
+.hasColumns.withPadding .columns-2.last,
+.hasColumns.withPadding .columns-3.last {
+  margin-left: 2%;
+}
+.hasColumns.withPadding .columns-2 {
+  width: 48%;
+}
+.hasColumns.withPadding .columns-3 {
+  width: 32%;
+}
+
+.row {
+  padding: 30px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.index .hero {
+  text-align: center;
+}
+.index .hero h1 {
+  margin: 40px 0 30px 0;
+  color: #4d4d4d;
+  font-weight: 600;
+}
+.index .hero h3 {
+  margin-bottom: 20px;
+  color: #686868;
+}
+.index .hero p {
+  width: 65%;
+  margin: 0 auto;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.index .hero .button {
+  margin: 40px 0 0;
+}

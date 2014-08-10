@@ -1,0 +1,165 @@
+.navBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $blackLight;
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /*
+   * Dropdown Structure
+   */
+  .dropdown {
+    li{
+      position: relative;
+    }
+    a{
+      display: block;
+      text-decoration: none;
+    }
+    ul{
+      position: absolute;
+      top: $h_navBar;
+      li{
+        float: none;
+      }
+      a{
+        white-space: nowrap;
+      }
+    }
+  }
+  .addNav .dropdown {
+    ul {
+      position: fixed;
+      left: -9999px;
+    }
+    li:hover ul{
+      position: fixed;
+      left: 0;
+      width: 100%;
+    }
+  }
+  .accountNav .dropdown {
+    ul {
+      right: -9999px;
+    }
+    li:hover ul{
+      right: 0;
+    }
+  }
+
+  /*
+   * Sections
+   */
+  .logo {
+    height: $h_navBar;
+    width: 200px;
+    background-color: $white;
+    img {
+      height: $h_navBar;
+    }
+  }
+  .addNav {
+    position: absolute;
+    top: 0;
+    left: 200px;
+    li {
+      display: inline-block;
+      padding: 0;
+      &.border {
+        border: 1px solid $greyDark;
+        border-top: none;
+        border-bottom: none;
+      }
+    }
+    ul ul {
+      background-color: #fff;
+      border-bottom: 2px solid $greyDark;
+    }
+    p, a {
+      padding: (($h_navBar - 14px) / 2) 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    p {
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: $greyDark;
+      color: $greyMedLight;
+    }
+    a {
+      color: $grey;
+      text-decoration: none;
+      &:hover,
+      &.active {
+        color: $orange;
+      }
+    }
+  }
+  .mainMenu {
+    position: absolute;
+    top: 0;
+    right: 150px;
+    padding: 0 10px 0 0;
+    li {
+      display: inline-block;
+      padding: 0;
+      a {
+        display: block;
+        padding: (($h_navBar - 14px) / 2) 10px;
+        line-height: 1;
+        font-size: 14px;
+        color: $grey;
+        text-decoration: none;
+        &:hover,
+        &.active {
+          color: $white;
+        }
+      }
+    }
+  }
+  .accountNav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: $h_navBar;
+    width: 150px;
+    ul {
+      width: 150px;
+    }
+    ul ul {
+      background-color: #fff;
+      border: 1px solid $greyDark;
+      border-top: none;
+      border-right: none;
+    }
+    p, a {
+      padding: (($h_navBar - 14px) / 2) 10px;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: right;
+    }
+    p {
+      padding-left: 20px;
+      padding-right: 20px;
+      background-color: $greyDark;
+      color: $greyMedLight;
+    }
+    a {
+      color: $grey;
+      text-decoration: none;
+      &:hover,
+      &.active {
+        color: $orange;
+      }
+    }
+    .divider {
+      margin: 4px 0;
+      border-bottom: 1px solid $greyMedDark;
+    }
+  }
+}

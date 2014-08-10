@@ -1,4 +1,5 @@
 @extends('layouts.page')
+@section('body_class', 'privacy')
 
 @section('content')
 

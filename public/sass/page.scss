@@ -1,0 +1,33 @@
+/* 
+ * Page CSS File
+ *
+ * This CSS file has been created with SASS
+ *
+ * Don't edit it directly!!!
+ */
+
+//Foundation
+@import "foundation/theme";
+@import "foundation/page/_variables";
+@import "foundation/mixins";
+@import "foundation/placeholders";
+@import "foundation/utilities";
+
+//Base  
+@import "base/reset";
+@import "base/page/_typography";
+
+//Components
+@import "components/buttons";
+@import "components/forms";
+@import "components/icons";
+@import "components/messages";
+
+//Layout
+@import "layout/page/base";
+@import "layout/page/header";
+@import "layout/columns";
+
+//Pages
+@import "page/common";
+@import "page/index";
