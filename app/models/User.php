@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletingTrait;
 
 class User extends \Eloquent implements UserInterface, RemindableInterface {
 
-	use UserTrait, RemindableTrait, EventGenerator, SoftDeletingTrait;
+	use UserTrait, RemindableTrait, SoftDeletingTrait;
 
   /**
    * Which fields may be mass assigned

@@ -9,39 +9,39 @@ class GenreTableSeeder extends Seeder {
       'name' => 'General'
     ));
     Genre::create(array(
-      'id' => 5,
+      'id' => 2,
       'name' => 'Adventure'
     ));
     Genre::create(array(
-      'id' => 5,
+      'id' => 3,
       'name' => 'Fantasy'
     ));
     Genre::create(array(
-      'id' => 2,
+      'id' => 4,
       'name' => 'Historical'
     ));
     Genre::create(array(
-      'id' => 3,
+      'id' => 5,
       'name' => 'Horror'
     ));
     Genre::create(array(
-      'id' => 4,
+      'id' => 6,
       'name' => 'Mystery'
     ));
     Genre::create(array(
-      'id' => 5,
+      'id' => 7,
       'name' => 'Romance'
     ));
     Genre::create(array(
-      'id' => 5,
+      'id' => 8,
       'name' => 'Science Fiction'
     ));
     Genre::create(array(
-      'id' => 5,
+      'id' => 9,
       'name' => 'Thriller'
     ));
     Genre::create(array(
-      'id' => 5,
+      'id' => 10,
       'name' => 'Young Adult'
     ));
 	}
