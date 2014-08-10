@@ -42,7 +42,7 @@ class CreateNotebooksTable extends Migration {
             // Character Info
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('dob')->nullable();
+            $table->string('date_of_birth')->nullable();
             $table->string('eye_color')->nullable();
             $table->string('hair_color')->nullable();
             $table->string('skin_color')->nullable();
