@@ -22,43 +22,74 @@
     @if ($notebooks->count())
 
       <ul class="indexList">
-        
-      </ul>
 
       @foreach($notebooks as $notebook)
-        <div class="notebook">
-          <h2 class="notebookName">{{ $notebook->name }}</h2>
+        <li class="indexItem notebook">
+          <h2 class="name">{{ $notebook->name }}</h2>
 
+          {{-- Novels --}}
           @if ($notebook->novels->count())
-            <ul class="notebookBooks">
+            <ul class="novels">
               @foreach($notebook->novels as $novel)
-                <li>{{ $novel->title }}</li>
+              <li>{{ link_to_route('write_novel', $novel->title, $novel->id) }}</li>
               @endforeach
+
+              <li class="newNovel">{{ link_to_route('create_novel', 'NEW NOVEL') }}</li>
             </ul>
+
+          @else
+
+            <ul class="novels">
+              <li class="newNovel">{{ link_to_route('create_novel', 'NEW NOVEL') }}</li>
+            </ul>
+
           @endif
 
-          <ul class="notebookCounts">
+          {{-- Description --}}
+          <div class="description">
+            <p>{{ $notebook->description }}</p>
+          </div>
+
+          {{-- Counts --}}
+          <ul class="counts">
             <li>Characters: {{ $notebook->characters->count() }}</li>
             <li>Locations: {{ $notebook->locations->count() }}</li>
             <li>Items: {{ $notebook->items->count() }}</li>
             <li>Notes: {{ $notebook->notes->count() }}</li>
           </ul>
 
-          @if($type == 'trashed') 
-            <div class="notebookButtons">
-              {{ link_to_route('destroy_notebook', 'DESTROY', $notebook->id, ['class' => 'button secondary small'] ) }}
-              {{ link_to_route('restore_notebook', 'RESTORE', $notebook->id, ['class' => 'button primary small'] ) }}
-            </div>
-          @else
-            <div class="notebookButtons">
-              {{ link_to_route('trash_notebook', 'Trash', $notebook->id, ['class' => 'button secondary small'] ) }}
-              {{ link_to_route('edit_notebook', 'EDIT', $notebook->id, ['class' => 'button secondary small'] ) }}
-              {{ link_to_route('show_notebook', 'SHOW', $notebook->id, ['class' => 'button primary small'] ) }}
-            </div>
-          @endif
+          <div class="buttons">
+            <div class="secondary">
+              @if($type == 'trashed') 
 
-        </div>
+                {{ link_to_route('destroy_notebook', 'DESTROY', $notebook->id, ['class' => 'button secondary small'] ) }}
+
+              @else
+
+                {{ link_to_route('trash_notebook', 'TRASH', $notebook->id, ['class' => 'button secondary small'] ) }}
+                {{ link_to_route('edit_notebook', 'SETTINGS', $notebook->id, ['class' => 'button secondary small'] ) }}
+
+              @endif
+            </div>
+
+            <div class="primary">
+              @if($type == 'trashed') 
+
+                {{ link_to_route('restore_notebook', 'RESTORE', $notebook->id, ['class' => 'button primary small'] ) }}
+
+              @else
+
+                {{ link_to_route('show_notebook', 'MANAGE', $notebook->id, ['class' => 'button primary small'] ) }}
+
+              @endif
+            </div>
+          </div>
+
+
+        </li>
       @endforeach
+
+      </ul>
 
     @else
 

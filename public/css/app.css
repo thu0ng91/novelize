@@ -127,14 +127,14 @@ ul {
   list-style-type: square;
 }
 
-.hasColumns:before, .content:before, .head:before, .navMenu:before, .pageHeader:before, .indexControls:before, .hasColumns:after, .content:after, .head:after, .navMenu:after, .pageHeader:after, .indexControls:after {
+.hasColumns:before, .content:before, .head:before, .navMenu:before, .pageHeader:before, .indexItem.notebook:before, .indexItem.notebook .counts:before, .indexControls:before, .hasColumns:after, .content:after, .head:after, .navMenu:after, .pageHeader:after, .indexItem.notebook:after, .indexItem.notebook .counts:after, .indexControls:after {
   content: "";
   display: table;
 }
-.hasColumns:after, .content:after, .head:after, .navMenu:after, .pageHeader:after, .indexControls:after {
+.hasColumns:after, .content:after, .head:after, .navMenu:after, .pageHeader:after, .indexItem.notebook:after, .indexItem.notebook .counts:after, .indexControls:after {
   clear: both;
 }
-.hasColumns, .content, .head, .navMenu, .pageHeader, .indexControls {
+.hasColumns, .content, .head, .navMenu, .pageHeader, .indexItem.notebook, .indexItem.notebook .counts, .indexControls {
   zoom: 1;
 }
 
@@ -1491,6 +1491,82 @@ table {
   margin: 0 1%;
 }
 .indexItem.novel .buttons .primary .button {
+  width: 92%;
+  margin: 0 1%;
+}
+
+.indexItem.notebook {
+  position: relative;
+  min-height: 180px;
+  width: 100%;
+  margin-bottom: 20px;
+  padding-right: 160px;
+  background-color: #eeeeee;
+}
+.indexItem.notebook .name {
+  padding: 6px 10px;
+  background-color: #dddddd;
+  font-size: 1.75rem;
+  line-height: 1;
+}
+.indexItem.notebook .novels {
+  float: left;
+  min-height: 140px;
+  width: 40%;
+  margin: 0;
+  padding: 8px 20px;
+  border-right: 1px solid #dddddd;
+  list-style: none;
+}
+.indexItem.notebook .novels li {
+  padding: 4px;
+  font-size: 1.125rem;
+}
+.indexItem.notebook .novels li.newNovel {
+  font-size: 0.875rem;
+  text-align: right;
+}
+.indexItem.notebook .novels li a {
+  color: #686868;
+  text-decoration: none;
+}
+.indexItem.notebook .description {
+  float: right;
+  width: 60%;
+  padding: 16px;
+}
+.indexItem.notebook .counts {
+  clear: both;
+  margin: 20px 0 0;
+  border-top: 1px solid #dddddd;
+  list-style: none;
+}
+.indexItem.notebook .counts li {
+  float: left;
+  width: 25%;
+  padding: 8px 0;
+  border-right: 1px solid #dddddd;
+  text-align: center;
+}
+.indexItem.notebook .counts li:last-child {
+  border: none;
+}
+.indexItem.notebook .buttons {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 160px;
+  padding: 20px 6px;
+  border-left: 1px solid #dddddd;
+  text-align: center;
+}
+.indexItem.notebook .buttons .secondary .button {
+  width: 92%;
+  margin: 0 1%;
+  margin-bottom: 6px;
+}
+.indexItem.notebook .buttons .primary .button {
   width: 92%;
   margin: 0 1%;
 }
