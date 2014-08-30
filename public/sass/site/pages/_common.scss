@@ -1,0 +1,38 @@
+.row {
+  padding: 30px 0;
+  border-bottom: 1px solid $greyLight;
+
+  &.last {
+    border: none;
+  }
+}
+
+.notice {
+  padding-left: 10%;
+  padding-right: 10%;
+
+  .text {
+    margin-bottom: 20px;
+    padding: 16px 0;
+    border: 2px solid $orange;
+    text-align: center;
+
+    h2 {
+      margin: 0 0 10px;
+      color: $greyDark;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.25rem;
+      color: $greyDark;
+      line-height: 1.5;
+    }
+  }
+
+  .button {
+    display: block;
+    text-align: center;
+  }
+}

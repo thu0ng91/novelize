@@ -1,0 +1,162 @@
+/**
+ * Form Elements
+ * Labels
+ * Inputs
+ * Buttons
+ * Errors
+ * Text
+ */
+
+
+
+/* ------------------- *\
+  #Form Elements
+\* ------------------- */
+
+form {
+  max-width: $w_maxColumn;
+  margin: 0 auto;
+}
+
+.formGroup {
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid $greyLight;
+}
+
+.formBlock {
+  padding: 12px 16px;
+
+  &.submit {
+    margin-top: 12px;
+    padding: 12px 0 0;
+    border-top: 1px solid $greyLight;
+    text-align: right;
+  }
+}
+
+
+/* ------------------- *\
+  #Labels
+\* ------------------- */
+
+label,
+.radioLabel {
+  width: 100%;
+  padding-bottom: 6px;
+  font-weight: 600;
+  color: $greyMedDark;
+}
+
+.radioLabel {
+  border-top: 1px solid $greyLight;
+}
+
+
+.formGroup.radio label {
+  width: auto;
+  margin: 0 6px;
+  display: inline-block;
+  color: $greyMedDark;
+  text-align: left;
+}
+
+
+
+/* ------------------- *\
+  #Inputs
+\* ------------------- */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 96%;
+  margin: 0 auto;
+  padding: 6px 8px;
+  background-color: $white;
+  border: 1px solid $greyLight;
+  border-radius: 4px;
+  color: $greyMedDark;
+
+  &:focus {
+    border-color: $grey;
+    outline: none;
+  }
+}
+
+textarea {
+  width: 96%;
+  margin: 0 auto;
+  height: 120px;
+  padding: 6px;
+  border: 1px solid $greyLight;
+  border-radius: 4px;
+  color: $greyMedDark;
+
+  &:focus {
+    border-color: $grey;
+    outline: none;
+  }
+
+  &.medium {
+    height: 260px;
+  }
+
+  &.large {
+    height: 500px;
+  }
+}
+
+
+
+/* ------------------- *\
+  #Buttons
+\* ------------------- */
+.submit {
+  margin-left: 10px;
+}
+
+
+
+/* ------------------- *\
+  #Errors
+\* ------------------- */
+.errorMessage {
+  display: block;
+  margin-bottom: 4px;
+  padding: 4px;
+  background-color: $redLight;
+  font-size: 0.875rem;
+  color: $redDark;
+}
+
+
+
+/* ------------------- *\
+  #Text
+\* ------------------- */
+
+form {
+  .heading {
+    padding: 14px 2% 8px;
+    border-bottom: 1px solid $greyLight;
+    font-weight: 600;
+    color: $greyDark;
+    text-align: center;
+  }
+
+  .description {
+    padding: 14px 4%;
+    border-bottom: 1px solid $greyLight;
+    line-height: 1.4;
+  }
+
+  .helpText {
+    margin-top: 4px;
+    padding-right: 2%;
+    font-size: 0.75rem;
+    color: $grey;
+    text-align: right;
+  }
+}

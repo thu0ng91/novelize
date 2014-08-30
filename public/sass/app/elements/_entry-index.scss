@@ -1,0 +1,25 @@
+.index .entry {
+  .date {
+    width: 70px;
+    border-right: 1px solid $grey;
+    text-align: center;
+
+    .month,
+    .day {
+      width: 100%;
+    }
+
+    .day {
+      font-size: 2rem;
+    }
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .buttons {
+    width: 180px;
+    text-align: right;
+  }
+}

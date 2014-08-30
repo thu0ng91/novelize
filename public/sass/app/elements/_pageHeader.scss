@@ -1,0 +1,25 @@
+.pageHeader {
+  @extend %clearfix;
+  margin-bottom: 20px;
+  padding: 10px 2%;
+  border-bottom: 7px solid $shadow;
+
+  .pageTitle {
+    float: left;
+    padding: 5px 0;
+
+    span {
+      font-size: 60%;
+    }
+  }
+
+  .pageButtons {
+    float: right;
+    margin: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+    }
+  }
+}

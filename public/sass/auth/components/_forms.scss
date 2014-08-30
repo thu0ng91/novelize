@@ -1,0 +1,145 @@
+/**
+ * Form Elements
+ * Labels
+ * Inputs
+ * Buttons
+ * Errors
+ * Text
+ */
+
+
+
+/* ------------------- *\
+  #Form Elements
+\* ------------------- */
+
+form {
+  max-width: $w_maxColumn;
+  margin: 0 auto;
+}
+
+.formGroup {
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid $greyLight;
+}
+
+.formBlock {
+  margin-bottom: 30px;
+  border: 1px solid $greyLight;
+}
+
+
+/* ------------------- *\
+  #Labels
+\* ------------------- */
+
+label {
+  padding: 6px;
+  font-size: 0.875rem;
+  color: $grey;
+}
+
+
+
+/* ------------------- *\
+  #Inputs
+\* ------------------- */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+  width: 100%;
+  padding: 0 10px 10px;
+  background-color: $white;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.formBlock--checkbox {
+  text-align: center;
+
+  label {
+    color: $grey;
+  }
+
+  input {
+    height: 14px;
+    width: 14px;
+    margin: 0 6px 0 0;
+    padding: 2px;
+    background-color: #fff;
+  }
+}
+
+
+
+/* ------------------- *\
+  #Buttons
+\* ------------------- */
+.submit {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  background-color: $orange;
+  border: none;
+  font-size: 24px;
+  color: $white;
+  text-decoration: none;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: border-radius 0.2s;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background-color: $orangeLight;
+    border-radius: 6px;
+  }
+}
+
+
+
+/* ------------------- *\
+  #Errors
+\* ------------------- */
+.errorMessage {
+  display: block;
+  margin: 0 6px 6px;
+  padding: 2px;
+  background-color: $redLight;
+  color: $redDark;
+}
+
+
+
+/* ------------------- *\
+  #Text
+\* ------------------- */
+
+form {
+  .heading {
+    padding: 14px 2% 8px;
+    border-bottom: 1px solid $greyLight;
+    font-weight: 600;
+    color: $greyDark;
+    text-align: center;
+  }
+
+  .description {
+    padding: 14px 4%;
+    border-bottom: 1px solid $greyLight;
+    line-height: 1.4;
+  }
+
+  .helpText {
+    margin: -28px 0 30px;
+    font-size: 0.75rem;
+    color: $greyMedLight;
+    text-align: right;
+  }
+}

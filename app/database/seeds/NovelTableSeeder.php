@@ -10,17 +10,17 @@ class NovelTableSeeder extends Seeder {
       'id' => 1,
       'owner_id' => 1,
       'notebook_id' => 1,
-      'title' => 'Fantasy Novel',
+      'title' => 'Nuclear Earth',
       'author' => 'Josh Evensen',
-      'genre_id' => 1
+      'genre_id' => 8
     ));
     Novel::create(array(
       'id' => 2,
       'owner_id' => 1,
       'notebook_id' => 1,
-      'title' => 'Romance Novel',
+      'title' => 'Survivors War',
       'author' => 'Anita Evensen',
-      'genre_id' => 1
+      'genre_id' => 8
     ));
   }
 

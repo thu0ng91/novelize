@@ -13,6 +13,16 @@ class PagesController extends \BaseController {
   }
 
   /**
+   * Story
+   *
+   * @return Response
+   */
+  public function getStory()
+  {
+    return View::make('pages.story');
+  }
+
+  /**
    * Contact
    *
    * @return Response
@@ -23,23 +33,35 @@ class PagesController extends \BaseController {
   }
 
   /**
-   * Privacy
+   * Blog
    *
    * @return Response
    */
-  public function getPrivacy()
+  public function getBlog()
   {
-    return View::make('pages.privacy');
+    $posts = Post::paginate(3);
+
+    return View::make('pages.blog', compact('posts'));
   }
 
   /**
-   * Terms
+   * Post
    *
    * @return Response
    */
-  public function getTerms()
+  public function getPost($postId)
   {
-    return View::make('pages.terms');
+    return View::make('pages.post');
+  }
+
+  /**
+   * Legal
+   *
+   * @return Response
+   */
+  public function getLegal()
+  {
+    return View::make('pages.legal');
   }
 
   /**
@@ -53,13 +75,24 @@ class PagesController extends \BaseController {
   }
 
   /**
+   * Auth Message
+   *
+   * @return Response
+   */
+  public function getAuthMessage()
+  {
+    return View::make('auth.message');
+  }
+
+
+  /**
    * Login
    *
    * @return Response
    */
   public function getLogin()
   {
-    return View::make('pages.login');
+    return View::make('auth.login');
   }
 
 

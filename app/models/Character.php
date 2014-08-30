@@ -13,12 +13,20 @@ class Character extends \Eloquent {
    */
   protected $fillable = [
     'notebook_id',
+    'type_id',
     'name',
     'description',
+    'height',
+    'weight',
+    'eyes',
+    'hair',
+    'skin',
     'date_of_birth',
-    'eye_color',
-    'hair_color',
-    'skin_color'
+    'place_of_birth',
+    'hobbies',
+    'mannerisms',
+    'education',
+    'occupation',
   ];
 
   public static $rules = [

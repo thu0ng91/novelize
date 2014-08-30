@@ -8,7 +8,7 @@ class NotebookTableSeeder extends Seeder {
         Notebook::create(array(
             'id' => 1,
             'owner_id' => 1,
-            'name' => 'Evensen Notebook',
+            'name' => 'Citizens of Space',
         ));
     }
 

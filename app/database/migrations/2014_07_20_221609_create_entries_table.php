@@ -12,25 +12,26 @@ class CreateEntriesTable extends Migration {
 	 */
 	public function up()
 	{
-        /*
-         * Entries
-         */
-        Schema::create('entries', function(Blueprint $table) {
-            // ID's
-            $table->increments('id');
-            $table->integer('owner_id')->unsigned();
+    /*
+     * Entries
+     */
+    Schema::create('entries', function(Blueprint $table) {
+      // ID's
+      $table->increments('id');
+      $table->integer('owner_id')->unsigned();
 
-            // Book
-            $table->string('title');
-            $table->text('body');
+      // Book
+      $table->string('title');
+      $table->text('body');
+      $table->boolean('favorite');
 
-            // Foreign Keys
-            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+      // Foreign Keys
+      $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
-            // Timestamps
-            $table->timestamps();
-            $table->softDeletes();
-        });
+      // Timestamps
+      $table->timestamps();
+      $table->softDeletes();
+    });
 	}
 
 

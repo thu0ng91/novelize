@@ -14,7 +14,8 @@ class Entry extends \Eloquent {
   protected $fillable = [
     'owner_id',
     'title',
-    'body'
+    'body',
+    'favorite',
   ];
 
   public static $rules = [
@@ -24,6 +25,23 @@ class Entry extends \Eloquent {
   public function owner()
   {
     return $this->belongsTo('User');
+  }
+
+  public static function getPaginated(array $params)
+  {
+    $recordPerPage = 10;
+
+    if($params['type'])
+    {
+      if($params['type'] == 'trashed')
+      {
+        return Entry::onlyTrashed()->paginate($recordPerPage);
+      }
+      
+      return Entry::paginate($recordPerPage);
+    }
+
+    return Entry::paginate($recordPerPage);
   }
 
 } 

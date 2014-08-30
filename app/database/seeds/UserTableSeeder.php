@@ -17,7 +17,7 @@ class UserTableSeeder extends Seeder {
         'password' => 'p@ssW0rd',
         'activated' => true,
         'profile_id' => 1,
-        'role_id' => 4,
+        'role_id' => 37,
       ));
     }
 

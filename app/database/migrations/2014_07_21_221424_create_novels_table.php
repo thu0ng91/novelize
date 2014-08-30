@@ -25,7 +25,7 @@ class CreateNovelsTable extends Migration {
       $table->string('image_path')->nullable();
     });
     /*
-     * Books
+     * Novels
      */
     Schema::create('novels', function(Blueprint $table) {
       // ID's
@@ -34,11 +34,12 @@ class CreateNovelsTable extends Migration {
       $table->integer('notebook_id')->unsigned();
       $table->integer('genre_id')->unsigned();
 
-      // Book
+      // Novel
       $table->string('title');
       $table->string('subtitle')->nullable();
       $table->string('author');
       $table->text('description')->nullable();
+      $table->boolean('public');
 
       // Foreign Keys
       $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

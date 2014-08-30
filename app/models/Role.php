@@ -17,4 +17,11 @@ class Role extends \Eloquent {
   {
     return $this->hasMany('User');
   }
+
+  public static function roleName($roleId)
+  {
+    $roleName = Role::findOrFail($roleId)->name;
+
+    return $roleName;
+  }
 }

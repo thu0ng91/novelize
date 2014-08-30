@@ -1,0 +1,66 @@
+.novelSection-wrapper {
+  margin-bottom: 60px;
+}
+
+.novelSection {
+  position: relative;
+  padding: 10px 20px 0;
+  border-bottom: 1px solid $greyLight;
+
+  .title,
+  .body {
+    margin: 10px 0;
+    padding: 0 6px;
+    border-right: 1px solid $greyLightest;    
+  }
+
+  .title {
+    margin: 10px 0;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    text-align: right;
+  }
+
+  .body {
+    line-height: 1.4; 
+
+    p {
+      margin-bottom: 20px;
+    }   
+  }
+
+  .descriptionBox {
+    border: 1px solid $greyLightest;
+    border-bottom: none;
+
+    .link {
+      width: 100%;
+      padding: 4px 10px;
+      border-bottom: none;
+      color: $greyLight;
+      text-align: right;
+
+      &:focus {
+        color: $greyLight;
+      }
+
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+
+  .description {
+    min-height: 40px;
+  }
+}
+
+.addSection {
+  position: absolute;
+  bottom: -20px;
+  left: 100%;
+  height: 40px;
+  width: 40px;
+  background-color: $white;
+  border: 1px solid $greyLight;
+}

@@ -1,0 +1,33 @@
+.foot {
+  @extend %clearfix;
+  // style in layout
+  border-top: 1px solid $greyLight;
+
+  .footerButtons {
+    float: right;
+    width: 40%;
+    text-align: right;
+  }
+
+  .mainMenu {
+    float: left;
+    width: 60%;
+
+    ul {
+      margin: 0;
+      list-style: none;    
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 4px;
+      padding: 9px 4px;
+      color: $grey;
+    }
+
+    .copyright {
+      padding: 10px 8px 10px 0;
+      border-right: 1px solid $greyLight;
+    }
+  }
+}

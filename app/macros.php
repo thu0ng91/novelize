@@ -13,14 +13,14 @@
 |
 */
 
-HTML::macro('link_to_active_route', function($route, $text, $parameters = array()) {
+HTML::macro('link_to_active_route', function($route, $text, $parameters = array(), $class = '') {
     $currentRoute = Route::currentRouteName();
     $href  = URL::route($route, $parameters);
 
     if ($currentRoute == $route) {
-        $class = ' class="active"';
+        $class = ' class="active ' . $class . '"';
     } else {
-        $class = '';
+        $class = ' class="' . $class . '"';
     }
 
     return '<a href="' . $href . '"' . $class . '>' . $text . '</a>';

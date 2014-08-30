@@ -10,6 +10,7 @@ class DatabaseSeeder extends Seeder {
       'genres',
       'novels',
       'novel_sections',
+      'entries',
     ];
 
     protected $seeders = [
@@ -19,6 +20,7 @@ class DatabaseSeeder extends Seeder {
       'NotebookTableSeeder',
       'NovelTableSeeder',
       'NovelSectionTableSeeder',
+      'EntryTableSeeder',
     ];
 
     /**

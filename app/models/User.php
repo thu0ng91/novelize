@@ -25,21 +25,26 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
     'activated'
   ];
 
-  public static $rules = [
-    'username' => 'required|unique:users',
-    'email' => 'required|unique:users',
+  public static $rulesStore = [
+    'username' => 'required|unique:users|min:7|alpha_dash',
+    'email' => 'required|email|unique:users',
+    'password' => 'required|min:8'
+  ];
+
+  public static $rulesRegister = [
+    'username' => 'required|unique:users|min:7|alpha_dash',
+    'email' => 'required|email|unique:users',
+    'password' => 'required|confirmed|min:8'
+  ];
+
+  public static $rulesLogin = [
+    'email' => 'required|email',
     'password' => 'required'
   ];
 
-  public static $loginRules = [
-    'email' => 'required|unique:users',
+  public static $rulesUpdate = [
+    'email' => 'required|email',
     'password' => 'required'
-  ];
-
-  public static $registerRules = [
-    'username' => 'required|unique:users',
-    'email' => 'required|unique:users',
-    'password' => 'required|confirmed'
   ];
 
 	/**

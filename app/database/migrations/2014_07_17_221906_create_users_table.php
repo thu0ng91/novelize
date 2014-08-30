@@ -35,7 +35,11 @@ class CreateUsersTable extends Migration {
       // Profile Info
       $table->string('first_name')->nullable();
       $table->string('last_name')->nullable();
-      
+      $table->text('bio')->nullable();
+
+      // Notifications
+      $table->boolean('notify_updates');
+      $table->boolean('newsletter_memeber');      
 
       // Timestamps
       $table->timestamps();

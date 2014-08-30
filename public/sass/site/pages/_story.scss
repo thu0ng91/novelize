@@ -1,0 +1,32 @@
+.story {
+  h1, h2 {
+    font-weight: 600;  
+    color: $greyDark;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 60px 0 30px 0;
+  }
+  h2 {
+    margin: 10px 0 30px 0;
+  }
+
+
+  .letter {
+    p {
+      width: 70%;
+      margin: 0 auto 20px;
+      font-size: 1.125rem;
+      line-height: 1.5;
+
+      &.signature {
+        text-align: right;
+      }
+    }
+  }
+
+  .notice {
+
+  }
+}

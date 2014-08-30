@@ -1,0 +1,17 @@
+.foot {
+  @extend %clearfix;
+  border-top: 1px solid $greyMedDark;
+
+  .mainMenu {
+    ul {
+      margin: 0;
+      text-align: center;
+      list-style: none; 
+    }
+
+    li {
+      display: inline-block;
+      margin: 0 8px;
+    }
+  }
+}

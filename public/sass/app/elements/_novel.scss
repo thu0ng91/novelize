@@ -1,0 +1,46 @@
+.indexItem.novel {
+  position: relative;
+  min-height: 300px;
+  width: 220px;
+  margin: 10px;
+  background-color: $greyLightest;
+  
+  .notebook {
+    padding: 8px 4px;
+    background-color: $greyMedLight;
+    text-align: center;
+  }
+
+  .title {
+    padding: 20px 10px;
+    font-size: 2rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .buttons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 6px 0;
+    border-top: 1px solid $greyLight;
+    text-align: center;
+
+    .secondary {
+      margin-bottom: 6px;
+
+      .button {
+        width: 44%;
+        margin: 0 1%;
+      }
+    }
+
+    .primary {
+
+      .button {
+        width: 92%;
+        margin: 0 1%;
+      }
+    }
+  }
+}

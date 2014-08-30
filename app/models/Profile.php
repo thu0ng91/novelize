@@ -8,15 +8,47 @@ class Profile extends \Eloquent {
 
 	protected $fillable = [
     'first_name',
-    'last_name'
+    'last_name',
+    'bio',
+    'notify_updates',
+    'newsletter_memeber'
   ];
 
-  public static $rules = [
-    
+  public static $rulesAccount = [
+    'username' => 'required|alpha_dash|min:7',
+    'email' => 'required|email',
   ];
 
-  public function users()
+  public static $rulesAccountUniqueUser = [
+    'username' => 'required|alpha_dash|min:7|unique:users',
+    'email' => 'required|email',
+  ];
+
+  public static $rulesAccountUniqueEmail = [
+    'username' => 'required|alpha_dash|min:7',
+    'email' => 'required|email|unique:users',
+  ];
+
+  public static $rulesAccountUnique = [
+    'username' => 'required|alpha_dash|min:7|unique:users',
+    'email' => 'required|email|unique:users',
+  ];
+
+
+
+  public static $rulesPassword = [
+    'password' => 'required',
+    'newPassword' => 'sometimes|confirmed|min:8'
+  ];
+
+
+
+  public static $rulesProfile = [];
+
+
+
+  public function user()
   {
-    return $this->hasMany('User');
+    return $this->hasOne('User');
   }
 }

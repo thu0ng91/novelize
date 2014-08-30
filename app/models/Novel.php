@@ -19,6 +19,7 @@ class Novel extends \Eloquent {
     'subtitle',
     'author',
     'description',
+    'public',
   ];
 
   public static $rules = [
