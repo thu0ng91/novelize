@@ -1958,7 +1958,7 @@ select:focus {
 }
 
 .admin-bar {
-  display: none;
+  display: block;
   position: fixed;
   bottom: -27px;
   left: 0;
