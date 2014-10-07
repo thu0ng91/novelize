@@ -30,13 +30,6 @@
           <h3 class="profile-section__heading">Account Info</h3>
 
           <div class="form-block">
-            {{ Form::label('username', 'Display Name') }}
-            {{ Form::text('username') }}
-            {{ errors_for('username', $errors) }}
-            <p class="help-text">Must be at least 7 characters long, and contain only letters, numbers, dashes.</p>
-          </div>
-
-          <div class="form-block">
             {{ Form::label('email', 'Email') }}
             {{ Form::email('email') }}
             {{ errors_for('email', $errors) }}
@@ -56,8 +49,6 @@
         {{ Form::model($user->profile, ['method' => 'PUT', 'route' => ['update_profile', $user->profile->id]]) }}
           <h3 class="profile-section__heading">Profile</h3>
 
-          <p class="profile-section__description">This section will be where we pull information for your Author Wall when the Library is opened. For right now you can fill it out as you deem fit and we'll let you know when the Library opens.</p>
-
           <div class="form-block">
             {{ Form::label('first_name', 'First Name') }}
             {{ Form::text('first_name') }}
@@ -68,12 +59,6 @@
             {{ Form::label('last_name', 'Last Name') }}
             {{ Form::text('last_name') }}
             {{ errors_for('last_name', $errors) }}
-          </div>
-
-          <div class="form-block">
-            {{ Form::label('bio', 'Author Bio') }}
-            {{ Form::textarea('bio') }}
-            {{ errors_for('bio', $errors) }}
           </div>
 
           <div class="form-block--submit">
