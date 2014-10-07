@@ -13,6 +13,12 @@ Route::get( '/login', [
 ]);
 
 
+Route::post( '/register', [
+  'as' => 'register_user',
+  'uses' => 'AuthController@postRegister'
+]);
+
+
 // Reminder Routes
 Route::get( '/login/remind', [
   'as' => 'remind_page',

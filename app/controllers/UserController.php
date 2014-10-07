@@ -18,7 +18,7 @@ class UserController extends \BaseController {
     {
       $users = User::onlyTrashed()->paginate(10);
     }
-    else 
+    else
     {
       $users = User::paginate(10);
     }
@@ -26,7 +26,7 @@ class UserController extends \BaseController {
     $allCount = User::all()->count();
     $trashCount = User::onlyTrashed()->get()->count();
 
-    return View::make('users.index', 
+    return View::make('users.index',
       compact('users', 'type', 'allCount', 'trashCount'));
 	}
 
@@ -108,11 +108,6 @@ class UserController extends \BaseController {
 		// Action
 		User::create($data);
 
-    $email = $data['email'];
-
-		// Return
-		return Redirect::route('authMessage_page', compact('email'));
-
     // Return
     return Redirect::route('view_users')
       ->with('alert_info', 'User has been added');
@@ -150,11 +145,9 @@ class UserController extends \BaseController {
     // Action
     User::create($data);
 
-    $email = $data['email'];
-
     // Return
-    return Redirect::route('authMessage_page')
-      ->with('email', $email);
+    return Redirect::route('view_notebooks')
+      ->with('alert_info', 'Welcome to Novelize, I recommend you start by creating a Notebook to associate with your first Novel');
   }
 
 	/**
