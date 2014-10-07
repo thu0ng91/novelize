@@ -25,16 +25,6 @@ class SessionsController extends \BaseController {
       	->withErrors($validator->errors());
     }
 
-    // Ensure Activated
-    $user = User::where('email', '=', $credentials['email'])->firstOrFail();
-
-    if($user->activated == 0)
-    {
-      return Redirect::back()
-        ->withInput()
-        ->with('alert_danger', 'Account not active.');
-    }
-
 
     // Action
     if($remember === 'true')
@@ -47,7 +37,7 @@ class SessionsController extends \BaseController {
     }
 
     // Redirect
-		if(! $attempt) 
+		if(! $attempt)
 		{
 			return Redirect::back()
 				->withInput()

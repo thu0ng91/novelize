@@ -142,8 +142,11 @@ class UserController extends \BaseController {
     $data = array_add($data, 'role_id', '1');
     $data = array_add($data, 'profile_id', $profile->id);
 
-    // Action
-    User::create($data);
+    // Create User
+    $user = User::create($data);
+
+    // Login User
+    Auth::login($user);
 
     // Return
     return Redirect::route('view_notebooks')
