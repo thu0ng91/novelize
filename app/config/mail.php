@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'mandrill',
+	'driver' => 'smtp',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.mailgun.org',
+	'host' => 'smtp.mandrillapp.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'josh@getnovelize.com', 'name' => 'Josh at Novelize'),
+	'from' => array('address' => 'email@getnovelize.com', 'name' => 'Novelize'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => 'email@getnovelize.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	'password' => '23ux5l8TFJTY5qZEZ7ghwQ',
 
 	/*
 	|--------------------------------------------------------------------------
