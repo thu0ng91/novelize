@@ -1,0 +1,39 @@
+.notebook-description {
+	margin-bottom: 20px;
+	padding: 0 10px 20px;
+	border-bottom: 1px solid $c_notebookSidebarBorder;
+	@include font-size(0.875);
+	line-height: 1.2;
+}
+
+.notebook-menu {
+	margin: 0;
+	list-style: none;
+}
+.notebook-menu__item {
+	margin-bottom: 20px;
+
+	a {
+		display: block;
+		padding: 20px 10px 20px 50px;
+		border: 1px solid $c_notebookSidebarBorder;
+		text-decoration: none;
+		@include link-colors($c_notebookMenuLink, $c_notebookMenuLink-hover, $c_notebookMenuLink-active);
+
+		&:hover {
+			background-color: $c_notebookMenuBkgd-hover;
+		}
+	}
+}
+
+.characters .notebook-menu__item.characters,
+.locations .notebook-menu__item.locations,
+.items .notebook-menu__item.items,
+.notes .notebook-menu__item.notes {
+	a {
+		width: $w_notebookSidebar-left + 20px;
+		background-color: $c_notebookMenuBkgd-active;
+		box-shadow: -3px 0 3px 3px $c_mainBoxShadow;
+		border: none;
+	}
+}

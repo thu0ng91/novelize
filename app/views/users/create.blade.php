@@ -2,7 +2,7 @@
 @section('body_class', 'create')
 
 {{-- Page Header --}}
-@section('header')
+@section('page_header')
   <div class="pageHeader">
     <div class="top">
       <h2 class="pageTitle">Create User</h2>
@@ -16,7 +16,7 @@
 @stop
 
 {{-- Page Content --}}
-@section('content')
+@section('page_content')
   {{-- Form --}}
   <div class="createForm">
     {{ Form::open(['route' => 'store_user']) }}

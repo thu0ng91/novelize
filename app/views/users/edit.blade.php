@@ -2,7 +2,7 @@
 @section('body_class', 'edit')
 
 {{-- Page Header --}}
-@section('header')
+@section('page_header')
   <div class="pageHeader">
     <div class="top">
       <h2 class="pageTitle">Update User</h2>
@@ -16,7 +16,7 @@
 @stop
 
 {{-- Page Content --}}
-@section('content')
+@section('page_content')
   {{-- Form --}}
   <div class="editForm">
     {{ Form::model($user, ['method' => 'PUT', 'route' => ['update_user', $user->id]]) }}
@@ -38,9 +38,9 @@
         <select name="role_id">
           @foreach($roles as $role)
             @if($user->role_id == $role->id )
-            <option value="{{ $role->id }}" selected>{{ $role->name }}</option> 
-            @else 
-            <option value="{{ $role->id }}">{{ $role->name }}</option> 
+            <option value="{{ $role->id }}" selected>{{ $role->name }}</option>
+            @else
+            <option value="{{ $role->id }}">{{ $role->name }}</option>
             @endif
           @endforeach
         </select>
@@ -53,11 +53,11 @@
         {{ errors_for('activated', $errors) }}
         <select name="activated">
             @if($user->activated == 1 )
-            <option value="1" selected>Activated</option> 
-            <option value="0">Inactive</option> 
-            @else 
-            <option value="1" selected>Activated</option> 
-            <option value="0" selected>Inactive</option> 
+            <option value="1" selected>Activated</option>
+            <option value="0">Inactive</option>
+            @else
+            <option value="1" selected>Activated</option>
+            <option value="0" selected>Inactive</option>
             @endif
         </select>
       </div>

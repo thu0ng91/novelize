@@ -1,0 +1,23 @@
+.filters {
+  @include container;
+  padding: 6px 8px;
+}
+
+.filters__types {
+  margin: 0;
+  list-style: none;
+  text-align: right;
+}
+
+.filters__types__items {
+  display: inline-block;
+  @include font-size(0.875);
+  color: $c_filtersLink;
+
+  a {
+    display: inline-block;
+    padding: 4px;
+    text-decoration: none;
+    @include link-colors(inherit, $c_filtersLink-hover, $c_filtersLink-active);
+  }
+}

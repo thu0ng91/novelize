@@ -2,7 +2,7 @@
 @section('body_class', 'show')
 
 {{-- Page Header --}}
-@section('header')
+@section('page_header')
   <div class="pageHeader">
     <div class="top">
       <h2 class="pageTitle">{{ $notebook->name }}</h2>
@@ -16,7 +16,7 @@
 @stop
 
 {{-- Page Content --}}
-@section('content')
+@section('page_content')
 
   <!-- Main Column
   ========================================================================= -->
@@ -138,7 +138,7 @@
   ========================================================================= -->
 
   <div class="secondaryColumn">
-    
+
     <aside class="secondaryBox">
       <h3 class="title">Description</h3>
 

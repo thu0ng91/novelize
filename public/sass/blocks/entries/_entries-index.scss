@@ -1,0 +1,75 @@
+.entries-index {
+  margin: 0;
+  list-style: none;
+}
+
+.entries-index__wrapper {
+  @include main-box;
+  @include container;
+  padding: 2px 40px;
+}
+
+.entries-index__item {
+  height: 76px;
+  position: relative;
+  display: block;
+  margin-bottom: 30px;
+  background-color: $c_entriesIndexBgkd;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.entries-index__title {
+  padding: 22px 136px 22px 80px;
+  @include font-size(2);
+  font-weight: $f_normal;
+  color: $c_entriesIndexTitle;
+}
+
+.entries-index__date {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 70px;
+  padding: 2px 10px;
+  border-right: 1px solid $c_entriesIndexBorder;
+}
+.entries-index__month {
+  padding: 2px 0;
+  border: 1px solid $c_entriesIndexBorder;
+  border-bottom: none;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+  font-size: 14px;
+  color: $c_entriesIndexDateText;
+  text-align: center;
+  text-transform: uppercase;
+}
+.entries-index__day {
+  padding: 6px 0;
+  border: 1px solid $c_entriesIndexBorder;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  font-size: 24px;
+  color: $c_entriesIndexDateText;
+  text-align: center;
+}
+
+.entries-index__buttons {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  right: 0;
+  margin: 0;
+  padding: 15px 10px;
+  border-left: 1px solid $c_entriesIndexBorder;
+  text-align: center;
+  list-style: none;
+}
+.entries-index__buttons__item {
+  display: inline-block;
+  margin: 0 10px;
+}

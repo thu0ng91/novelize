@@ -1,11 +1,10 @@
-<div class="formBlock">
-  {{ Form::label('title', 'Title') }}
+<div class="form-block">
+  {{ Form::text('title', null, ['class' => 'entry-title', 'placeholder' => 'Enter entry title here']) }}
   {{ errors_for('title', $errors) }}
-  {{ Form::text('title') }}
+  <p class="help-text">Title (Required).</p>
 </div>
 
-<div class="formBlock">
-  {{ Form::label('body', 'Body') }}
+<div class="form-block">
+  {{ Form::textarea('body', null, ['class' => 'editable']) }}
   {{ errors_for('body', $errors) }}
-  {{ Form::textarea('body', null, ['class' => 'large']) }}
 </div>

@@ -1,0 +1,87 @@
+.message {
+	@include container;
+	position: relative;
+	margin-bottom: 30px;
+	padding: 18px 50px 18px 12px;
+	background-color: $c_messageBkgd;
+	border: 2px solid $c_messageBorder;
+	color: $c_messageText;
+
+	a {
+		color: inherit
+	}
+}
+
+.message__button {
+	@extend %button-reset;
+	position: absolute;
+	top: 50%;
+	right: 12px;
+	margin-top: -14px;
+	padding: 6px;
+	border: 1px solid $c_messageBorder;
+	font-size: 12px;
+	color: $c_messageText;
+
+	&:hover {
+		background-color: $c_messageBkgd;
+		color: $c_buttonLink-hover !important;
+	}
+}
+
+.message--info {
+	@extend .message;
+	border-color: $c_messageBorder--info;
+	color: $c_messageText--info;
+
+	.message__button {
+		border-color: $c_messageBorder--info;
+		color: $c_messageText--info;
+
+		&:hover {
+			background-color: $c_messageBkgd--info;
+		}
+	}
+}
+.message--success {
+	@extend .message;
+	border-color: $c_messageBorder--success;
+	color: $c_messageText--success;
+
+	.message__button {
+		border-color: $c_messageBorder--success;
+		color: $c_messageText--success;
+
+		&:hover {
+			background-color: $c_messageBkgd--success;
+		}
+	}
+}
+.message--warning {
+	@extend .message;
+	border-color: $c_messageBorder--warning;
+	color: $c_messageText--warning;
+
+	.message__button {
+		border-color: $c_messageBorder--warning;
+		color: $c_messageText--warning;
+
+		&:hover {
+			background-color: $c_messageBkgd--warning;
+		}
+	}
+}
+.message--danger {
+	@extend .message;
+	border-color: $c_messageBorder--danger;
+	color: $c_messageText--danger;
+
+	.message__button {
+		border-color: $c_messageBorder--danger;
+		color: $c_messageText--danger;
+
+		&:hover {
+			background-color: $c_messageBkgd--danger;
+		}
+	}
+}

@@ -1,0 +1,19 @@
+%button {
+	display: block;
+	background-color: transparent;
+	border: none;
+	text-decoration: none;
+}
+
+.page-header__button {
+	@extend %button;
+	height: 40px;
+	padding: ((40px - 16px) / 2) 20px;
+	border: 1px solid $c_pageHeaderBorder;
+	@include link-colors($c_pageHeaderButtonLink, $c_pageHeaderButtonLink-hover);
+
+	&:hover {
+		background-color: $c_pageHeaderButtonBkgd-hover;
+		border-color: $c_pageHeaderButtonBorder-hover;
+	}
+}

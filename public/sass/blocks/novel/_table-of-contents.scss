@@ -1,0 +1,92 @@
+.table-of-contents__toolbar {
+	@include font-size(0.7);
+	color: $c_tableOfContentsButton;
+	text-align: right;
+	line-height: 1.2;
+
+	button {
+		@extend %button-reset;
+		display: inline;
+		font-size: inherit;
+		color: $c_tableOfContentsButton;
+
+		&:hover {
+			color: $c_tableOfContentsButton-hover;
+		}
+	}
+}
+
+
+.table-of-contents {
+	margin: 0;
+	list-style: none;
+}
+.table-of-contents__item {
+	margin: 10px 0;
+	border: 1px solid $c_tableOfContentsBorder;
+}
+.table-of-contents__chapter-title {
+	padding: 10px 6px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: $c_tableOfContentsBkgd-hover;
+	}
+
+	span {
+		vertical-align: middle;
+	}
+	small {
+		color: $c_lightText;
+	}
+}
+
+
+
+.table-of-contents__scenes {
+	position: relative;
+	margin-left: 0;
+	padding: 10px 6px 30px;
+	border-top: 1px solid $c_tableOfContentsBorder;
+	list-style: none;
+}
+
+.table-of-contents__scene-title {
+	display: block;
+	padding: 10px 20px 10px 10px;
+	text-decoration: none;
+	line-height: 1.2;
+	@include link-colors($c_tableOfContentsLink, $c_tableOfContentsLink-hover, $c_tableOfContentsLink-active);
+
+	small {
+		color: $c_lightText;
+	}
+
+	&:hover {
+		background-color: $c_tableOfContentsBkgd-hover;
+	}
+
+	&.active {
+		background-image: url(../img/icons/triangle-right.png);
+		background-position: right center;
+  	background-repeat: no-repeat;
+	}
+}
+
+.table-of-contents__button {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding: 4px 10px;
+	border: 1px solid $c_tableOfContentsBorder;
+	border-right: none;
+	border-bottom: 0;
+	font-size: 14px;
+	@include link-colors($c_buttonLink-secondary, $c_buttonLink-hover);
+	text-decoration: none;
+
+  &:hover {
+    background-color: $c_buttonBkgd-hover;
+    border-color: $c_buttonBorder-hover;
+  }
+}

@@ -1,0 +1,39 @@
+.profile {
+	.page-content {
+		@include main-box;
+		padding: 20px;
+	}
+
+	.main-column {
+		width: 60%;
+		float: left;
+	}
+	.secondary-column {
+		width: 35%;
+		float: right;
+	}
+}
+
+.support {
+	.page-content {
+		@include main-box;
+		padding: 40px;
+	}
+}
+
+.support-types {
+	margin-bottom: 40px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid $c_supportBorder;
+	@include font-size(1.5);
+	text-align: center;
+
+	a {
+		@include link-colors($c_supportLink, $c_supportLink-hover, $c_supportLink-active);
+		text-decoration: none;
+	}
+
+	span {
+		margin: 0 6px;
+	}
+}

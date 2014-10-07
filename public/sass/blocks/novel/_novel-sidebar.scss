@@ -1,0 +1,20 @@
+.novel-sidebar {
+	position: absolute;
+  top: 0;
+  left: 0;
+  width: 240px;
+}
+
+.novel-sidebar__button	{
+  @extend %button-reset;
+  height: 36px;
+  margin-bottom: 20px;
+  padding: ((36px - 16px) / 2) 10px;
+  border: 1px solid $c_buttonBorder-secondary;
+  @include link-colors($c_buttonLink-secondary, $c_buttonLink-hover);
+
+  &:hover {
+    background-color: $c_buttonBkgd-hover;
+    border-color: $c_buttonBorder-hover;
+  }
+}

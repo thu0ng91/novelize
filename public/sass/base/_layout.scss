@@ -1,0 +1,14 @@
+body {
+  min-width: 1200px;
+  background-color: $c_bodyBkgd;
+}
+
+.container {
+	padding-bottom: 40px;
+}
+
+.page-content {
+  @include clearfix;
+  @include container;
+  margin-top: 10px;
+}

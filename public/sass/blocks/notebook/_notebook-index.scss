@@ -1,0 +1,67 @@
+.notebook-index {
+  @include main-box;
+  @include container;
+  padding: 60px 0 0 30px;
+  list-style: none;
+  text-align: center;
+}
+
+.notebook-index__item {
+  position: relative;
+  display: inline-block;
+  width: 400px;
+  margin: 0 30px 60px 0;
+  padding: 4px 8px 4px 148px;
+  background-color: $c_notebookIndexBgkd;
+}
+
+
+
+
+.notebook-index__name {
+  min-height: 120px;
+  padding: 10px;
+  @include font-size(2);
+  font-weight: $f_normal;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.notebook-index__counts {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 0;
+  width: 140px;
+  margin: 0;
+  padding: 8px;
+  border-right: 1px solid $c_notebookIndexBorder;
+  @include font-size(0.9);
+  text-align: center;
+  list-style: none;
+}
+.notebook-index__counts__item {
+  line-height: 1.7;
+  text-align: left;
+  color: $c_notebookIndexCountText;
+
+  span {
+    float: right;
+  }
+}
+.notebook-index__counts__item--novels {
+  @extend .notebook-index__counts__item;
+  margin-bottom: 12px;
+}
+
+.notebook-index__buttons {
+  margin: 0;
+  padding: 6px 0;
+  border-top: 1px solid $c_notebookIndexBorder;
+  text-align: center;
+  list-style: none;
+}
+.notebook-index__buttons__item {
+  display: inline-block;
+  margin: 0 16px;
+}

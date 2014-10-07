@@ -42,9 +42,14 @@ class Novel extends \Eloquent {
     return $this->belongsTo('Notebook');
   }
 
-  public function sections()
+  public function chapters()
   {
-    return $this->hasMany('NovelSection')->orderBy('section_order', 'asc');
+    return $this->hasMany('Chapter')->orderBy('chapter_order', 'asc');
   }
 
-} 
+  public function scenes()
+  {
+    return $this->hasManyThrough('Scene', 'Chapter')->orderBy('scene_order', 'asc');
+  }
+
+}

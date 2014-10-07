@@ -1,0 +1,16 @@
+%paragraph {
+	margin-bottom: 12px;
+	line-height: 1.4;
+}
+
+%button-reset {
+	display: block;
+	background-color: transparent;
+	border: none;
+	text-decoration: none;
+	text-align: center;
+
+	&:focus {
+		outline: none;
+	}
+}

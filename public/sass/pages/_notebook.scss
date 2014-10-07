@@ -1,0 +1,32 @@
+.notebook-page {
+  @include container;
+  position: relative;
+
+}
+.notebook-page__main {
+	padding: 0 ($w_notebookSidebar-right + 20px) 0 ($w_notebookSidebar-left + 20px);
+
+	.filters {
+		width: 100%;
+	}
+}
+.notebook-page__main__wrapper {
+  @include main-box;
+  min-height: 600px;
+	padding: 20px 20px 2px;
+}
+.notebook-page__sidebar {
+	position: absolute;
+	top: 0;
+	padding-top: 20px;
+}
+.notebook-page__sidebar--right {
+	@extend .notebook-page__sidebar;
+	right: 0;
+	width: $w_notebookSidebar-right;
+}
+.notebook-page__sidebar--left {
+	@extend .notebook-page__sidebar;
+	left: 0;
+	width: $w_notebookSidebar-left;
+}

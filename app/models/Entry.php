@@ -37,11 +37,11 @@ class Entry extends \Eloquent {
       {
         return Entry::onlyTrashed()->paginate($recordPerPage);
       }
-      
-      return Entry::paginate($recordPerPage);
+
+      return Entry::orderBy('updated_at', 'DESC')->paginate($recordPerPage);
     }
 
-    return Entry::paginate($recordPerPage);
+    return Entry::orderBy('updated_at', 'DESC')->paginate($recordPerPage);
   }
 
-} 
+}

@@ -1,0 +1,12 @@
+.support-form {
+	max-width: $w_maxColumn;
+	margin: 0 auto;
+}
+
+.support-form__heading {
+	margin-bottom: 12px;
+}
+
+.support-form__description {
+	@extend %paragraph;
+}

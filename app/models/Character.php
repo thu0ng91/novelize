@@ -38,4 +38,9 @@ class Character extends \Eloquent {
     return $this->belongsTo('Notebook');
   }
 
-} 
+  public function type()
+  {
+    return $this->belongsTo('CharacterType');
+  }
+
+}

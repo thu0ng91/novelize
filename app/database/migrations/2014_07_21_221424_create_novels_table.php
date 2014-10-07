@@ -51,13 +51,32 @@ class CreateNovelsTable extends Migration {
       $table->softDeletes();
     });
     /*
-     * Novel Sections
+     * Chapters
      */
-    Schema::create('novel_sections', function(Blueprint $table) {
+    Schema::create('chapters', function(Blueprint $table) {
       // ID's
       $table->increments('id');
       $table->integer('novel_id')->unsigned();
-      $table->integer('section_order')->unsigned();
+      $table->integer('chapter_order')->unsigned();
+
+      // Section Info
+      $table->string('title')->nullable();
+
+      // Foreign Keys
+      $table->foreign('novel_id')->references('id')->on('novels')->onDelete('cascade')->onUpdate('cascade');
+
+      // Timestamps
+      $table->timestamps();
+      $table->softDeletes();
+    });
+    /*
+     * Scense
+     */
+    Schema::create('scenes', function(Blueprint $table) {
+      // ID's
+      $table->increments('id');
+      $table->integer('chapter_id')->unsigned();
+      $table->integer('scene_order')->unsigned();
 
       // Section Info
       $table->string('title')->nullable();
@@ -65,7 +84,7 @@ class CreateNovelsTable extends Migration {
       $table->longText('body')->nullable();
 
       // Foreign Keys
-      $table->foreign('novel_id')->references('id')->on('novels')->onDelete('cascade')->onUpdate('cascade');
+      $table->foreign('chapter_id')->references('id')->on('chapters')->onDelete('cascade')->onUpdate('cascade');
 
       // Timestamps
       $table->timestamps();
@@ -81,7 +100,8 @@ class CreateNovelsTable extends Migration {
 	 */
 	public function down()
 	{
-    Schema::drop('novel_sections');
+    Schema::drop('scenes');
+    Schema::drop('chapters');
 		Schema::drop('novels');
     Schema::drop('genres');
 	}

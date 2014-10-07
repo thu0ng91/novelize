@@ -5,7 +5,7 @@ class NovelController extends \BaseController {
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * GET /app/novels
+	 * GET /novels
 	 * ROUTE view_novels
 	 *
 	 * @return Response
@@ -18,12 +18,14 @@ class NovelController extends \BaseController {
     {
       $novels = Novel::where('owner_id', '=', Auth::user()->id)
         ->onlyTrashed()
+        ->orderBy('title', 'ASC')
         ->get();
     }
-    else 
+    else
     {
       $novels = Novel::where('owner_id', '=', Auth::user()->id)
-        ->with('notebook', 'sections')
+        ->with('notebook', 'scenes')
+        ->orderBy('title', 'ASC')
         ->get();
     }
 
@@ -36,14 +38,14 @@ class NovelController extends \BaseController {
 	/**
 	 * Show the form for creating a new resource.
 	 *
-	 * GET /app/novel/create
+	 * GET /novel/create
 	 * ROUTE create_novel
 	 *
 	 * @return Response
 	 */
 	public function create()
 	{
-    $notebooks = Notebook::where('owner_id', '=', Auth::user()->id)->get();
+    $notebooks = Notebook::where('owner_id', '=', Auth::user()->id)->orderBy('name', 'ASC')->get();
     $genres = Genre::all();
 
     // Pass profile name to Author as default if available
@@ -62,48 +64,16 @@ class NovelController extends \BaseController {
     if(! $notebooks->count())
     {
       return Redirect::route('create_notebook')
-        ->with('alert_success', 'Please create a notebook to store you Novel first');
+        ->with('alert_success', 'Please create a notebook to store your first Novel');
     }
 
     return View::make('novels.create', compact('notebooks', 'genres', 'name'));
 	}
 
 	/**
-	 * Display the specified resource.
-	 *
-	 * GET /app/novel/{novelId}/show
-	 * ROUTE show_novel
-	 *
-	 * @param  int  $novelId
-	 * @return Response
-	 */
-	public function show($novelId)
-	{
-    $novel = Novel::findOrFail($novelId);
-
-    return View::make('novels.show', compact('novel'));
-	}
-
-  /**
-   * Display the specified resource.
-   *
-   * GET /app/novel/{novelId}/write
-   * ROUTE write_novel
-   *
-   * @param  int  $novelId
-   * @return Response
-   */
-  public function write($novelId)
-  {
-    $novel = Novel::with('sections')->findOrFail($novelId);
-
-    return View::make('novels.write', compact('novel'));
-  }
-
-	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * GET /app/novel/{novelId}/edit
+	 * GET /novel/{novelId}/edit
 	 * ROUTE edit_novel
 	 *
 	 * @param  int  $novelId
@@ -112,11 +82,120 @@ class NovelController extends \BaseController {
 	public function edit($novelId)
 	{
     $novel = Novel::findOrFail($novelId);
-    $notebooks = Notebook::where('owner_id', '=', Auth::user()->id)->get();
+    $notebooks = Notebook::where('owner_id', '=', Auth::user()->id)->orderBy('name', 'ASC')->get();
     $genres = Genre::all();
 
     return View::make('novels.edit', compact('novel', 'notebooks', 'genres'));
 	}
+
+
+
+  /**
+   * Display the specified resource.
+   *
+   * GET /novel/{novelId}/plot
+   * ROUTE write_novel
+   *
+   * @param  int  $novelId
+   * @return Response
+   */
+  public function plot($novelId, $sceneId)
+  {
+    $novel = Novel::findOrFail($novelId);
+    $chapters = Chapter::where('novel_id', '=', $novelId)
+    	->orderBy('chapter_order', 'asc')
+    	->with('scenes')
+    	->get();
+
+    $notebookId = $novel->notebook_id;
+    $notebook = Notebook::findOrFail($notebookId);
+
+    $currentScene = Scene::findOrFail($sceneId);
+
+    return View::make('novels.plot', compact('novel', 'chapters', 'currentScene', 'notebook'));
+  }
+
+  /**
+   * Display the specified resource.
+   *
+   * GET /novel/{novelId}/write/{sceneId}
+   * ROUTE write_novel
+   *
+   * @param  int  $novelId
+   * @param  int  $sceneId
+   * @return Response
+   */
+  public function write($novelId, $sceneId)
+  {
+    $novel = Novel::findOrFail($novelId);
+    $chapters = Chapter::where('novel_id', '=', $novelId)
+    	->orderBy('chapter_order', 'asc')
+    	->with('scenes')
+    	->get();
+
+    $notebookId = $novel->notebook_id;
+    $notebook = Notebook::findOrFail($notebookId);
+
+    $currentScene = Scene::with('chapter')->findOrFail($sceneId);
+
+    return View::make('novels.write', compact('novel', 'chapters', 'currentScene', 'notebook'));
+  }
+
+  /**
+   * Display the specified resource.
+   *
+   * GET /novel/{novelId}/review/{sceneId}
+   * ROUTE write_novel
+   *
+   * @param  int  $novelId
+   * @param  int  $sceneId
+   * @return Response
+   */
+  public function review($novelId, $sceneId)
+  {
+    $novel = Novel::findOrFail($novelId);
+    $chapters = Chapter::where('novel_id', '=', $novelId)
+    	->orderBy('chapter_order', 'asc')
+    	->with('scenes')
+    	->get();
+
+    $notebookId = $novel->notebook_id;
+    $notebook = Notebook::findOrFail($notebookId);
+
+
+    $currentScene = Scene::with('chapter')->findOrFail($sceneId);
+
+    return View::make('novels.review', compact('novel', 'chapters', 'currentScene', 'notebook'));
+  }
+
+  /**
+   * Display the specified resource.
+   *
+   * GET /novel/{novelId}/publish
+   * ROUTE write_novel
+   *
+   * @param  int  $novelId
+   * @return Response
+   */
+  public function publish($novelId, $sceneId)
+  {
+    $novel = Novel::findOrFail($novelId);
+    $chapters = Chapter::where('novel_id', '=', $novelId)
+    	->orderBy('chapter_order', 'asc')
+    	->with('scenes')
+    	->get();
+
+    $notebookId = $novel->notebook_id;
+    $notebook = Notebook::findOrFail($notebookId);
+
+
+    $currentScene = Scene::findOrFail($sceneId);
+
+    return View::make('novels.publish', compact('novel', 'chapters', 'currentScene', 'notebook'));
+  }
+
+
+
 
 	/**
 	 * Store a newly created resource in storage.
@@ -128,10 +207,10 @@ class NovelController extends \BaseController {
 	 */
 	public function store()
 	{
-		$data = Input::all();
+		$novel_data = Input::all();
 
 		// Validation
-		$validator = Validator::make($data, Novel::$rules);
+		$validator = Validator::make($novel_data, Novel::$rules);
 
 		if ($validator->fails())
 		{
@@ -140,14 +219,28 @@ class NovelController extends \BaseController {
 				->withInput();
 		}
 
-		// Add to $data
-    $data = array_add($data, 'owner_id', Auth::user()->id);
+		// Create Novel
+    $novel_data = array_add($novel_data, 'owner_id', Auth::user()->id);
+		$new_novel = Novel::create($novel_data);
 
-		// Action
-		Novel::create($data);
+		// Create First Chapter
+    $chapter_data = [
+    	'novel_id' => $new_novel->id,
+    	'chapter_order' => 1,
+    	'title' => 'First Chapter',
+    ];
+		$new_chapter = Chapter::create($chapter_data);
+
+		// Create First Scene
+    $scene_data = [
+    	'chapter_id' => $new_chapter->id,
+    	'scene_order' => 1,
+    	'title' => 'First Scene',
+    ];
+		$new_scene = Scene::create($scene_data);
 
 		// Return
-		return Redirect::route('view_novels')
+		return Redirect::route('write_novel', [$new_novel->id, $new_scene->id] )
 			->with('alert_success', 'novel has been added');
 	}
 
@@ -179,7 +272,7 @@ class NovelController extends \BaseController {
 		$novel->update($data);
 
 		// Return
-		return Redirect::route('view_novels')
+		return Redirect::route('edit_novel', $novel->id)
 			->with('alert_success', 'novel has been updated');
 	}
 

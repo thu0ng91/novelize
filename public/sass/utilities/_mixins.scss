@@ -1,0 +1,63 @@
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+  width: 100%;
+
+	&:after {
+		clear: both;
+	}
+}
+
+
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) + px;
+	font-size: $sizeValue + rem;
+}
+
+
+// Link Colors
+@mixin link-colors($default: inherit, $hover: inherit, $active: inherit) {
+  &:link,
+  &:visited {
+    color: $default;
+  }
+  &:active,
+  &.active {
+    color: $active;
+  }
+  &:hover {
+    color: $hover;
+  }
+}
+
+
+// Border radius
+@mixin border-radius($radius) {
+	background-clip: padding-box;
+	border-radius: $radius;
+}
+
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin: 0 auto;
+}
+
+
+// Main Box
+@mixin main-box {
+  background-color: $c_mainBoxBkgd;
+  box-shadow: 0 0 3px 3px $c_mainBoxShadow;
+}
+
+
+// Main Box
+@mixin container($width: 90%, $maxWidth: 1200px) {
+  width: $width;
+  max-width: $maxWidth;
+  margin-right: auto;
+  margin-left: auto;
+}

@@ -1,0 +1,93 @@
+.write-scene__wrapper {
+  @include container;
+	position: relative;
+	margin-top: 20px;
+	padding-left: 270px;
+}
+
+.write-scene {
+	@include main-box;
+	position: relative;
+	padding: 10px 80px 20px 20px;
+
+	.form-button,
+	.form-button--secondary {
+		margin-top: 0;
+	}
+}
+.write-scene__label {
+	cursor: pointer;
+}
+
+// Breadcrumb
+.write-scene__breadcrumbs {
+	margin-bottom: 10px;
+	@include font-size(0.75);
+	color: $c_lightText;
+}
+
+// Details
+.write-scene__details {
+	@include clearfix;
+	margin-bottom: 20px;
+}
+
+// Title
+.write-scene__title {
+	padding: 3px 10px 0;
+	border: none;
+	border-bottom: 1px solid $c_novelWriteFormBorder;
+	@include font-size(1.5);
+}
+
+// Description
+.write-scene__description {
+	padding: 6px;
+	border: 1px solid $c_novelWriteFormBorder;
+	border-top: none;
+	@include font-size(0.875);
+	line-height: 1.4;
+	resize: none;
+}
+
+.write-scene__description-button {
+	@extend %button-reset;
+	float: right;
+	padding: 2px 6px;
+	border: 1px solid $c_novelWriteFormBorder;
+	border-top: none;
+	color: $c_lightText;
+
+	&:hover {
+		color: $c_highlightText;
+	}
+}
+
+
+.write-scene__to-bottom,
+.write-scene__to-top {
+	display: block;
+	position: absolute;
+	right: 10px;
+	width: 40px;
+	height: 40px;
+	background-image: url(../img/icons/up-down-arrows.png);
+
+	&:hover {
+		border: 1px solid $greyLighter;
+	}
+
+	&:focus {
+		outline: none;
+	}
+}
+
+.write-scene__to-bottom {
+	top: 10px;
+	background-position: center bottom;
+}
+
+.write-scene__to-top {
+	bottom: 10px;
+	background-position: center top;
+}

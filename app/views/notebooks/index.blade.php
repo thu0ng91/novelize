@@ -1,128 +1,91 @@
 @extends('layouts.app')
 @section('body_class', 'index')
-@section('layout_class', 'SM skinny')
+
+
 
 {{-- Page Header --}}
-@section('header')
-  <div class="pageHeader">
-    <h2 class="pageTitle">Notebooks</h2>
+@section('page_header')
+  <div class="page-header">
+    <h2 class="page-header__title">
+      {{ HTML::image('/img/icons/notebook.png') }}
+      Notebooks
+    </h2>
 
-    <ul class="pageButtons">
-      <li>{{ link_to_route('create_notebook', 'NEW NOTEBOOK', null, ['class' => 'button secondary']) }}</li>
+    <ul class="page-header__buttons">
+      <li>{{ link_to_route('create_notebook', 'NEW NOTEBOOK', null, ['class' => 'page-header__button']) }}</li>
     </ul>
   </div>
 @stop
 
 {{-- Page Content --}}
-@section('content')
+@section('page_content')
+<!--
+  Filters ============================================= -->
+  <div class="filters">
+    <ul class="filters__types">
+
+      @if($type == 'trashed')
+
+        <li class="filters__types__items">{{ link_with_query('type', 'active', 'view_notebooks', 'ALL')}}({{ $allCount }})</li>
+        <li class="filters__types__items">{{ link_with_query('type', 'trashed', 'view_notebooks', 'TRASHED', ['class' => 'active'])}}({{ $trashCount }})</li>
+
+      @else
+
+        <li class="filters__types__items">{{ link_with_query('type', 'active', 'view_notebooks', 'ALL', ['class' => 'active'])}}({{ $allCount }})</li>
+        <li class="filters__types__items">{{ link_with_query('type', 'trashed', 'view_notebooks', 'TRASHED')}}({{ $trashCount }})</li>
+
+      @endif
+
+    </ul>
+  </div>
+
+
 
 <!--
-  Main ============================================= -->
-  <div class="main">
-    @if ($notebooks->count())
+  Index ============================================= -->
+  @if ($notebooks->count())
 
-      <ul class="indexList">
+    <ul class="notebook-index">
 
       @foreach($notebooks as $notebook)
-        <li class="indexItem notebook">
-          <h2 class="name">{{ $notebook->name }}</h2>
 
-          {{-- Novels --}}
-          @if ($notebook->novels->count())
-            <ul class="novels">
-              @foreach($notebook->novels as $novel)
-              <li>{{ link_to_route('write_novel', $novel->title, $novel->id) }}</li>
-              @endforeach
+        <li class="notebook-index__item">
+          <h2 class="notebook-index__name">{{ $notebook->name }}</h2>
 
-              <li class="newNovel">{{ link_to_route('create_novel', 'NEW NOVEL') }}</li>
-            </ul>
-
-          @else
-
-            <ul class="novels">
-              <li class="newNovel">{{ link_to_route('create_novel', 'NEW NOVEL') }}</li>
-            </ul>
-
-          @endif
-
-          {{-- Description --}}
-          <div class="description">
-            <p>{{ $notebook->description }}</p>
-          </div>
-
-          {{-- Counts --}}
-          <ul class="counts">
-            <li>Characters: {{ $notebook->characters->count() }}</li>
-            <li>Locations: {{ $notebook->locations->count() }}</li>
-            <li>Items: {{ $notebook->items->count() }}</li>
-            <li>Notes: {{ $notebook->notes->count() }}</li>
+          <ul class="notebook-index__counts">
+            <li class="notebook-index__counts__item--novels">Novels <span>{{ $notebook->novels->count() }}</span></li>
+            <li class="notebook-index__counts__item">Characters <span>{{ $notebook->characters->count() }}</span></li>
+            <li class="notebook-index__counts__item">Locations <span>{{ $notebook->locations->count() }}</span></li>
+            <li class="notebook-index__counts__item">Items <span>{{ $notebook->items->count() }}</span></li>
+            <li class="notebook-index__counts__item">Notes <span>{{ $notebook->notes->count() }}</span></li>
           </ul>
 
-          <div class="buttons">
-            <div class="secondary">
-              @if($type == 'trashed') 
+          <ul class="notebook-index__buttons">
+            @if($type == 'trashed')
 
-                {{ link_to_route('destroy_notebook', 'DESTROY', $notebook->id, ['class' => 'button secondary small'] ) }}
+              <li class="notebook-index__buttons__item">{{ link_to_route('destroy_notebook', '', $notebook->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY'] ) }}</li>
+              <li class="notebook-index__buttons__item">{{ link_to_route('restore_notebook', '', $notebook->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE'] ) }}</li>
 
-              @else
+            @else
 
-                {{ link_to_route('trash_notebook', 'TRASH', $notebook->id, ['class' => 'button secondary small'] ) }}
-                {{ link_to_route('edit_notebook', 'SETTINGS', $notebook->id, ['class' => 'button secondary small'] ) }}
+              <li class="notebook-index__buttons__item">{{ link_to_route('trash_notebook', '', $notebook->id, ['class' => 'icon-index--trash', 'title' => 'TRASH'] ) }}</li>
+              <li class="notebook-index__buttons__item">{{ link_to_route('edit_notebook', '', $notebook->id, ['class' => 'icon-index--settings', 'title' => 'UPDATE SETTINGS'] ) }}</li>
+              <li class="notebook-index__buttons__item">{{ link_to_route('view_characters', '', $notebook->id, ['class' => 'icon-index--edit', 'title' => 'MANAGE'] ) }}</li>
 
-              @endif
-            </div>
-
-            <div class="primary">
-              @if($type == 'trashed') 
-
-                {{ link_to_route('restore_notebook', 'RESTORE', $notebook->id, ['class' => 'button primary small'] ) }}
-
-              @else
-
-                {{ link_to_route('show_notebook', 'MANAGE', $notebook->id, ['class' => 'button primary small'] ) }}
-
-              @endif
-            </div>
-          </div>
-
+            @endif
+          </ul>
 
         </li>
       @endforeach
 
-      </ul>
+    </ul>
 
-    @else
+  @else
 
-      {{-- Empty Message --}}
-      <div class="emptyMessage">
-        <h2 class="title">There's nothing here.</h2>
-      </div>
-
-    @endif
-  </div>
-
-
-
-<!--
-  Sidebar ============================================= -->
-  <div class="sidebar">
-    <div class="filters">
-      <ul class="types">
-
-        @if($type == 'trashed')
-
-          <li>{{ link_with_query('type', 'active', 'view_notebooks', 'ALL', ['class' => 'link secondary'])}} ({{ $allCount }})</li>
-          <li>{{ link_with_query('type', 'trashed', 'view_notebooks', 'TRASHED', ['class' => 'link secondary active'])}} ({{ $trashCount }})</li>
-
-        @else
-
-          <li>{{ link_with_query('type', 'active', 'view_notebooks', 'ALL', ['class' => 'link secondary active'])}} ({{ $allCount }})</li>
-          <li>{{ link_with_query('type', 'trashed', 'view_notebooks', 'TRASHED', ['class' => 'link secondary'])}} ({{ $trashCount }})</li>
-
-        @endif
-
-      </ul>
+    <div class="empty-message--main-box">
+      <h2 class="empty-message__title">There's nothing here.</h2>
     </div>
-  </div>
+
+  @endif
 
 @stop

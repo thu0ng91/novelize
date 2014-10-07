@@ -3,12 +3,15 @@
 
 @section('content')
 
-  @include('layouts.partials.messages')
+  <div class="auth-box">
 
-  {{ HTML::image('img/identity/logo-white.png', 'Novelize') }}
+    <div class="logo">
+      {{ HTML::image('img/identity/logo-white.png', 'Novelize') }}
+    </div>
 
-  <div class="loginForm">
-    {{ Form::open(['route' => 'login']) }}
+    @include('layouts.partials.messages')
+
+    {{ Form::open(['route' => 'post_reset']) }}
       <div class="formBlock">
         {{ Form::hidden('token', $token) }}
       </div>
@@ -35,7 +38,6 @@
        {{ Form::submit('RESET PASSWORD', ['class' => 'button submit']) }}
       </div>
     {{ Form::close() }}
-  </div>
 
   <form action="{{ action('RemindersController@postReset') }}" method="POST">
     <input type="hidden" name="token" value="{{ $token }}">

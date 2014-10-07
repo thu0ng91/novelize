@@ -1,0 +1,61 @@
+.header {
+  @include clearfix;
+  width: 100%;
+  padding: 6px 0 30px;
+}
+.header__logo {
+  float: left;
+  margin-left: 6px;
+
+  img {
+    display: block;
+    height: 28px;
+  }
+}
+
+.nav-menu {
+  @include clearfix;
+  display: block;
+}
+.nav-menu__account,
+.nav-menu__sections,
+.nav-menu__logout {
+  float: left;
+  margin: 0;
+  padding: 0 8px;
+  list-style: none;
+}
+.nav-menu__account {
+  border-right: 1px solid $c_menuBorder;
+}
+.nav-menu__logout {
+  float: right;
+}
+
+.nav-menu__item {
+  display: inline-block;
+  margin: 0 1px;
+
+  a {
+    display: block;
+    padding:  6px;
+    border: 1px solid $c_menuLinkBorder;
+    font-size: 14px;
+    text-decoration: none;
+    @include link-colors($c_menuLink, $c_menuLink-hover, $c_menuLink-active);
+
+    &:focus {
+      outline: none;
+      border-color: $c_menuLinkBorder-focus;
+    }
+
+    &.active {
+      border-color: $c_menuLinkBorder-active;
+    }
+
+    &:hover {
+      background-color: $c_menuLinkBkgd-hover;
+      border-color: $c_menuLinkBorder-hover;
+    }
+  }
+}

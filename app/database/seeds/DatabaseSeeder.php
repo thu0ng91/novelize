@@ -7,9 +7,12 @@ class DatabaseSeeder extends Seeder {
       'users',
       'profiles',
       'notebooks',
+      'character_types',
+      'characters',
       'genres',
       'novels',
-      'novel_sections',
+      'chapters',
+      'scenes',
       'entries',
     ];
 
@@ -18,8 +21,11 @@ class DatabaseSeeder extends Seeder {
       'GenreTableSeeder',
       'UserTableSeeder',
       'NotebookTableSeeder',
+      'CharacterTypeTableSeeder',
+      'CharacterTableSeeder',
       'NovelTableSeeder',
-      'NovelSectionTableSeeder',
+      'ChapterTableSeeder',
+      'SceneTableSeeder',
       'EntryTableSeeder',
     ];
 

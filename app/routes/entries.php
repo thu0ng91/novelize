@@ -3,19 +3,15 @@
 /*
  * View Routes
  */
-Route::get( 'app/journal', [
+Route::get( '/journal', [
     'as' => 'view_journal',
     'uses' => 'EntryController@index'
 ]);
-Route::get( 'app/journal/entry/create', [
+Route::get( '/journal/entry/create', [
     'as' => 'create_entry',
     'uses' => 'EntryController@create'
 ]);
-Route::get( 'app/journal/entry/{entryId}/show', [
-    'as' => 'show_entry',
-    'uses' => 'EntryController@show'
-]);
-Route::get( 'app/journal/entry/{entryId}/edit', [
+Route::get( '/journal/entry/{entryId}/edit', [
     'as' => 'edit_entry',
     'uses' => 'EntryController@edit'
 ]);

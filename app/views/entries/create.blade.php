@@ -2,27 +2,33 @@
 @section('body_class', 'create')
 
 {{-- Page Header --}}
-@section('header')
-  <div class="pageHeader">
-    <h1 class="pageTitle">Create Entry</h1>
+@section('page_header')
+  <div class="page-header">
+    <h2 class="page-header__title">
+      {{ HTML::image('/img/icons/journal.png') }}
+      New Entry
+    </h2>
 
-
-    <ul class="pageButtons">
-      <li>{{ link_to_route('view_journal', 'JOURNAL', null, ['class' => 'button secondary']) }}</li>
+    <ul class="page-header__buttons">
+      <li>{{ link_to_route('view_journal', 'JOURNAL', null, ['class' => 'page-header__button']) }}</li>
     </ul>
   </div>
 @stop
 
 {{-- Page Content --}}
-@section('content')
-  {{-- Form --}}
-  {{ Form::open(['route' => 'store_entry']) }}
+@section('page_content')
 
-    @include('entries.partials.form')
+  <div class="basic-form__wrapper">
+    {{ Form::open(['route' => 'store_entry', 'class' => 'basic-form']) }}
 
-    <div class="formBlock submit">
-     {{ Form::submit('CREATE', ['class' => 'button submit']) }}
-    </div>
+      @include('entries.partials.form')
 
-  {{ Form::close() }}
+      <div class="form-block--buttons">
+        <a href="#" class="form-button--secondary">CANCEL</a>
+        {{ Form::submit('CREATE ENTRY', ['class' => 'form-button']) }}
+      </div>
+
+    {{ Form::close() }}
+  </div>
+
 @stop

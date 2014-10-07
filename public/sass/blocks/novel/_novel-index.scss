@@ -1,0 +1,46 @@
+.novel-index {
+  @include main-box;
+  @include container;
+  padding: 60px 0 0 30px;
+  list-style: none;
+  text-align: center;
+}
+
+.novel-index__item {
+  display: inline-block;
+  width: 220px;
+  margin: 0 30px 60px 0;
+  padding: 4px 8px;
+  background-color: $c_novelIndexBgkd;
+}
+
+
+
+.novel-index__notebook {
+  padding: 8px 4px;
+  border-bottom: 1px solid $c_novelIndexBorder;
+  color: $c_novelIndexNotebook;
+  text-align: center;
+}
+
+.novel-index__title {
+  height: 220px;
+  padding: 10px;
+  @include font-size(2);
+  font-weight: $f_normal;
+  color: $c_novelIndexTitle;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.novel-index__buttons {
+  margin: 0;
+  padding: 6px 0;
+  border-top: 1px solid $c_novelIndexBorder;
+  text-align: center;
+  list-style: none;
+}
+.novel-index__buttons__item {
+  display: inline-block;
+  margin: 0 10px;
+}

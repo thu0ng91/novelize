@@ -1,96 +1,81 @@
-@extends('layouts.app')
-@section('body_class', 'write')
-@section('layout_class', 'SMS skinny-tiny')
+@extends('layouts.app-panel')
+@section('body_class', 'write scene-' . $currentScene->id)
+
+
 
 {{-- Page Header --}}
-@section('header')
-  <div class="pageHeader">
-    <div class="top">
-      <h2 class="pageTitle"><span>NOVEL</span> {{ $novel->title }}</h2>
-      <ul class="pageButtons">
-        <li>{{ link_to_route('view_novels', 'BACK', null, ['class' => 'button secondary']) }}</li>
-      </ul>
-    </div>
-    <div class="bottom">
-    </div>
-  </div>
-@stop
+@section('page_header')
+  <div class="page-header">
+    <h2 class="page-header__title">
+      {{ HTML::image('/img/icons/novel.png') }}
+      {{ $novel->title }}
+      <a class="page-header__manage icon-manage" href="{{ route('edit_novel', $novel->id) }}"></a>
+    </h2>
 
-{{-- Page Content --}}
-@section('content')
-
-<!--
-  Main ============================================= -->
-  <div class="main">
-    @if ($novel->sections->count())
-
-      <div class="novelSection-wrapper">
-        @foreach($novel->sections as $section)
-
-          <section id="section{{ $section->section_order }}" class="novelSection">
-            <h2 class="title" name="title{{ $section->id }}">{{ $section->title }}</h2>
-
-            <div class="body">
-              {{ $section->body }}
-            </div>
-
-            <div class="descriptionBox">
-              <button class="descriptionButton link secondary">show description</button>
-
-              <div class="description" style="display: none;">
-                {{ $section->description }}
-              </div>
-            </div>
-
-            {{ link_to_route('add_section', '', [$novel->id, $section->section_order], ['class' => 'addSection'])}}
-          </section>
-
-        @endforeach
-      </div>
-
-    @else
-
-      <div class="emptyMessage">
-        <h2 class="title">There's nothing here.</h2>
-      </div>
-
-    @endif
-  </div>
-
-
-
-<!--
-  Sidebar ============================================= -->
-  <div class="sidebar left">
-    <ul class="toc">
-
-      @foreach($novel->sections as $section)
-        @if ($section->title)
-          <li>
-            <a href="#section{{ $section->section_order }}" class="link secondary title">{{ $section->title }}</a>
-          </li>
-        @else
-          <li>
-            <a href="#section{{ $section->section_order }}" class="link secondary">Section {{ $section->section_order }}</a>
-          </li>
-        @endif
-      @endforeach
-
+    <ul class="page-header__buttons">
+      <li class="page-header__item">
+        {{ link_to_route('plot_novel', 'PLOT', [$novel->id, $currentScene->id]) }}
+      </li>
+      <li class="page-header__item">
+        {{ link_to_route('write_novel', 'WRITE', [$novel->id, $currentScene->id], ['class' => 'active']) }}
+      </li>
+      <li class="page-header__item">
+        {{ link_to_route('review_novel', 'REVIEW', [$novel->id, $currentScene->id]) }}
+      </li>
+      <li class="page-header__item">
+        {{ link_to_route('publish_novel', 'PUBLISH', [$novel->id, $currentScene->id]) }}
+      </li>
     </ul>
   </div>
-
-  <button class="topLink"></button>
-
 @stop
 
 
 
-@section('foot_scripts')
-  <script>
-    $('a[href*=#]:not([href=#])').smoothScroll({
-      offset: -80,
-    });
+{{-- Page Content --}}
+@section('page_content')
 
-    $(".editor").jqte();
-  </script>
+  <div class="write-scene__wrapper">
+
+<!--
+  Novel Sidebar ================================= -->
+    <div class="novel-sidebar">
+      {{ link_to_route('create_chapter', 'NEW CHAPTER', $novel->id, ['class' => 'novel-sidebar__button']) }}
+
+      @include('novels.partials.table-of-contents')
+    </div>
+
+<!--
+  Scene ============================================= -->
+    {{ Form::model($currentScene, ['method' => 'PUT', 'route' => ['update_scene', $novel->id, $currentScene->id], 'class' => 'write-scene']) }}
+
+      {{ Form::hidden('scene_order') }}
+
+      <a href="#bottom" name="top" class="write-scene__to-bottom"></a>
+
+      <p class="write-scene__breadcrumbs">Chapter {{ $currentScene->chapter->chapter_order }} / Scene {{ $currentScene->scene_order }}</p>
+
+      <div class="write-scene__details">
+        {{ Form::text('title', null, ['id' => 'title', 'class' => 'write-scene__title', 'placeholder' => 'Scene ' . $currentScene->scene_order]) }}
+        {{ errors_for('title', $errors) }}
+
+        {{ Form::textarea('description', null, ['class' => 'write-scene__description js-descriptionBox', 'placeholder' => 'A brief writeup of what this scene should be about']) }}
+        <button class="write-scene__description-button js-descriptionButton">SHOW DESCRIPTION</button>
+      </div>
+
+      <div class="form-block">
+        {{ errors_for('body', $errors) }}
+        {{ Form::textarea('body', null, ['class' => 'editable']) }}
+      </div>
+
+      <div class="form-block--buttons">
+        {{ link_to_route('write_novel', 'CANCEL', [$novel->id, $currentScene->id], ['class' => 'form-button--secondary']) }}
+        {{ Form::submit('SAVE SCENE', ['class' => 'form-button']) }}
+      </div>
+
+      <a href="#top" name="bottom" class="write-scene__to-top"></a>
+
+    </form>
+
+  </div>
+
 @stop

@@ -1,0 +1,35 @@
+.admin-bar {
+  display: none;
+  position: fixed;
+  bottom: -($h_adminBar - 7px);
+  left: 0;
+  right: 0;
+  height: $h_adminBar;
+  background-color: $c_adminBarBkgd;
+
+  &:hover {
+    bottom: 0;
+  }
+}
+.admin-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  li {
+    display: inline-block;
+    padding: 0;
+    a {
+      display: block;
+      padding: (($h_adminBar - 14px)/2) 10px;
+      line-height: 1;
+      font-size: 14px;
+      color: $c_adminBarLink;
+      text-decoration: none;
+      &:hover,
+      &.active {
+        color: $c_adminBarLink;
+      }
+    }
+  }
+}

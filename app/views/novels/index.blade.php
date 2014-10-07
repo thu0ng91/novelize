@@ -1,16 +1,18 @@
 @extends('layouts.app')
 @section('body_class', 'index')
-@section('layout_class', 'SM skinny')
 
 
 
 {{-- Page Header --}}
-@section('header')
-  <div class="pageHeader">
-    <h2 class="pageTitle">Novels</h2>
+@section('page_header')
+  <div class="page-header">
+    <h2 class="page-header__title">
+      {{ HTML::image('/img/icons/novel.png') }}
+      Novels
+    </h2>
 
-    <ul class="pageButtons">
-      <li>{{ link_to_route('create_novel', 'NEW NOVEL', null, ['class' => 'button secondary']) }}</li>
+    <ul class="page-header__buttons">
+      <li>{{ link_to_route('create_novel', 'NEW NOVEL', null, ['class' => 'page-header__button']) }}</li>
     </ul>
   </div>
 @stop
@@ -18,87 +20,70 @@
 
 
 {{-- Page Content --}}
-@section('content')
-
+@section('page_content')
 <!--
-  Main ============================================= -->
-  <div class="main">
-    @if ($novels->count())
+  Filters ============================================= -->
+  <div class="filters">
+    <ul class="filters__types">
 
-      <ul class="indexList">
+      @if($type == 'trashed')
 
-        @foreach($novels as $novel)
+        <li class="filters__types__items">{{ link_with_query('type', 'active', 'view_novels', 'ALL')}}({{ $allCount }})</li>
+        <li class="filters__types__items">{{ link_with_query('type', 'trashed', 'view_novels', 'TRASHED', ['class' => 'active'])}}({{ $trashCount }})</li>
 
-          <li class="indexItem novel">
+      @else
 
-            <p class="notebook">{{ $novel->notebook->name }}</p>
+        <li class="filters__types__items">{{ link_with_query('type', 'active', 'view_novels', 'ALL', ['class' => 'active'])}}({{ $allCount }})</li>
+        <li class="filters__types__items">{{ link_with_query('type', 'trashed', 'view_novels', 'TRASHED')}}({{ $trashCount }})</li>
 
-            <h2 class="title">{{ $novel->title }}</h2>
+      @endif
 
-            <div class="buttons">
-              <div class="secondary">
-                @if($type == 'trashed') 
-
-                  {{ link_to_route('destroy_novel', 'DESTROY', $novel->id, ['class' => 'button secondary small'] ) }}
-
-                @else
-
-                  {{ link_to_route('trash_novel', 'Trash', $novel->id, ['class' => 'button secondary small'] ) }}
-                  {{ link_to_route('edit_novel', 'SETTINGS', $novel->id, ['class' => 'button secondary small'] ) }}
-
-                @endif
-              </div>
-
-              <div class="primary">
-                @if($type == 'trashed') 
-
-                  {{ link_to_route('restore_novel', 'RESTORE', $novel->id, ['class' => 'button primary small'] ) }}
-
-                @else
-
-                  {{ link_to_route('write_novel', 'WRITE', $novel->id, ['class' => 'button primary small'] ) }}
-
-                @endif
-              </div>
-            </div>
-
-          </li>
-
-        @endforeach
-
-      </ul>
-
-    @else
-
-      <div class="emptyMessage">
-        <h2 class="title">There's nothing here.</h2>
-      </div>
-
-    @endif
+    </ul>
   </div>
 
 
 
 <!--
-  Sidebar ============================================= -->
-  <div class="sidebar">
-    <div class="filters">
-      <ul class="types">
+  Index ============================================= -->
+  @if ($novels->count())
 
-        @if($type == 'trashed')
+    <ul class="novel-index">
 
-          <li>{{ link_with_query('type', 'active', 'view_novels', 'ALL', ['class' => 'link secondary'])}} ({{ $allCount }})</li>
-          <li>{{ link_with_query('type', 'trashed', 'view_novels', 'TRASHED', ['class' => 'link secondary active'])}} ({{ $trashCount }})</li>
+      @foreach($novels as $novel)
 
-        @else
+        <li class="novel-index__item">
 
-          <li>{{ link_with_query('type', 'active', 'view_novels', 'ALL', ['class' => 'link secondary active'])}} ({{ $allCount }})</li>
-          <li>{{ link_with_query('type', 'trashed', 'view_novels', 'TRASHED', ['class' => 'link secondary'])}} ({{ $trashCount }})</li>
+          <p class="novel-index__notebook">{{ $novel->notebook->name }}</p>
 
-        @endif
+          <h2 class="novel-index__title">{{ $novel->title }}</h2>
 
-      </ul>
+          <ul class="novel-index__buttons">
+            @if($type == 'trashed')
+
+              <li class="novel-index__buttons__item">{{ link_to_route('destroy_novel', '', $novel->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY'] ) }}</li>
+              <li class="novel-index__buttons__item">{{ link_to_route('restore_novel', '', $novel->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE'] ) }}</li>
+
+            @else
+
+              <li class="novel-index__buttons__item">{{ link_to_route('trash_novel', '', $novel->id, ['class' => 'icon-index--trash', 'title' => 'TRASH'] ) }}</li>
+              <li class="novel-index__buttons__item">{{ link_to_route('edit_novel', '', $novel->id, ['class' => 'icon-index--settings', 'title' => 'UPDATE SETTINGS'] ) }}</li>
+              <li class="novel-index__buttons__item">{{ link_to_route('write_novel', '', [$novel->id, $novel->scenes->first()['id']], ['class' => 'icon-index--edit', 'title' => 'WRITE'] ) }}</li>
+
+            @endif
+          </ul>
+
+        </li>
+
+      @endforeach
+
+    </ul>
+
+  @else
+
+    <div class="empty-message--main-box">
+      <h2 class="empty-message__title">There's nothing here.</h2>
     </div>
-  </div>
+
+  @endif
 
 @stop

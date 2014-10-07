@@ -1,0 +1,30 @@
+.empty-message {
+}
+
+.empty-message--main-box {
+  @include main-box;
+  @include container;
+  padding: 60px;
+}
+
+.empty-message--notebook-sidebar {
+	margin: 0 0 20px;
+	padding: 10px;
+	border: 1px solid $c_notebookSidebarBorder;
+	border-left: 0;
+	border-right: 0;
+
+	.empty-message__text {
+		color: $c_notebookSidebarEmptyTitle;
+	}
+}
+
+
+
+.empty-message__title {
+	text-align: center;
+}
+.empty-message__text {
+	margin: 12px 0;
+	line-height: 1.2;
+}

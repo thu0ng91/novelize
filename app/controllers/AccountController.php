@@ -3,35 +3,35 @@
 
 class AccountController extends \BaseController {
 
-    public function __construct()
-    {
-        $this->beforeFilter('auth');
-    }
+  public function __construct()
+  {
+    $this->beforeFilter('auth');
+  }
 
-    /**
-     * Display the users profile
-     * GET /profile
-     *
-     * @return Response
-     */
-    public function profile($userId)
-    {
-        $user = User::with('profile')->findOrFail($userId);
+  /**
+   * Display the users profile
+   * GET /profile
+   *
+   * @return Response
+   */
+  public function profile($userId)
+  {
+    $user = User::with('profile')->findOrFail($userId);
 
-        return View::make('account.profile', compact('user'));
-    }
+    return View::make('account.profile', compact('user'));
+  }
 
-    /**
-     * Display the users support page
-     * GET /support
-     *
-     * @return Response
-     */
-    public function support($userId)
-    {
-        $user = User::findOrFail($userId);
+  /**
+   * Display the users contact page
+   * GET /contact/{userId}/{type}
+   *
+   * @return Response
+   */
+  public function contact($userId, $type)
+  {
+    $user = User::findOrFail($userId);
 
-        return View::make('account.support', compact('user'));
-    }
+    return View::make('account.contact', compact('user', 'type'));
+  }
 
 }

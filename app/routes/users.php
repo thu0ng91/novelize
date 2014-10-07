@@ -3,19 +3,19 @@
 /*
  * View Routes
  */
-Route::get( 'app/users', [
+Route::get( '/users', [
   'as' => 'view_users',
   'uses' => 'UserController@index'
 ]);
-Route::get( 'app/user/create', [
+Route::get( '/user/create', [
   'as' => 'create_user',
   'uses' => 'UserController@create'
 ]);
-Route::get( 'app/user/{userId}/show', [
+Route::get( '/user/{userId}/show', [
   'as' => 'show_user',
   'uses' => 'UserController@show'
 ]);
-Route::get( 'app/user/{userId}/edit', [
+Route::get( '/user/{userId}/edit', [
   'as' => 'edit_user',
   'uses' => 'UserController@edit'
 ]);
@@ -51,4 +51,3 @@ Route::get( 'user/{userId}/destroy', [
   'as' => 'destroy_user',
   'uses' => 'UserController@destroy'
 ]);
- 

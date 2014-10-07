@@ -19,7 +19,7 @@ class EntryController extends \BaseController {
     $allCount = Entry::all()->count();
     $trashCount = Entry::onlyTrashed()->get()->count();
 
-		return View::make('entries.index', 
+		return View::make('entries.index',
       compact('entries', 'type', 'allCount', 'trashCount'));
 	}
 
@@ -35,24 +35,6 @@ class EntryController extends \BaseController {
 	{
     return View::make('entries.create');
 	}
-
-  /**
-   * Show the form for creating a new resource.
-   *
-   * GET /app/journal/entry/create
-   * ROUTE create_entry
-   *
-   * @return Response
-   */
-  public function show($entryId)
-  {
-    $entry = Entry::findOrFail($entryId);
-
-    $prevEntry = Entry::where('id', '<', $entry->id)->max('id');
-    $nextEntry = Entry::where('id', '>', $entry->id)->min('id');
-
-    return View::make('entries.show', compact('entry', 'prevEntry', 'nextEntry'));
-  }
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -99,7 +81,7 @@ class EntryController extends \BaseController {
 		$entry = Entry::create($data);
 
 		// Return
-		return Redirect::route('show_entry', $entry->id)
+		return Redirect::route('edit_entry', $entry->id)
 			->with('alert_info', 'Your entry has been added');
 	}
 
@@ -131,7 +113,7 @@ class EntryController extends \BaseController {
 		$entry->update($data);
 
 		// Return
-		return Redirect::route('view_journal')
+		return Redirect::route('edit_entry', $entry->id)
 			->with('alert_info', 'Your entry has been updated');
 	}
 

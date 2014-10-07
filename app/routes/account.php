@@ -3,7 +3,7 @@
 /*
  * Profile Routes
  */
-Route::get( 'app/profile/{userId}', [
+Route::get( '/profile/{userId}', [
   'as' => 'view_profile',
   'uses' => 'AccountController@profile'
 ]);
@@ -23,9 +23,9 @@ Route::put( 'profile/{profileId}/update', [
 ]);
 
 /*
- * Support Routes
+ * Contact Routes
  */
-Route::get( 'app/support/{userId}', [
-  'as' => 'view_support',
-  'uses' => 'AccountController@support'
+Route::get( '/contact/{userId}/{type}', [
+  'as' => 'view_contact',
+  'uses' => 'AccountController@contact'
 ]);

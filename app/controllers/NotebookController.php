@@ -20,9 +20,10 @@ class NotebookController extends \BaseController {
         ->onlyTrashed()
         ->get();
     }
-    else 
+    else
     {
       $notebooks = Notebook::where('owner_id', '=', Auth::user()->id)
+      	->orderBy('name', 'ASC')
         ->with('novels', 'characters', 'locations', 'items', 'notes')
         ->get();
     }
@@ -30,7 +31,7 @@ class NotebookController extends \BaseController {
     $allCount = Notebook::all()->count();
     $trashCount = Notebook::onlyTrashed()->get()->count();
 
-		return View::make('notebooks.index', 
+		return View::make('notebooks.index',
       compact('notebooks', 'type', 'allCount', 'trashCount'));
 	}
 

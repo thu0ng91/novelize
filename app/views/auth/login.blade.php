@@ -3,7 +3,7 @@
 
 @section('content')
 
-  <div class="authBox">
+  <div class="auth-box">
 
     <div class="logo">
       {{ HTML::image('img/identity/logo-white.png', 'Novelize') }}
@@ -12,32 +12,36 @@
     @include('layouts.partials.messages')
 
     {{ Form::open(['route' => 'login']) }}
-      <div class="formBlock">
+      <div class="form-block">
         {{ Form::label('email', 'EMAIL ADDRESS') }}
         {{ Form::email('email') }}
         {{ errors_for('email', $errors) }}
       </div>
 
-      <div class="formBlock">
+      <div class="form-block">
         {{ Form::label('password', 'PASSWORD') }}
         {{ Form::password('password') }}
         {{ errors_for('password', $errors) }}
       </div>
 
-      {{ Form::submit('LOGIN', ['class' => 'submit']) }}
+      <div class="form-block">
+        {{ Form::submit('LOGIN', ['class' => 'form-button']) }}
+      </div>
 
-      <div class="formBlock--checkbox">
-        <label for="remember">
+      <div class="form-block">
+        <label class="label--checkbox" for="remember">
           {{ Form::checkbox('remember', 'true', null, ['id' => 'remember']) }}
           Remember Me
         </label>
+
+        {{ link_to_route('remind_page', 'Forgot Password?', null, ['class' => 'link--remind']) }}
       </div>
     {{ Form::close() }}
 
   </div>
 
-  <div class="authBox--bottom">
-    <p>Need an Account? {{ link_to_route('register_page', 'Sign Up', null, ['class' => 'link text']) }}</p>
+  <div class="auth-box--bottom">
+    <p>Need an Account? {{ link_to_route('register_page', 'Sign Up') }}</p>
   </div>
 
 @stop

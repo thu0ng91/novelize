@@ -1,0 +1,134 @@
+.form-group {
+	margin-bottom: 16px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid $c_formBorder;
+}
+
+
+
+
+
+.form-block {
+	margin-bottom: 16px;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.form-block--inline-label {
+	@extend .form-block;
+	@include clearfix;
+
+	label {
+		float: left;
+		width: 37%;
+	}
+	input {
+		float: right;
+		width: 60%;
+		text-align: right;
+	}
+}
+
+.form-block--submit {
+	@extend .form-block;
+}
+
+.form-block--buttons {
+	@extend .form-block;
+	@include clearfix;
+	width: 100%;
+
+	.form-button {
+		width: 58%;
+		float: right;
+	}
+	.form-button--secondary {
+		width: 40%;
+		float: left;
+	}
+}
+
+
+
+
+
+label {
+	padding: 4px 0;
+	color: $c_labelText;
+}
+
+.help-text {
+	padding: 4px 0;
+	color: $c_helpText;
+	@include font-size(0.875);
+	text-align: right;
+}
+
+.error-message {
+	color: $c_errorText;
+}
+
+.form-heading {
+	margin-bottom: 12px;
+}
+
+
+
+
+input,
+textarea,
+select {
+	width: 100%;
+	padding: 6px;
+	border: 1px solid $c_formBorder;
+	color: $c_bodyText;
+
+	&:focus {
+		outline: none;
+		border-color: $c_formBorder-focus;
+	}
+}
+
+
+
+
+.form-button {
+	@extend %button-reset;
+	margin-top: 24px;
+  padding: 10px 20px;
+  border: 1px solid $c_buttonBorder-primary;
+  text-transform: uppercase;
+  color: $c_buttonLink-primary; // need both because of <a> & <button>
+  @include link-colors($c_buttonLink-primary, $c_buttonLink-hover);
+  line-height: 1;
+
+  &:focus {
+    background-color: $c_buttonBkgd-focus;
+    border-color: $c_buttonBorder-focus;
+  	color: $c_buttonLink-focus;
+  }
+
+  &:hover {
+    background-color: $c_buttonBkgd-hover;
+  }
+}
+
+.form-button--secondary {
+	@extend .form-button;
+  border: 1px solid $c_buttonBorder-secondary;
+  @include link-colors($c_buttonLink-secondary, $c_buttonLink-hover);
+}
+
+
+
+
+// Styles necessary for Autosize Script
+// js/vendor/autosize.js
+.js-autosize {
+	resize: none;
+}
+.js-autosize--transistion {
+	transition: height 0.2s;
+}

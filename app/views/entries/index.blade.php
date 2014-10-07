@@ -1,112 +1,93 @@
 @extends('layouts.app')
 @section('body_class', 'index')
-@section('layout_class', 'SM skinny')
+
+
 
 {{-- Page Header --}}
-@section('header')
-  <div class="pageHeader">
-    <!-- Page Title -->
-    <h2 class="pageTitle">Journal</h2>
+@section('page_header')
+  <div class="page-header">
+    <h2 class="page-header__title">
+      {{ HTML::image('/img/icons/journal.png') }}
+      Journal
+    </h2>
 
-    <!-- Page Buttons -->
-    <ul class="pageButtons">
-      <li>{{ link_to_route('create_entry', 'NEW ENTRY', null, ['class' => 'button secondary']) }}</li>
+    <ul class="page-header__buttons">
+      <li>{{ link_to_route('create_entry', 'NEW ENTRY', null, ['class' => 'page-header__button']) }}</li>
     </ul>
   </div>
 @stop
 
 {{-- Page Content --}}
-@section('content')
+@section('page_content')
+<!--
+  Filters ============================================= -->
+  <div class="filters">
+    <ul class="filters__types">
+
+      @if($type == 'trashed')
+
+        <li class="filters__types__items">{{ link_with_type('active', 'view_journal', 'ALL')}}({{ $allCount }})</li>
+        <li class="filters__types__items">{{ link_with_type('trashed', 'view_journal', 'TRASHED', ['class' => 'active'])}}({{ $trashCount }})</li>
+
+      @else
+
+        <li class="filters__types__items">{{ link_with_type('active', 'view_journal', 'ALL', ['class' => 'active'])}}({{ $allCount }})</li>
+        <li class="filters__types__items">{{ link_with_type('trashed', 'view_journal', 'TRASHED')}}({{ $trashCount }})</li>
+
+      @endif
+
+    </ul>
+  </div>
 
 <!--
   Main ============================================= -->
-  <div class="main">
+  @if ($entries->count())
 
-    @if ($entries->count())
+  <div class="entries-index__wrapper">
+    <div class="pagination__wrapper">
+      {{ $entries->appends(Request::except('page'))->links() }}
+    </div>
 
-      <div class="indexControls">
-        <div class="pages">
-          {{ $entries->appends(Request::except('page'))->links() }}
-        </div>
-      </div>
+    <ul class="entries-index">
 
-      <table class="indexTable">
-        @foreach($entries as $entry)
-          <tr class="indexRow entry">
-            <td class="date">
-              <span class="month">{{ date('M', strtotime($entry->created_at)) }}</span>
-              <span class="day">{{ date('d', strtotime($entry->created_at)) }}</span>
-            </td>
+      @foreach($entries as $entry)
+        <li class="entries-index__item">
+          <div class="entries-index__date">
+            <p class="entries-index__month">{{ date('M', strtotime($entry->created_at)) }}</p>
+            <p class="entries-index__day">{{ date('d', strtotime($entry->created_at)) }}</p>
+          </div>
 
-            <td class="title">{{ $entry->title }}</td>
+          <h2 class="entries-index__title">{{ $entry->title }}</h2>
 
-            <td class="buttons">
-              @if($type == 'trashed') 
+          <ul class="entries-index__buttons">
+            @if($type == 'trashed')
 
-                {{ link_to_route('destroy_entry', 'DESTROY', $entry->id, ['class' => 'button secondary small'] ) }}
-                {{ link_to_route('restore_entry', 'RESTORE', $entry->id, ['class' => 'button primary small'] ) }}
+              <li class="entries-index__buttons__item">{{ link_to_route('destroy_entry', '', $entry->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY'] ) }}</li>
+              <li class="entries-index__buttons__item">{{ link_to_route('restore_entry', '', $entry->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE'] ) }}</li>
 
-              @else
+            @else
 
-                {{ link_to_route('trash_entry', 'Trash', $entry->id, ['class' => 'button secondary small'] ) }}
-                {{ link_to_route('show_entry', 'VIEW', $entry->id, ['class' => 'button primary small'] ) }}
+              <li class="entries-index__buttons__item">{{ link_to_route('trash_entry', '', $entry->id, ['class' => 'icon-index--trash', 'title' => 'TRASH'] ) }}</li>
+              <li class="entries-index__buttons__item">{{ link_to_route('edit_entry', '', $entry->id, ['class' => 'icon-index--edit', 'title' => 'WRITE'] ) }}</li>
 
-              @endif
-            </td>
-          </tr>
-        @endforeach
-      </table>
+            @endif
+          </ul>
+        </li>
+      @endforeach
 
-      <div class="indexControls">
-        <div class="pages">
-          {{ $entries->appends(Request::except('page'))->links() }}
-        </div>
-      </div>
+    </ul>
 
-    @else
-
-      {{-- Empty Message --}}
-      <div class="indexControls">
-        <div class="pages">
-          {{ $entries->appends(Request::except('page'))->links() }}
-        </div>
-      </div>
-
-      <div class="emptyMessage">
-        <h2 class="title">There's nothing here.</h2>
-      </div>
-
-      <div class="indexControls">
-        <div class="pages">
-          {{ $entries->appends(Request::except('page'))->links() }}
-        </div>
-      </div>
-
-    @endif
-  </div>
-
-
-
-<!--
-  Sidebar ============================================= -->
-  <div class="sidebar">
-    <div class="filters">
-      <ul class="types">
-
-        @if($type == 'trashed')
-
-          <li>{{ link_with_query('type', 'active', 'view_journal', 'ALL', ['class' => 'link secondary'])}} ({{ $allCount }})</li>
-          <li>{{ link_with_query('type', 'trashed', 'view_journal', 'TRASHED', ['class' => 'link secondary active'])}} ({{ $trashCount }})</li>
-
-        @else
-
-          <li>{{ link_with_query('type', 'active', 'view_journal', 'ALL', ['class' => 'link secondary active'])}} ({{ $allCount }})</li>
-          <li>{{ link_with_query('type', 'trashed', 'view_journal', 'TRASHED', ['class' => 'link secondary'])}} ({{ $trashCount }})</li>
-
-        @endif
-
-      </ul>
+    <div class="pagination__wrapper">
+      {{ $entries->appends(Request::except('page'))->links() }}
     </div>
   </div>
+
+  @else
+
+    <div class="empty-message--main-box">
+      <h2 class="empty-message__title">There's nothing here.</h2>
+    </div>
+
+  @endif
 
 @stop

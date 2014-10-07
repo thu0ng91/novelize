@@ -1,0 +1,183 @@
+// Color
+$c_bodyText: $greyDarker;
+
+$c_entriesIndexTitle: $greyDarker;
+$c_entriesIndexMonthText: $greyLightest;
+$c_entriesIndexDateText: $greyDark;
+$c_entryMetaText: $grey;
+
+$c_errorText: red;
+$c_headingText: $greyDarker;
+$c_helpText: $greyLight;
+$c_highlightText: $orange;
+
+$c_labelText: $greyDark;
+$c_lightText: $greyLight;
+
+$c_mediumEditorPlaceholderText: $grey;
+
+$c_messageText: $greyDarker;
+$c_messageText--info: $blueDark;
+$c_messageText--success: $greenDark;
+$c_messageText--warning: $yellowDark;
+$c_messageText--danger: $redDark;
+
+$c_novelIndexNotebook: $grey;
+$c_novelIndexTitle: $greyDarker;
+
+$c_notebookIndexCountText: $grey;
+$c_notebookNovelListTitle: $grey;
+$c_notebookSidebarEmptyTitle: $grey;
+
+$c_pageHeaderTitle: $greyDark;
+
+$c_paginationText: $grey;
+$c_paginationText-active: $greyDarker;
+$c_paginationText-disabled: $greyLight;
+
+
+
+// Color (Links)
+$c_adminBarLink: $white;
+
+$c_filtersLink: $greyLight;
+$c_filtersLink-hover: $orange;
+$c_filtersLink-active: $greyDark;
+
+$c_buttonLink-primary: $orange;
+$c_buttonLink-secondary: $greyLight;
+$c_buttonLink-focus: $white;
+$c_buttonLink-hover: $white;
+
+$c_editLink: $white;
+
+$c_link: $orange;
+$c_link-hover: $orangeLight;
+$c_link-active: $blackLight;
+
+$c_paginationLink: $greyDark;
+$c_paginationLink-hover: $white;
+
+$c_mediumEditorLink: $orange;
+$c_mediumEditorLink-hover: $white;
+$c_mediumEditorLink-active: $white;
+
+$c_menuLink: $greyLight;
+$c_menuLink-hover: $white;
+$c_menuLink-active: $greyDarker;
+
+$c_notebookMenuLink: $grey;
+$c_notebookMenuLink-hover: $orange;
+$c_notebookMenuLink-active: $greyDarker;
+
+$c_pageHeaderLink: $greyLight;
+$c_pageHeaderLink-hover: $orange;
+$c_pageHeaderLink-active: $greyDarker;
+
+$c_supportLink: $grey;
+$c_supportLink-hover: $orange;
+$c_supportLink-active: $greyDarkest;
+
+$c_tableOfContentsButton: $greyLight;
+$c_tableOfContentsButton-hover: $orange;
+
+$c_tableOfContentsLink: $grey;
+$c_tableOfContentsLink-hover: $greyDarker;
+$c_tableOfContentsLink-active: $greyDarkest;
+
+
+
+// Background-Color
+$c_adminBarBkgd: $orange;
+$c_bodyBkgd: $offWhite;
+
+$c_buttonBkgd-focus: $orange;
+$c_buttonBkgd-hover: $orange;
+
+$c_editLinkBkgd: $orange;
+$c_editLinkBkgd-hover: $greyDarker;
+
+$c_entriesIndexBgkd: $greyLightest;
+$c_mainBoxBkgd: $white;
+
+$c_mediumEditorBkgd: $white;
+$c_mediumEditorBkgd-hover: $orange;
+$c_mediumEditorBkgd-active: $greyDark;
+
+$c_menuLinkBkgd-active: $orange;
+$c_menuLinkBkgd-hover: $orange;
+
+$c_messageBkgd: $greyLightest;
+$c_messageBkgd--info: $blueDark;
+$c_messageBkgd--success: $greenDark;
+$c_messageBkgd--warning: $yellowDark;
+$c_messageBkgd--danger: $redDark;
+
+$c_notebookIndexBgkd: $greyLightest;
+$c_notebookMenuBkgd-active: $white;
+$c_notebookMenuBkgd-hover: $white;
+
+$c_novelIndexBgkd: $greyLightest;
+$c_paginationBkgd-hover: $orange;
+$c_profileSectionButtonBkgd-hover: $orange;
+
+$c_sidePanelBgkd: $greyLighter;
+
+$c_tableOfContentsBkgd-hover: $white;
+
+
+
+// Border-Color
+$c_buttonBorder-primary: $orange;
+$c_buttonBorder-secondary: $greyLighter;
+$c_buttonBorder-focus: $orange;
+$c_buttonBorder-hover: $orange;
+
+$c_editableBorder: $orange;
+
+$c_entriesIndexBorder: $greyLight;
+$c_entryMetaBorder: $greyLighter;
+
+$c_formBorder: $greyLight;
+$c_formBorder-focus: $greyDark;
+
+$c_itemIndexCellBorder: $greyLighter;
+
+$c_mediumEditorBorder: $orange;
+$c_mediumEditorBorder-hover: $c_mediumEditorBkgd-hover;
+$c_mediumEditorBorder-active: $c_mediumEditorBkgd-active;
+
+$c_menuBorder: $greyLight;
+$c_menuLinkBorder: $greyLighter;
+$c_menuLinkBorder-active: $greyDark;
+$c_menuLinkBorder-focus: $greyDark;
+$c_menuLinkBorder-hover: $greyLighter;
+
+$c_messageBorder: $greyDarker;
+$c_messageBorder--info: $blueDark;
+$c_messageBorder--success: $greenDark;
+$c_messageBorder--warning: $yellowDark;
+$c_messageBorder--danger: $redDark;
+
+$c_novelIndexBorder: $greyLight;
+
+$c_notebookIndexBorder: $greyLight;
+$c_notebookSidebarBorder: $greyLight;
+
+$c_paginationBorder: $greyLighter;
+$c_paginationBorder-active: $greyDark;
+$c_paginationBorder-disabled: $greyLightest;
+$c_paginationBorder-hover: $orange;
+$c_profileSectionBorder: $greyLightest;
+
+$c_sidePanelBorder: $greyLight;
+
+$c_supportBorder: $greyLighter;
+
+$c_tableOfContentsBorder: $greyLighter;
+$c_novelWriteFormBorder: $greyLighter;
+$c_userIndexCellBorder: $greyLighter;
+
+
+// Shadow
+$c_mainBoxShadow: $shadow;

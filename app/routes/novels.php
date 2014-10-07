@@ -3,25 +3,35 @@
 /*
  * View Routes
  */
-Route::get( 'app/novels', [
+Route::get( '/novels', [
     'as' => 'view_novels',
     'uses' => 'NovelController@index'
 ]);
-Route::get( 'app/novel/create', [
+Route::get( '/novel/create', [
     'as' => 'create_novel',
     'uses' => 'NovelController@create'
 ]);
-Route::get( 'app/novel/{novelId}/edit', [
+Route::get( '/novel/{novelId}/edit', [
     'as' => 'edit_novel',
     'uses' => 'NovelController@edit'
 ]);
-Route::get( 'app/novel/{novelId}/show', [
-    'as' => 'show_novel',
-    'uses' => 'NovelController@show'
+
+
+Route::get( '/novel/{novelId}/plot/{sceneId}', [
+    'as' => 'plot_novel',
+    'uses' => 'NovelController@plot'
 ]);
-Route::get( 'app/novel/{novelId}/write', [
+Route::get( '/novel/{novelId}/write/{sceneId}', [
     'as' => 'write_novel',
     'uses' => 'NovelController@write'
+]);
+Route::get( '/novel/{novelId}/review/{sceneId}', [
+    'as' => 'review_novel',
+    'uses' => 'NovelController@review'
+]);
+Route::get( '/novel/{novelId}/publish/{sceneId}', [
+    'as' => 'publish_novel',
+    'uses' => 'NovelController@publish'
 ]);
 
 /*

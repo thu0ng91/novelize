@@ -1,0 +1,37 @@
+.user-index__wrapper {
+	@include main-box;
+	@include container;
+	padding: 40px;
+}
+
+.user-index {
+	width: 100%;
+	border-spacing: 4px;
+}
+
+.user-index__row {
+	&:hover {
+		background-color: $greyLightest;
+	}
+}
+
+.user-index__cell {
+	padding: 8px;
+	border: 1px solid $c_userIndexCellBorder;
+}
+.user-index__cell--buttons {
+	@extend .user-index__cell;
+	width: 110px;
+
+	a {
+		display: inline-block;
+		margin: 0 6px;
+	}
+}
+
+.user-index__head-cell {
+	padding: 8px;
+	border: 1px solid $c_userIndexCellBorder;
+	border-top: none;
+}
+

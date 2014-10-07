@@ -1,0 +1,126 @@
+%icon {
+	display: block;
+}
+
+
+
+%icon-index {
+	@extend %icon;
+	height: 30px;
+	width: 30px;
+	background-image: url('../img/icons/index.png');
+}
+
+.icon-index--destroy {
+	@extend %icon-index;
+	background-position: 60px top;
+	&:hover {
+		background-position: 60px bottom;
+	}
+}
+.icon-index--settings {
+	@extend %icon-index;
+	background-position: 150px top;
+	&:hover {
+		background-position: 150px bottom;
+	}
+}
+.icon-index--restore {
+	@extend %icon-index;
+	background-position: 30px top;
+	&:hover {
+		background-position: 30px bottom;
+	}
+}
+.icon-index--trash {
+	@extend %icon-index;
+	background-position: 90px top;
+	&:hover {
+		background-position: 90px bottom;
+	}
+}
+.icon-index--edit {
+	@extend %icon-index;
+	background-position: 120px top;
+	&:hover {
+		background-position: 120px bottom;
+	}
+}
+
+
+
+
+.icon-manage {
+	@extend %icon;
+	height: 24px;
+	width: 24px;
+	background-image: url('../img/icons/misc.png');
+	background-position: top left;
+
+	&:hover {
+		background-position: bottom left;
+	}
+}
+
+
+
+%icon-notebook-menu {
+	background-repeat: no-repeat;
+	background-position: 10px center;
+	background-size: 30px 30px;
+}
+.icon-notebook-menu--characters {
+	@extend %icon-notebook-menu;
+	background-image: url('../img/icons/characters.png');
+}
+.icon-notebook-menu--locations {
+	@extend %icon-notebook-menu;
+	background-image: url('../img/icons/locations.png');
+}
+.icon-notebook-menu--items {
+	@extend %icon-notebook-menu;
+	background-image: url('../img/icons/items.png');
+}
+.icon-notebook-menu--notes {
+	@extend %icon-notebook-menu;
+	background-image: url('../img/icons/notes.png');
+}
+
+
+.icon--accordion-triangle {
+	display: inline-block;
+	height: 16px;
+	width: 16px;
+	background-image: url(../img/icons/triangles-accordion.png);
+
+	&.open {
+		background-position: center bottom;
+	}
+}
+
+
+
+.icon--panel {
+	background-image: url(../img/icons/side-panel-menu.png)
+}
+
+.icon--panel-characters {
+	@extend .icon--panel;
+	background-position: center 0px;
+}
+.icon--panel-locations {
+	@extend .icon--panel;
+	background-position: center 40px;
+}
+.icon--panel-items {
+	@extend .icon--panel;
+	background-position: center 80px;
+}
+.icon--panel-notes {
+	@extend .icon--panel;
+	background-position: center 120px;
+}
+.icon--panel-novels {
+	@extend .icon--panel;
+	background-position: center 160px;
+}

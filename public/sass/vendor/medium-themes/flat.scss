@@ -1,0 +1,43 @@
+.medium-toolbar-arrow-under:after {
+  top: $s_mediumEditorButton + 2px;
+  border-color: $c_mediumEditorBorder transparent transparent transparent;
+}
+
+.medium-toolbar-arrow-over:before {
+  top: -8px;
+  border-color: transparent transparent $c_mediumEditorBorder transparent;
+}
+
+.medium-editor-toolbar {
+  background-color: transparent;
+
+  li {
+    padding: 0;
+
+    button {
+      min-width: $s_mediumEditorButton;
+      height: $s_mediumEditorButton;
+      margin: 0 2px;
+      border: 1px solid $c_mediumEditorBorder;
+      background-color: $c_mediumEditorBkgd;
+      color: $c_mediumEditorLink;
+      transition: all .2s ease-in;
+
+      &:hover {
+        background-color: $c_mediumEditorBorder-hover;
+        border-color: $c_mediumEditorBkgd-hover;
+        color: $c_mediumEditorLink-hover;
+      }
+    }
+
+    .medium-editor-button-active {
+      background-color: $c_mediumEditorBorder-active;
+      border-color: $c_mediumEditorBkgd-active;
+      color: $c_mediumEditorLink-active;
+    }
+  }
+}
+
+.medium-editor-placeholder:after {
+  color: $c_mediumEditorPlaceholderText;
+}

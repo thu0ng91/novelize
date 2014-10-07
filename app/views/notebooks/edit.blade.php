@@ -2,28 +2,28 @@
 @section('body_class', 'edit')
 
 {{-- Page Header --}}
-@section('header')
-  <div class="pageHeader">
-    <div class="top">
-      <h2 class="pageTitle">Update Notebook</h2>
-      <ul class="pageButtons">
-        <li>{{ link_to_route('view_notebooks', 'CANCEL', null, ['class' => 'button secondary']) }}</li>
-      </ul>
-    </div>
-    <div class="bottom">
-    </div>
+@section('page_header')
+  <div class="page-header">
+    <h2 class="page-header__title">
+      {{ HTML::image('/img/icons/notebook.png') }}
+      Edit: {{ $notebook->name }}
+    </h2>
+
+    <ul class="page-header__buttons">
+      <li>{{ link_to_route('view_notebooks', 'CANCEL', null, ['class' => 'page-header__button']) }}</li>
+    </ul>
   </div>
 @stop
 
 {{-- Page Content --}}
-@section('content')
+@section('page_content')
   {{-- Form --}}
-  <div class="editForm">
-    {{ Form::model($notebook, ['method' => 'PUT', 'route' => ['update_notebook', $notebook->id]]) }}
+  <div class="basic-form__wrapper">
+    {{ Form::model($notebook, ['method' => 'PUT', 'route' => ['update_notebook', $notebook->id], 'class' => 'basic-form']) }}
       @include('notebooks.partials.form')
 
-      <div class="formBlock submit">
-       {{ Form::submit('UPDATE', ['class' => 'button submit']) }}
+      <div class="form-block--submit">
+       {{ Form::submit('UPDATE ' . $notebook->name, ['class' => 'form-button']) }}
       </div>
     {{ Form::close() }}
   </div>

@@ -1,0 +1,39 @@
+.entry-title {
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	@include font-size(1.5);
+}
+
+.edit-entry {
+  @include main-box;
+  @include container;
+  margin-top: 20px;
+  padding: 20px 0;
+}
+
+.edit-entry__form {
+	width: $w_maxColumn;
+	margin: 0 auto;
+}
+
+.edit-entry__meta {
+	width: $w_maxColumn;
+	margin: 0 auto 20px;
+	padding: 12px;
+	border: 1px solid $c_entryMetaBorder;
+	text-align: center;
+	list-style: none;
+}
+.edit-entry__meta__item {
+	display: inline-block;
+	margin: 0 8px;
+	color: $c_entryMetaText;
+	@include font-size(0.875);
+
+	span {
+		margin-top: 8px;
+		@include font-size(1);
+		text-align: right;
+	}
+}

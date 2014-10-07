@@ -1,0 +1,60 @@
+.page-header {
+  @include clearfix;
+  @include main-box;
+  @include container;
+  padding: 15px;
+}
+
+.page-header__title {
+  float: left;
+  @include font-size(2.125);
+  font-family: $f_serif;
+  color: $c_pageHeaderTitle;
+
+  img {
+    padding-right: 4px;
+    vertical-align: bottom;
+  }
+
+  span {
+    font-size: 45%;
+    font-weight: $f_normal;
+  }
+}
+
+.page-header__manage {
+  display: inline-block;
+}
+
+.page-header__buttons {
+  float: right;
+  margin: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+  }
+}
+
+.page-header__button {
+  @extend %button-reset;
+  height: 40px;
+  padding: ((40px - 16px) / 2) 20px;
+  border: 1px solid $c_buttonBorder-secondary;
+  @include link-colors($c_buttonLink-secondary, $c_buttonLink-hover);
+
+  &:hover {
+    background-color: $c_buttonBkgd-hover;
+    border-color: $c_buttonBorder-hover;
+  }
+}
+
+.page-header__item {
+
+  a {
+    display: inline-block;
+    padding: ((40px - 16px) / 2) 6px;
+    @include link-colors($c_pageHeaderLink, $c_pageHeaderLink-hover, $c_pageHeaderLink-active);
+    text-decoration: none;
+  }
+}

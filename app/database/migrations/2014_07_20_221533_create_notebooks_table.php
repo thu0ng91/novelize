@@ -148,6 +148,7 @@ class CreateNotebooksTable extends Migration {
     Schema::drop('items');
     Schema::drop('locations');
     Schema::drop('characters');
+    Schema::drop('character_types');
     Schema::drop('notebooks');
 	}
 

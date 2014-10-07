@@ -1,0 +1,10 @@
+.basic-form__wrapper {
+  @include main-box;
+  @include container;
+  margin-top: 20px;
+  padding: 40px 20px;
+}
+.basic-form {
+	max-width: $w_maxColumn;
+	margin: 0 auto;
+}

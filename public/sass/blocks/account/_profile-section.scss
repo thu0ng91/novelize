@@ -1,0 +1,14 @@
+.profile-section {
+	margin-bottom: 20px;
+	padding: 10px;
+	border: 1px solid $c_profileSectionBorder;
+}
+
+.profile-section__heading {
+	margin-bottom: 12px;
+}
+
+.profile-section__description {
+	@extend %paragraph;
+	@include font-size(0.9);
+}
