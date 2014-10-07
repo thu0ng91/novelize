@@ -174,8 +174,8 @@ class MailController extends \BaseController {
     ];
 
     $rules = [
-      'details' => 'required'
-      'os' => 'required'
+      'details' => 'required',
+      'os' => 'required',
       'browser' => 'required'
     ];
 
