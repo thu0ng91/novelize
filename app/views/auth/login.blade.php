@@ -1,17 +1,17 @@
 @extends('layouts.auth')
-@section('body_class', 'login')
+@section('body_class', 'auth')
 
 @section('content')
 
   <div class="auth-box">
 
-    <div class="logo">
+    <div class="auth-box__logo">
       {{ HTML::image('img/identity/logo-white.png', 'Novelize') }}
     </div>
 
     @include('layouts.partials.messages')
 
-    {{ Form::open(['route' => 'login']) }}
+    {{ Form::open(['route' => 'login', 'class' => 'auth-box__form']) }}
       <div class="form-block">
         {{ Form::label('email', 'EMAIL ADDRESS') }}
         {{ Form::email('email') }}
@@ -27,20 +27,12 @@
       <div class="form-block">
         {{ Form::submit('LOGIN', ['class' => 'form-button']) }}
       </div>
-
-      <div class="form-block">
-        <label class="label--checkbox" for="remember">
-          {{ Form::checkbox('remember', 'true', null, ['id' => 'remember']) }}
-          Remember Me
-        </label>
-
-        {{ link_to_route('remind_page', 'Forgot Password?', null, ['class' => 'link--remind']) }}
-      </div>
     {{ Form::close() }}
 
+    {{ link_to_route('remind_page', 'Forgot Password?', null, ['class' => 'auth-box__link']) }}
   </div>
 
-  <div class="auth-box--bottom">
+  <div class="auth-box__bottom">
     <p>Need an Account? {{ link_to_route('register_page', 'Sign Up') }}</p>
   </div>
 

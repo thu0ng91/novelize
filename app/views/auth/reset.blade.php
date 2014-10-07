@@ -1,50 +1,40 @@
 @extends('layouts.auth')
-@section('body_class', 'remind')
+@section('body_class', 'auth')
 
 @section('content')
 
   <div class="auth-box">
 
-    <div class="logo">
+    <div class="auth-box__logo">
       {{ HTML::image('img/identity/logo-white.png', 'Novelize') }}
     </div>
 
     @include('layouts.partials.messages')
 
-    {{ Form::open(['route' => 'post_reset']) }}
-      <div class="formBlock">
-        {{ Form::hidden('token', $token) }}
-      </div>
+    {{ Form::open(['route' => 'post_reset', 'class' => 'auth-box__form']) }}
+      {{ Form::hidden('token', $token) }}
 
-      <div class="formBlock">
+      <div class="form-block">
         {{ Form::label('email', 'Email Address') }}
         {{ errors_for('email', $errors) }}
         {{ Form::email('email') }}
       </div>
 
-      <div class="formBlock">
+      <div class="form-block">
         {{ Form::label('password', 'Password') }}
         {{ errors_for('password', $errors) }}
         {{ Form::password('password') }}
       </div>
 
-      <div class="formBlock">
+      <div class="form-block">
         {{ Form::label('password_confirmation', 'Confirm Password') }}
         {{ errors_for('password_confirmation', $errors) }}
         {{ Form::password('password_confirmation') }}
       </div>
 
-      <div class="formBlock submit">
-       {{ Form::submit('RESET PASSWORD', ['class' => 'button submit']) }}
+      <div class="form-block--submit">
+       {{ Form::submit('RESET PASSWORD', ['class' => 'form-button']) }}
       </div>
     {{ Form::close() }}
-
-  <form action="{{ action('RemindersController@postReset') }}" method="POST">
-    <input type="hidden" name="token" value="{{ $token }}">
-    <input type="email" name="email">
-    <input type="password" name="password">
-    <input type="password" name="password_confirmation">
-    <input type="submit" value="Reset Password">
-</form>
-
+  </div>
 @stop

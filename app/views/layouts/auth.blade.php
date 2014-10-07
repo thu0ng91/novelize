@@ -26,6 +26,7 @@
   @yield('content')
 </div>
 
+<a href="http://www.getnovelize.com" class="auth__website-link">&#8592; Back to GetNovelize.com</a>
 
 {{ HTML::script('js/min/auth.min.js') }}
 @yield('foot_scripts')

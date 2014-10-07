@@ -36,5 +36,10 @@ small {
 
 
 a {
+  text-decoration: none;
   @include link-colors($c_link, $c_link-hover, $c_link-active);
+
+  &:hover {
+    text-decoration: underline;
+  }
 }

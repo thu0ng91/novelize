@@ -1,0 +1,11 @@
+.auth {
+  padding-top: 80px;
+}
+
+.auth__website-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  @include font-size(0.9);
+  @include link-colors($c_authLink, $c_authLink-hover);
+}

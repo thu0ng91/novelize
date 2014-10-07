@@ -40,6 +40,9 @@ $c_paginationText-disabled: $greyLight;
 // Color (Links)
 $c_adminBarLink: $white;
 
+$c_authLink: $grey;
+$c_authLink-hover: $orange;
+
 $c_filtersLink: $greyLight;
 $c_filtersLink-hover: $orange;
 $c_filtersLink-active: $greyDark;
@@ -52,7 +55,7 @@ $c_buttonLink-hover: $white;
 $c_editLink: $white;
 
 $c_link: $orange;
-$c_link-hover: $orangeLight;
+$c_link-hover: $orangeDark;
 $c_link-active: $blackLight;
 
 $c_paginationLink: $greyDark;
