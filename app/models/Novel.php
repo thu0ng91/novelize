@@ -24,7 +24,8 @@ class Novel extends \Eloquent {
 
   public static $rules = [
     'title' => 'required',
-    'author' => 'required'
+    'notebook_id' => 'required',
+    'genre_id' => 'required'
   ];
 
   public function user()

@@ -1,17 +1,23 @@
-{{ Form::open(['method' => 'PUT', 'route' => 'send_support', 'class' => 'support-form']) }}
+{{ Form::open(['route' => 'mail_feedback', 'class' => 'support-form']) }}
 
   {{ Form::hidden('email', $user->email) }}
 
 	<div class="form-block">
-	  {{ Form::label('how_like', 'How do you like Novelize, so far?') }}
-	  {{ Form::text('how_like') }}
-	  {{ errors_for('how_like', $errors) }}
+	  {{ Form::label('like', 'What do you like about Novelize?') }}
+	  {{ Form::textarea('like', null, ['rows' => '6']) }}
+	  {{ errors_for('like', $errors) }}
 	</div>
 
 	<div class="form-block">
-	  {{ Form::label('details', 'What is you\'re feedback?') }}
-	  {{ Form::textarea('details', null, ['rows' => '14']) }}
-	  {{ errors_for('details', $errors) }}
+	  {{ Form::label('hate', 'What do you hate about Novelize?') }}
+	  {{ Form::textarea('hate', null, ['rows' => '6']) }}
+	  {{ errors_for('hate', $errors) }}
+	</div>
+
+	<div class="form-block">
+	  {{ Form::label('comments', 'What else is on your mind?') }}
+	  {{ Form::textarea('comments') }}
+	  {{ errors_for('comments', $errors) }}
 	</div>
 
 	<div class="form-bloc--submit">

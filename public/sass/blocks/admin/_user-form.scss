@@ -1,0 +1,6 @@
+.user-form {
+	@include container;
+	@include main-box;
+	margin-top: 20px;
+	padding: 40px;
+}

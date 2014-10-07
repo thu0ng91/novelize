@@ -10,6 +10,6 @@
     <div>{{ $body }}</div>
 
     <p>Sincerely,</br>
-      {{ $name }}</p>
+      {{ $firstName }} {{ $lastName }} ({{ $userId }})</p>
   </body>
 </html>

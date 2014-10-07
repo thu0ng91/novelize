@@ -18,11 +18,9 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
   protected $fillable = [
     'role_id',
     'profile_id',
-    'username',
     'email',
     'password',
-    'remember_token',
-    'activated'
+    'remember_token'
   ];
 
   public static $rulesStore = [

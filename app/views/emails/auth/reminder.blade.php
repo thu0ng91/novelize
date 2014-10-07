@@ -7,10 +7,10 @@
 
 
 <body>
-	<h2>Password Reset</h2>
+	<h2>Novelize| Password Reset</h2>
 
 	<div>
-		To reset your password, complete this form: {{ URL::route('reset_page', array($token)) }}.<br/>
+		To reset your Novelize password, follow this link and complete the new password form: {{ URL::route('reset_page', array($token)) }}.<br/>
 		This link will expire in {{ Config::get('auth.reminder.expire', 60) }} minutes.
 	</div>
 </body>

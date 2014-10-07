@@ -64,7 +64,7 @@ class NovelController extends \BaseController {
     if(! $notebooks->count())
     {
       return Redirect::route('create_notebook')
-        ->with('alert_success', 'Please create a notebook to store your first Novel');
+        ->with('alert_info', 'Please create a notebook to store your first Novel. Don\'t worry about the name too much, it can always be changed later.');
     }
 
     return View::make('novels.create', compact('notebooks', 'genres', 'name'));

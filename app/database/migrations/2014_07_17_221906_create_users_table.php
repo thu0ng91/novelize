@@ -39,7 +39,7 @@ class CreateUsersTable extends Migration {
 
       // Notifications
       $table->boolean('notify_updates');
-      $table->boolean('newsletter_memeber');      
+      $table->boolean('newsletter_memeber');
 
       // Timestamps
       $table->timestamps();
@@ -56,11 +56,9 @@ class CreateUsersTable extends Migration {
       $table->integer('profile_id')->unsigned();
 
       // User Info
-			$table->string('username')->unique();
 			$table->string('email')->unique();
 			$table->string('password', 60);
       $table->string('remember_token')->nullable();
-      $table->boolean('activated');
 
       // Foreign Keys
       $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade')->onUpdate('cascade');

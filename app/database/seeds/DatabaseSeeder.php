@@ -20,13 +20,13 @@ class DatabaseSeeder extends Seeder {
       'RoleTableSeeder',
       'GenreTableSeeder',
       'UserTableSeeder',
-      'NotebookTableSeeder',
+      // 'NotebookTableSeeder',
       'CharacterTypeTableSeeder',
-      'CharacterTableSeeder',
-      'NovelTableSeeder',
-      'ChapterTableSeeder',
-      'SceneTableSeeder',
-      'EntryTableSeeder',
+      // 'CharacterTableSeeder',
+      // 'NovelTableSeeder',
+      // 'ChapterTableSeeder',
+      // 'SceneTableSeeder',
+      // 'EntryTableSeeder',
     ];
 
     /**

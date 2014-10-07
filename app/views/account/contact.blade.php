@@ -15,9 +15,9 @@
 
     <p class="support-types">
       @if ($type == 'general')
-        {{ link_to_route('view_contact', 'General Question', [$user->id, 'general'], ['class' => 'active']) }}
+        {{ link_to_route('view_contact', 'General', [$user->id, 'general'], ['class' => 'active']) }}
       @else
-        {{ link_to_route('view_contact', 'General Question', [$user->id, 'general']) }}
+        {{ link_to_route('view_contact', 'General', [$user->id, 'general']) }}
       @endif
 
       <span>/</span>

@@ -5,9 +5,14 @@
   </head>
 
   <body>
-    <p>Question: {{ $question }}</p>
+    <p>Like:</p>
+    <div>{{ $like }}</div>
 
-    <div>{{ $details }}</div>
+    <p>Hate:</p>
+    <div>{{ $hate }}</div>
+
+    <p>Comments:</p>
+    <div>{{ $comments }}</div>
 
     <p>Sincerely,</br>
       {{ $firstName }} {{ $lastName }} ({{ $userId }})</p>

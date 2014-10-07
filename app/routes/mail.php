@@ -3,11 +3,19 @@
 /*
  * Mail Routes
  */
-Route::put( 'mail/support', [
-  'as' => 'send_support',
+Route::post( 'mail/general', [
+  'as' => 'mail_general',
+  'uses' => 'MailController@general'
+]);
+Route::post( 'mail/support', [
+  'as' => 'mail_support',
   'uses' => 'MailController@support'
 ]);
-Route::post( 'mail/contact', [
-  'as' => 'send_contact',
-  'uses' => 'MailController@contact'
+Route::post( 'mail/feedback', [
+  'as' => 'mail_feedback',
+  'uses' => 'MailController@feedback'
+]);
+Route::post( 'mail/bug', [
+  'as' => 'mail_bug',
+  'uses' => 'MailController@bug'
 ]);

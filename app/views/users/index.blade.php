@@ -45,10 +45,8 @@
         <thead>
           <tr class="user-index__row--head">
             <th class="user-index__head-cell">id</th>
-            <th class="user-index__head-cell">username</th>
             <th class="user-index__head-cell">email</th>
             <th class="user-index__head-cell">role</th>
-            <th class="user-index__head-cell">activated</th>
             <th class="user-index__head-cell"></th>
           </tr>
         </thead>
@@ -57,14 +55,8 @@
           @foreach($users as $user)
             <tr class="user-index__row">
               <td class="user-index__cell">{{ $user->id }}</td>
-              <td class="user-index__cell">{{ $user->username }}</td>
               <td class="user-index__cell">{{ $user->email }}</td>
               <td class="user-index__cell">{{ $user->role->name }}</td>
-              @if ($user->activated == 1)
-                <td class="user-index__cell">activated</td>
-              @else ($user->activated == 0)
-                <td class="user-index__cell">inactive</td>
-              @endif
               <td  class="user-index__cell--buttons">
                 @if($type == 'trashed')
                   {{ link_to_route('destroy_user', '', $user->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY']) }}

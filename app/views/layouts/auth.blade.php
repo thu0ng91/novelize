@@ -28,7 +28,7 @@
 
 <a href="http://www.getnovelize.com" class="auth__website-link">&#8592; Back to GetNovelize.com</a>
 
-{{ HTML::script('js/min/auth.min.js') }}
+{{ HTML::script('js/min/bottom.min.js') }}
 @yield('foot_scripts')
 
 </body>

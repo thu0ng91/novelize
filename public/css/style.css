@@ -2069,6 +2069,17 @@ select:focus {
   border-top: none;
 }
 
+.user-form {
+  width: 90%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: white;
+  box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
+  margin-top: 20px;
+  padding: 40px;
+}
+
 .auth {
   padding-top: 80px;
 }

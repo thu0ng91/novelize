@@ -5,9 +5,12 @@
   </head>
 
   <body>
-    <p>Question: {{ $question }}</p>
-
+    <p>Details:</p>
     <div>{{ $details }}</div>
+
+    <p>OS: {{ $os }}</p>
+
+    <p>Browser: {{ $browser }}</p>
 
     <p>Sincerely,</br>
       {{ $firstName }} {{ $lastName }} ({{ $userId }})</p>
