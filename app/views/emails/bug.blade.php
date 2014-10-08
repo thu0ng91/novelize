@@ -5,14 +5,16 @@
   </head>
 
   <body>
-    <p>Details:</p>
-    <div>{{ $details }}</div>
+    <p>Details of the bug:</p>
+    <p style="margin: 5px 0 15px;">{{ $details }}</p>
 
-    <p>OS: {{ $os }}</p>
+    <p>What OS they have:</p>
+    <p style="margin: 5px 0 15px;">{{ $os }}</p>
 
-    <p>Browser: {{ $browser }}</p>
+    <p>What browser they are using:</p>
+    <p style="margin: 5px 0 15px;">{{ $browser }}</p>
 
-    <p>Sincerely,</br>
-      {{ $firstName }} {{ $lastName }} ({{ $userId }})</p>
+    <p>From:</p>
+    <p>{{ $firstName }} {{ $lastName }} (User Id: {{ $userId }})</p>
   </body>
 </html>

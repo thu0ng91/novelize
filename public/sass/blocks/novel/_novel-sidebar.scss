@@ -8,7 +8,7 @@
 .novel-sidebar__button	{
   @extend %button-reset;
   height: 36px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   padding: ((36px - 16px) / 2) 10px;
   border: 1px solid $c_buttonBorder-secondary;
   @include link-colors($c_buttonLink-secondary, $c_buttonLink-hover);

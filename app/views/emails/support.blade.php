@@ -5,11 +5,13 @@
   </head>
 
   <body>
-    <p>Question: {{ $question }}</p>
+    <p>Their question was:</p>
+    <p style="margin: 5px 0 15px;">{{ $question }}</p>
 
-    <div>{{ $details }}</div>
+    <p>Details:</p>
+    <p style="margin: 5px 0 15px;">{{ $details }}</p>
 
-    <p>Sincerely,</br>
-      {{ $firstName }} {{ $lastName }} ({{ $userId }})</p>
+    <p>From:</p>
+    <p>{{ $firstName }} {{ $lastName }} (User Id: {{ $userId }})</p>
   </body>
 </html>

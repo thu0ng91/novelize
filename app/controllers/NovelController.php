@@ -29,10 +29,12 @@ class NovelController extends \BaseController {
         ->get();
     }
 
+    $notebookCount = Notebook::where('owner_id', '=', Auth::user()->id)->get()->count();
+
     $allCount = Novel::all()->count();
     $trashCount = Novel::onlyTrashed()->get()->count();
 
-		return View::make('novels.index', compact('novels', 'type', 'allCount', 'trashCount'));
+		return View::make('novels.index', compact('novels', 'type', 'allCount', 'trashCount', 'notebookCount'));
 	}
 
 	/**

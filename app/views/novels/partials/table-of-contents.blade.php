@@ -26,7 +26,9 @@
           </a>
         @endforeach
 
-        {{ link_to_route('create_scene', 'NEW SCENE', [$novel->id, $chapter->id], ['class' => 'table-of-contents__button']) }}
+        {{ link_to_route('trash_chapter', 'DELETE CHAPTER', [$novel->id, $chapter->id], ['class' => 'table-of-contents__delete-chapter']) }}
+
+        {{ link_to_route('store_scene', 'NEW SCENE', [$novel->id, $chapter->id], ['class' => 'table-of-contents__button']) }}
       </div>
     </li>
   @endforeach

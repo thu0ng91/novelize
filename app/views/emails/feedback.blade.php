@@ -5,16 +5,16 @@
   </head>
 
   <body>
-    <p>Like:</p>
-    <div>{{ $like }}</div>
+    <p>What they like about Novelize:</p>
+    <p style="margin: 5px 0 15px;">{{ $like }}</p>
 
-    <p>Hate:</p>
-    <div>{{ $hate }}</div>
+    <p>What they hate about Novelize:</p>
+    <p style="margin: 5px 0 15px;">{{ $hate }}</p>
 
-    <p>Comments:</p>
-    <div>{{ $comments }}</div>
+    <p>What else is on their mind:</p>
+    <p style="margin: 5px 0 15px;">{{ $comments }}</p>
 
-    <p>Sincerely,</br>
-      {{ $firstName }} {{ $lastName }} ({{ $userId }})</p>
+    <p>From:</p>
+    <p>{{ $firstName }} {{ $lastName }} (User Id: {{ $userId }})</p>
   </body>
 </html>

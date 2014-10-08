@@ -22,9 +22,12 @@
 
 
 .empty-message__title {
+	margin-bottom: 20px;
 	text-align: center;
 }
 .empty-message__text {
 	margin: 12px 0;
+	@include font-size(1.25);
 	line-height: 1.2;
+	text-align: center;
 }

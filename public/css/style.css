@@ -200,7 +200,8 @@ a:active, a.active {
 a:hover {
   color: #b53e0e;
 }
-a:hover {
+
+p a:hover {
   text-decoration: underline;
 }
 
@@ -694,12 +695,16 @@ body {
 }
 
 .empty-message__title {
+  margin-bottom: 20px;
   text-align: center;
 }
 
 .empty-message__text {
   margin: 12px 0;
+  font-size: 20px;
+  font-size: 1.25rem;
   line-height: 1.2;
+  text-align: center;
 }
 
 .feedback-link {
@@ -731,6 +736,7 @@ body {
   margin-right: auto;
   margin-left: auto;
   padding: 6px 8px;
+  visibility: hidden;
 }
 
 .filters__types {
@@ -1318,13 +1324,13 @@ select:focus {
 }
 
 .profile-section {
-  margin-bottom: 20px;
-  padding: 10px;
+  margin-bottom: 40px;
+  padding: 20px;
   border: 1px solid #eeeeee;
 }
 
 .profile-section__heading {
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 
 .profile-section__description {
@@ -1405,7 +1411,7 @@ select:focus {
 
 .novel-sidebar__button {
   height: 36px;
-  margin-bottom: 20px;
+  margin-top: 20px;
   padding: 10px 10px;
   border: 1px solid #dddddd;
 }
@@ -1505,7 +1511,7 @@ select:focus {
   padding: 4px 10px;
   border: 1px solid #dddddd;
   border-right: none;
-  border-bottom: 0;
+  border-bottom: none;
   font-size: 14px;
   text-decoration: none;
 }
@@ -1521,6 +1527,24 @@ select:focus {
 .table-of-contents__button:hover {
   background-color: #e25822;
   border-color: #e25822;
+}
+
+.table-of-contents__delete-chapter {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 4px;
+  font-size: 13px;
+  text-decoration: none;
+}
+.table-of-contents__delete-chapter:link, .table-of-contents__delete-chapter:visited {
+  color: #cacaca;
+}
+.table-of-contents__delete-chapter:active, .table-of-contents__delete-chapter.active {
+  color: inherit;
+}
+.table-of-contents__delete-chapter:hover {
+  color: #e25822;
 }
 
 .write-scene__wrapper {
@@ -1553,6 +1577,23 @@ select:focus {
   font-size: 12px;
   font-size: 0.75rem;
   color: #cacaca;
+}
+
+.write-scene__delete-button {
+  position: absolute;
+  top: 10px;
+  right: 80px;
+  font-size: 14px;
+  font-size: 0.875rem;
+}
+.write-scene__delete-button:link, .write-scene__delete-button:visited {
+  color: #cacaca;
+}
+.write-scene__delete-button:active, .write-scene__delete-button.active {
+  color: inherit;
+}
+.write-scene__delete-button:hover {
+  color: #e25822;
 }
 
 .write-scene__details {

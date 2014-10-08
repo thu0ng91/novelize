@@ -39,9 +39,9 @@
 <!--
   Novel Sidebar ================================= -->
     <div class="novel-sidebar">
-      {{ link_to_route('create_chapter', 'NEW CHAPTER', $novel->id, ['class' => 'novel-sidebar__button']) }}
-
       @include('novels.partials.table-of-contents')
+
+      {{ link_to_route('store_chapter', 'NEW CHAPTER', $novel->id, ['class' => 'novel-sidebar__button']) }}
     </div>
 
 <!--
@@ -53,6 +53,8 @@
       <a href="#bottom" name="top" class="write-scene__to-bottom"></a>
 
       <p class="write-scene__breadcrumbs">Chapter {{ $currentScene->chapter->chapter_order }} / Scene {{ $currentScene->scene_order }}</p>
+
+      {{ link_to_route('trash_scene', 'DELETE SCENE', [$novel->id, $currentScene->id], ['class' => 'write-scene__delete-button']) }}
 
       <div class="write-scene__details">
         {{ Form::text('title', null, ['id' => 'title', 'class' => 'write-scene__title', 'placeholder' => 'Scene ' . $currentScene->scene_order]) }}

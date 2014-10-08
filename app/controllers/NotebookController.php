@@ -156,6 +156,14 @@ class NotebookController extends \BaseController {
    */
   public function trash($notebookId)
   {
+  	$notebook = Notebook::with('novels')->findOrFail($notebookId);
+
+    if( $notebook->novels->count() > 0 )
+    {
+      return Redirect::route('view_notebooks')
+      ->with('alert_danger', 'Please delete all the Novels associated with this Notebook before deleting the Notebook');
+    }
+
     Notebook::find($notebookId)->delete();
 
     return Redirect::route('view_notebooks')

@@ -85,7 +85,9 @@
   @else
 
     <div class="empty-message--main-box">
-      <h2 class="empty-message__title">There's nothing here.</h2>
+      <h2 class="empty-message__title">Your Journal's a little sparse</h2>
+
+      <p class="empty-message__text">Why don't you {{ link_to_route('create_entry', 'write') }} your first Entry.</p>
     </div>
 
   @endif

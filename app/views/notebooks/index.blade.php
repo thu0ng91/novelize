@@ -83,7 +83,9 @@
   @else
 
     <div class="empty-message--main-box">
-      <h2 class="empty-message__title">There's nothing here.</h2>
+      <h2 class="empty-message__title">No Notebooks here</h2>
+
+      <p class="empty-message__text">{{ link_to_route('create_notebook', 'Create') }} your first Notebook to get things rolling.</p>
     </div>
 
   @endif

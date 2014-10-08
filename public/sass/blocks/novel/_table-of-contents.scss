@@ -80,7 +80,7 @@
 	padding: 4px 10px;
 	border: 1px solid $c_tableOfContentsBorder;
 	border-right: none;
-	border-bottom: 0;
+	border-bottom: none;
 	font-size: 14px;
 	@include link-colors($c_buttonLink-secondary, $c_buttonLink-hover);
 	text-decoration: none;
@@ -89,4 +89,14 @@
     background-color: $c_buttonBkgd-hover;
     border-color: $c_buttonBorder-hover;
   }
+}
+
+.table-of-contents__delete-chapter {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 4px;
+	font-size: 13px;
+	@include link-colors($c_buttonLink-secondary, $orange);
+	text-decoration: none;
 }

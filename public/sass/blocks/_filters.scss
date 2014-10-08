@@ -1,6 +1,7 @@
 .filters {
   @include container;
   padding: 6px 8px;
+  visibility: hidden;
 }
 
 .filters__types {

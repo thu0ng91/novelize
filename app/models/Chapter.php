@@ -18,8 +18,7 @@ class Chapter extends \Eloquent {
   ];
 
   public static $rules = [
-    'chapter_order' => 'required',
-    'title' => 'required'
+    'chapter_order' => 'required'
   ];
 
   /**

@@ -81,7 +81,13 @@
   @else
 
     <div class="empty-message--main-box">
-      <h2 class="empty-message__title">There's nothing here.</h2>
+      <h2 class="empty-message__title">No Novels Here</h2>
+
+      @if( $notebookCount > 0 )
+        <p class="empty-message__text">Why don't you {{ link_to_route('create_novel', 'create') }} your first Novel.</p>
+      @else
+        <p class="empty-message__text">Make sure you've got a {{ link_to_route('create_notebook', 'Notebook') }} setup before you create your first Novel.</p>
+      @endif
     </div>
 
   @endif

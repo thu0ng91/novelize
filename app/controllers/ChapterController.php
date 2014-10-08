@@ -27,47 +27,31 @@ class ChapterController extends \BaseController {
    * @param  int  $novelId
    * @return Response
    */
-  public function store($novelId, $sectionOrder)
+  public function store($novelId)
   {
-    // Add 1 to all section orders below new section
-    $sections = DB::table('novel_sections')
-      ->where('novel_id', '=', $novelId)
-      ->where('section_order', '>', $sectionOrder)
-      ->get();
+    $novel = Novel::with('chapters')->findOrFail($novelId);
 
+    $chapter_order = $novel->chapters->last()['chapter_order'] + 1;
 
-    foreach ($sections as $section)
-    {
-      $currentSectionOrder = $section->section_order;
-      $newSectionOrder = $currentSectionOrder + 1;
-
-      $section = NovelSection::findOrFail($section->id);
-
-      $section->section_order = $newSectionOrder;
-      $section->save();
-    }
-
-    // Get new section order
-    $newSectionOrder = $sectionOrder + 1;
-
-    // New section data
-    $data = [
-      'novel_id' => $novelId,
-      'section_order' => $newSectionOrder,
-      'title' => '',
-      'body' => 'New Section',
-      'description' => ''
+    $chapter_data = [
+      'novel_id' => $novel->id,
+      'chapter_order' => $chapter_order
     ];
 
-    // Action
-    NovelSection::create($data);
+    // Create Chapter
+    $chapter = Chapter::create($chapter_data);
 
-    // URL
-    $url = URL::route('write_novel', $novelId) . '#section' . $newSectionOrder;
+    $scene_data = [
+      'chapter_id' => $chapter->id,
+      'scene_order' => 1
+    ];
+
+    // Create First Scene
+    $scene = Scene::create($scene_data);
 
     // Return
-    return Redirect::to($url)
-      ->with('alert_success', 'New section has been added');
+    return Redirect::route('write_novel', [$novelId, $scene->id])
+      ->with('flash_success', 'Chapter has been created');
   }
 
   /**
@@ -111,12 +95,32 @@ class ChapterController extends \BaseController {
    * @param  int  $novelId
    * @return Response
    */
-  public function trash($novelId)
+  public function trash($novelId, $chapterId)
   {
-    NovelSection::find($novelId)->delete();
+    $novel = Novel::with('chapters', 'scenes')->findOrFail($novelId);
 
-    return Redirect::route('view_novels')
-      ->with('alert_success', 'novel has been trashed');
+    $sceneId = $novel->scenes->first()['id'];
+
+    if( $novel->chapters->count() == 1 )
+    {
+      return Redirect::route('write_novel', [$novel->id, $sceneId])
+      ->with('alert_danger', 'This is the last chapter of the novel and can\'t be deleted.');
+    }
+
+    $chapter = Chapter::with('scenes')->findOrFail($chapterId);
+
+    $sceneId = $chapter->scenes->first()['id'];
+
+    if( $chapter->scenes->count() > 0 )
+    {
+      return Redirect::route('write_novel', [$novel->id, $sceneId])
+      ->with('alert_danger', 'Please delete all the scenes for this chapter before deleting the chapter');
+    }
+
+    Chapter::find($chapterId)->delete();
+
+    return Redirect::route('write_novel', [$novel->id, $novel->scenes->first()['id']])
+      ->with('alert_success', 'Chapter has been trashed');
   }
 
   /**
