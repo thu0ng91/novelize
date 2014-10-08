@@ -102,7 +102,7 @@ class NoteController extends \BaseController {
 		$note = Note::create($data);
 
 		// Return
-		return Redirect::route('edit_note', [$notebookId, $note->id])
+		return Redirect::route('view_notes', $notebookId)
 			->with('flash_success', trans('note.stored'));
 	}
 
@@ -136,7 +136,7 @@ class NoteController extends \BaseController {
 		$note->update($data);
 
 		// Return
-		return Redirect::route('edit_note', [$notebookId, $noteId])
+		return Redirect::route('view_notes', $notebookId)
 			->with('flash_success', trans('note.updated'));
 	}
 

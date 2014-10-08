@@ -33,8 +33,6 @@ class CreateUsersTable extends Migration {
       $table->increments('id');
 
       // Profile Info
-      $table->string('first_name')->nullable();
-      $table->string('last_name')->nullable();
       $table->text('bio')->nullable();
 
       // Notifications
@@ -58,6 +56,8 @@ class CreateUsersTable extends Migration {
       // User Info
 			$table->string('email')->unique();
 			$table->string('password', 60);
+      $table->string('first_name')->nullable();
+      $table->string('last_name')->nullable();
       $table->string('remember_token')->nullable();
 
       // Foreign Keys

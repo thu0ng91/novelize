@@ -7,13 +7,13 @@ class UserTableSeeder extends Seeder {
     {
       Profile::create(array(
         'id' => 1,
-        'first_name' => 'Josh',
-        'last_name' => 'Evensen'
       ));
       User::create(array(
         'id' => 1,
         'email' => 'josh@even7.com',
         'password' => 'p@ssW0rd',
+        'first_name' => 'Josh',
+        'last_name' => 'Evensen',
         'profile_id' => 1,
         'role_id' => 37,
       ));

@@ -109,7 +109,7 @@ class CharacterController extends \BaseController {
 		$character = Character::create($data);
 
 		// Return
-		return Redirect::route('edit_character', [$notebookId, $character->id])
+		return Redirect::route('view_characters', $notebookId)
 			->with('flash_success', trans('character.stored'));
 	}
 
@@ -143,7 +143,7 @@ class CharacterController extends \BaseController {
 		$character->update($data);
 
 		// Return
-		return Redirect::route('edit_character', [$notebookId, $characterId])
+		return Redirect::route('view_characters', $notebookId)
 			->with('flash_success', trans('character.updated'));
 	}
 

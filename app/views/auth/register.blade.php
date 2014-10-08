@@ -3,7 +3,7 @@
 
 @section('content')
 
-  <div class="auth-box">
+  <div class="auth-box--wide">
 
     <div class="auth-box__logo">
       {{ HTML::image('img/identity/logo-white.png', 'Novelize') }}
@@ -19,23 +19,39 @@
 
     {{ Form::open(['route' => 'register_user', 'class' => 'auth-box__form']) }}
 
+      <div class="form-group--two-column">
+        <div class="form-block">
+          {{ Form::label('first_name', 'First Name') }}
+          {{ Form::text('first_name') }}
+          {{ errors_for('first_name', $errors) }}
+        </div>
+
+        <div class="form-block">
+          {{ Form::label('last_name', 'Last Name') }}
+          {{ Form::text('last_name') }}
+          {{ errors_for('last_name', $errors) }}
+        </div>
+      </div>
+
       <div class="form-block">
         {{ Form::label('email', 'Email Address') }}
         {{ Form::email('email') }}
         {{ errors_for('email', $errors) }}
       </div>
 
-      <div class="form-block">
-        {{ Form::label('password', 'Password') }}
-        {{ Form::password('password') }}
-        {{ errors_for('password', $errors) }}
-        <p class="help-text">Must be at least 8 characters long.</p>
-      </div>
+      <div class="form-group--two-column">
+        <div class="form-block">
+          {{ Form::label('password', 'Password') }}
+          {{ Form::password('password') }}
+          {{ errors_for('password', $errors) }}
+          <p class="help-text">Must be at least 8 characters long.</p>
+        </div>
 
-      <div class="form-block">
-        {{ Form::label('password_confirmation', 'Confirm Password') }}
-        {{ Form::password('password_confirmation') }}
-        {{ errors_for('password_confirmation', $errors) }}
+        <div class="form-block">
+          {{ Form::label('password_confirmation', 'Confirm Password') }}
+          {{ Form::password('password_confirmation') }}
+          {{ errors_for('password_confirmation', $errors) }}
+        </div>
       </div>
 
       <div class="form-block--submit">

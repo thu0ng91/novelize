@@ -60,7 +60,7 @@
         {{ Form::text('title', null, ['id' => 'title', 'class' => 'write-scene__title', 'placeholder' => 'Scene ' . $currentScene->scene_order]) }}
         {{ errors_for('title', $errors) }}
 
-        {{ Form::textarea('description', null, ['class' => 'write-scene__description js-descriptionBox', 'placeholder' => 'A brief writeup of what this scene should be about']) }}
+        {{ Form::textarea('description', null, ['class' => 'write-scene__description js-descriptionBox', 'placeholder' => 'This is a brief description of your scene']) }}
         <button class="write-scene__description-button js-descriptionButton">SHOW DESCRIPTION</button>
       </div>
 

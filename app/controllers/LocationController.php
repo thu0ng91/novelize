@@ -102,7 +102,7 @@ class LocationController extends \BaseController {
 		$location = Location::create($data);
 
 		// Return
-		return Redirect::route('edit_location', [$notebookId, $location->id])
+		return Redirect::route('view_locations', $notebookId)
 			->with('flash_success', trans('location.stored'));
 	}
 
@@ -136,7 +136,7 @@ class LocationController extends \BaseController {
 		$location->update($data);
 
 		// Return
-		return Redirect::route('edit_location', [$notebookId, $locationId])
+		return Redirect::route('view_locations', $notebookId)
 			->with('flash_success', trans('location.updated'));
 	}
 

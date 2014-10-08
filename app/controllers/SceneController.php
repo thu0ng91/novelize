@@ -82,6 +82,8 @@ class SceneController extends \BaseController {
 
     Scene::find($sceneId)->delete();
 
+    $novel = Novel::with('scenes')->findOrFail($novelId);
+
     return Redirect::route('write_novel', [$novel->id, $novel->scenes->first()['id']])
       ->with('alert_danger', trans('scene.trashed', ['route' => route('restore_scene', [$novelId, $sceneId])]));
   }

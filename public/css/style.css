@@ -788,6 +788,25 @@ body {
   border-bottom: 1px solid #cacaca;
 }
 
+.form-group--two-column {
+  content: "";
+  display: table;
+  width: 100%;
+}
+.form-group--two-column:after {
+  clear: both;
+}
+.form-group--two-column .form-block, .form-group--two-column .form-block--inline-label, .form-group--two-column .form-block--submit, .form-group--two-column .form-block--buttons {
+  width: 50%;
+  float: left;
+}
+.form-group--two-column .form-block:first-child, .form-group--two-column .form-block--inline-label:first-child, .form-group--two-column .form-block--submit:first-child, .form-group--two-column .form-block--buttons:first-child {
+  padding-right: 1%;
+}
+.form-group--two-column .form-block:last-child, .form-group--two-column .form-block--inline-label:last-child, .form-group--two-column .form-block--submit:last-child, .form-group--two-column .form-block--buttons:last-child {
+  padding-left: 1%;
+}
+
 .form-block, .form-block--inline-label, .form-block--submit, .form-block--buttons {
   margin-bottom: 16px;
 }
@@ -810,7 +829,6 @@ body {
 .form-block--inline-label input {
   float: right;
   width: 60%;
-  text-align: right;
 }
 
 .form-block--buttons {
@@ -1289,7 +1307,7 @@ select:focus {
   line-height: 1.4;
 }
 
-.auth-box, .auth-box__bottom {
+.auth-box, .auth-box--wide, .auth-box__bottom {
   width: 90%;
   max-width: 420px;
   margin-left: auto;
@@ -1298,6 +1316,10 @@ select:focus {
   background-color: #fff;
   border-radius: 12px;
   box-shadow: 0px 0px 10px 2px rgba(173, 173, 173, 0.2);
+}
+
+.auth-box--wide {
+  max-width: 600px;
 }
 
 .auth-box__logo {

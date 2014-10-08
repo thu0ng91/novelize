@@ -102,7 +102,7 @@ class ItemController extends \BaseController {
 		$item = Item::create($data);
 
 		// Return
-		return Redirect::route('edit_item', [$notebookId, $item->id])
+		return Redirect::route('view_items', $notebookId)
 			->with('flash_success', trans('item.stored'));
 	}
 
@@ -136,7 +136,7 @@ class ItemController extends \BaseController {
 		$item->update($data);
 
 		// Return
-		return Redirect::route('edit_item', [$notebookId, $itemId])
+		return Redirect::route('view_items', $notebookId)
 			->with('flash_success', trans('item.updated'));
 	}
 

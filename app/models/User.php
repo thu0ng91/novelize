@@ -20,6 +20,8 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
     'profile_id',
     'email',
     'password',
+    'first_name',
+    'last_name',
     'remember_token'
   ];
 
@@ -30,7 +32,9 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
 
   public static $rulesRegister = [
     'email' => 'required|email|unique:users',
-    'password' => 'required|confirmed|min:8'
+    'password' => 'required|confirmed|min:8',
+    'first_name' => 'required',
+    'last_name' => 'required'
   ];
 
   public static $rulesLogin = [
@@ -40,6 +44,24 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
 
   public static $rulesUpdate = [
     'email' => 'required|email'
+  ];
+
+
+  public static $rulesUpdateAccount = [
+    'email' => 'required|email',
+    'first_name' => 'required',
+    'last_name' => 'required'
+  ];
+  public static $rulesUpdateAccountUnique = [
+    'email' => 'required|email|unique:users',
+    'first_name' => 'required',
+    'last_name' => 'required'
+  ];
+
+
+  public static $rulesChangePassword = [
+    'password' => 'required',
+    'newPassword' => 'required|confirmed'
   ];
 
 	/**

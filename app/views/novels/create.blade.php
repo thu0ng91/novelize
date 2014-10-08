@@ -62,7 +62,7 @@
         {{ Form::label('author', 'Author') }}
         {{ Form::text('author', $name) }}
         {{ errors_for('author', $errors) }}
-          <p class="help-text">This will be pulled from your {{ link_to_route('view_profile', 'profile', $currentUser->id) }}</p>
+          <p class="help-text">This is pulled from your {{ link_to_route('view_profile', 'profile', $currentUser->id) }}</p>
       </div>
 
       <div class="form-block">

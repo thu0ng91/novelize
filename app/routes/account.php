@@ -11,15 +11,11 @@ Route::get( '/profile/{userId}', [
 
 Route::put( 'account/{userId}/update', [
   'as' => 'update_account',
-  'uses' => 'ProfileController@updateAccount'
+  'uses' => 'AccountController@updateAccount'
 ]);
 Route::put( 'password/{userId}/update', [
   'as' => 'change_password',
-  'uses' => 'ProfileController@changePassword'
-]);
-Route::put( 'profile/{profileId}/update', [
-  'as' => 'update_profile',
-  'uses' => 'ProfileController@updateProfile'
+  'uses' => 'AccountController@changePassword'
 ]);
 
 /*

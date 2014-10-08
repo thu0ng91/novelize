@@ -1,5 +1,5 @@
 <div class="table-of-contents__toolbar">
-  <button class="js-expandScenes">EXPAND</button> | <button class="js-collapseScenes">COLLAPSE</button> | <button class="js-currentScene">CURRENT</button>
+  <button class="js-expandScenes">EXPAND</button> | <button class="js-collapseScenes">COLLAPSE</button>
 </div>
 
 <ul class="table-of-contents">
@@ -35,5 +35,5 @@
 </ul>
 
 <div class="table-of-contents__toolbar">
-  <button class="js-expandScenes">EXPAND</button> | <button class="js-collapseScenes">COLLAPSE</button> | <button class="js-currentScene">CURRENT</button>
+  <button class="js-expandScenes">EXPAND</button> | <button class="js-collapseScenes">COLLAPSE</button>
 </div>
