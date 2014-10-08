@@ -102,7 +102,7 @@ class ItemController extends \BaseController {
 		$item = Item::create($data);
 
 		// Return
-		return Redirect::route('edit_item', $notebookId, $item->id)
+		return Redirect::route('edit_item', [$notebookId, $item->id])
 			->with('flash_success', trans('item.stored'));
 	}
 
