@@ -10,18 +10,9 @@ class ProfileController extends \BaseController {
     $user = User::findOrFail($userId);
     $data = Input::all();
 
-    // Use appropriate rules based on if the username, email, or both stays the same
-    if($data['username'] != $user->username && $data['email'] == $user->email) // !username and email
-    {
-    	$rules = Profile::$rulesAccountUniqueUser;
-    }
-    else if($data['username'] == $user->username && $data['email'] != $user->email)  // username and !email
+    if($data['email'] != $user->email)
     {
     	$rules = Profile::$rulesAccountUniqueEmail;
-    }
-    else if($data['username'] != $user->username && $data['email'] != $user->email) // !username and !email
-    {
-    	$rules = Profile::$rulesAccountUnique;
     }
     else
     {

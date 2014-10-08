@@ -17,7 +17,7 @@ Route::get( 'novel/{novelId}/chapter/{chapterId}/scene/store', [
     'as' => 'store_scene',
     'uses' => 'SceneController@store'
 ]);
-Route::put( 'novel/{novelId}/chapter/{chapterId}/scene/{sceneId}/update', [
+Route::put( 'novel/{novelId}/scene/{sceneId}/update', [
     'as' => 'update_scene',
     'uses' => 'SceneController@update'
 ]);

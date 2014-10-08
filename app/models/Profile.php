@@ -15,26 +15,12 @@ class Profile extends \Eloquent {
   ];
 
   public static $rulesAccount = [
-    'username' => 'required|alpha_dash|min:7',
-    'email' => 'required|email',
-  ];
-
-  public static $rulesAccountUniqueUser = [
-    'username' => 'required|alpha_dash|min:7|unique:users',
     'email' => 'required|email',
   ];
 
   public static $rulesAccountUniqueEmail = [
-    'username' => 'required|alpha_dash|min:7',
     'email' => 'required|email|unique:users',
   ];
-
-  public static $rulesAccountUnique = [
-    'username' => 'required|alpha_dash|min:7|unique:users',
-    'email' => 'required|email|unique:users',
-  ];
-
-
 
   public static $rulesPassword = [
     'password' => 'required',

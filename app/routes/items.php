@@ -31,15 +31,15 @@ Route::put( '/notebook/{notebookId}/item/{itemId}/update', [
 /*
  * Delete Routes
  */
-Route::get( '/item/{itemId}/trash', [
+Route::get( '/notebook/{notebookId}/item/{itemId}/trash', [
     'as' => 'trash_item',
     'uses' => 'ItemController@trash'
 ]);
-Route::get( '/item/{itemId}/restore', [
+Route::get( '/notebook/{notebookId}/item/{itemId}/restore', [
     'as' => 'restore_item',
     'uses' => 'ItemController@restore'
 ]);
-Route::get( '/item/{itemId}/destroy', [
+Route::get( '/notebook/{notebookId}/item/{itemId}/destroy', [
     'as' => 'destroy_item',
     'uses' => 'ItemController@destroy'
 ]);

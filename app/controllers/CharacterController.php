@@ -183,7 +183,7 @@ class CharacterController extends \BaseController {
 
     $character->restore();
 
-    return Redirect::route('view_character', $notebookId)
+    return Redirect::route('view_characters', $notebookId)
 			->with('flash_success', trans('character.restored'));
   }
 
