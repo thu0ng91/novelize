@@ -45,7 +45,8 @@
         <thead>
           <tr class="user-index__row--head">
             <th class="user-index__head-cell">id</th>
-            <th class="user-index__head-cell">email</th>
+            <th class="user-index__head-cell">first name</th>
+            <th class="user-index__head-cell">last name</th>
             <th class="user-index__head-cell">role</th>
             <th class="user-index__head-cell"></th>
           </tr>
@@ -55,7 +56,8 @@
           @foreach($users as $user)
             <tr class="user-index__row">
               <td class="user-index__cell">{{ $user->id }}</td>
-              <td class="user-index__cell">{{ $user->email }}</td>
+              <td class="user-index__cell">{{ $user->first_name }}</td>
+              <td class="user-index__cell">{{ $user->last_name }}</td>
               <td class="user-index__cell">{{ $user->role->name }}</td>
               <td  class="user-index__cell--buttons">
                 @if($type == 'trashed')
