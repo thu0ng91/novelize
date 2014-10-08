@@ -3,22 +3,6 @@
 class ChapterController extends \BaseController {
 
   /**
-   * Show the form for creating a new resource.
-   *
-   * GET /novel/{novelId}/chapter/create
-   * ROUTE create_chapter
-   *
-   * @param  int  $novelId
-   * @return Response
-   */
-  public function create($novelId)
-  {
-    $novel = Novel::findOrFail($novelId);
-
-    return View::make('chapters.create', compact('novel'));
-  }
-
-  /**
    * Store a newly created resource in storage.
    *
    * POST novel/{novelId}/chapter/store
@@ -51,7 +35,7 @@ class ChapterController extends \BaseController {
 
     // Return
     return Redirect::route('write_novel', [$novelId, $scene->id])
-      ->with('flash_success', 'Chapter has been created');
+      ->with('flash_success', trans('chapter.stored'));
   }
 
   /**
@@ -83,7 +67,7 @@ class ChapterController extends \BaseController {
 
     // Return
     return Redirect::route('view_novels')
-      ->with('alert_success', 'novel has been updated');
+      ->with('flash_success', trans('chapter.updated'));
   }
 
   /**
@@ -104,7 +88,7 @@ class ChapterController extends \BaseController {
     if( $novel->chapters->count() == 1 )
     {
       return Redirect::route('write_novel', [$novel->id, $sceneId])
-      ->with('alert_danger', 'This is the last chapter of the novel and can\'t be deleted.');
+      ->with('alert_danger', trans('chapter.last_chapter'));
     }
 
     $chapter = Chapter::with('scenes')->findOrFail($chapterId);
@@ -114,13 +98,13 @@ class ChapterController extends \BaseController {
     if( $chapter->scenes->count() > 0 )
     {
       return Redirect::route('write_novel', [$novel->id, $sceneId])
-      ->with('alert_danger', 'Please delete all the scenes for this chapter before deleting the chapter');
+      ->with('alert_danger', trans('chapter.delete_scenes'));
     }
 
     Chapter::find($chapterId)->delete();
 
     return Redirect::route('write_novel', [$novel->id, $novel->scenes->first()['id']])
-      ->with('alert_success', 'Chapter has been trashed');
+      ->with('alert_danger', trans('chapter.trashed', ['route' => route('restore_chapter', [$novelId, $chapterId])]));
   }
 
   /**
@@ -132,12 +116,14 @@ class ChapterController extends \BaseController {
    * @param  int  $novelId
    * @return Response
    */
-  public function restore($novelId)
+  public function restore($novelId, $chapterId)
   {
-    NovelSection::withTrashed()->where('id', $novelId)->restore();
+    $novel = Novel::with('scenes')->findOrFail($novelId);
 
-    return Redirect::route('view_novels', ['type' => 'trashed'])
-      ->with('alert_success', 'novel has been restored');
+    Chapter::withTrashed()->where('id', $chapterId)->restore();
+
+    return Redirect::route('write_novel', [$novel->id, $novel->scenes->first()['id']] )
+      ->with('flash_success', trans('chapter.restored'));
   }
 
   /**
@@ -154,7 +140,7 @@ class ChapterController extends \BaseController {
     NovelSection::withTrashed()->where('id', $novelId)->forceDelete();
 
     return Redirect::route('view_novels', ['type' => 'trashed'])
-      ->with('alert_success', 'novel has been destroyed');
+      ->with('flash_danger', trans('chapter.destroyed'));
   }
 
 }

@@ -110,7 +110,7 @@ class CharacterController extends \BaseController {
 
 		// Return
 		return Redirect::route('edit_character', [$notebookId, $character->id])
-			->with('flash_success', 'character has been added');
+			->with('flash_success', trans('character.stored'));
 	}
 
 	/**
@@ -144,7 +144,7 @@ class CharacterController extends \BaseController {
 
 		// Return
 		return Redirect::route('edit_character', [$notebookId, $characterId])
-			->with('flash_success', 'Character has been updated');
+			->with('flash_success', trans('character.updated'));
 	}
 
   /**
@@ -163,10 +163,8 @@ class CharacterController extends \BaseController {
 
     $character->delete();
 
-    $alert_message = $character->name . ' has been trashed. (<a href="' . route("restore_character", [$notebookId, $characterId]) . '">undo</a>)';
-
     return Redirect::route('view_characters', $notebookId)
-			->with('alert_warning', $alert_message);
+			->with('alert_danger', trans('character.trashed', ['route' => route('restore_character', [$notebookId, $characterId])]));
   }
 
   /**
@@ -185,10 +183,8 @@ class CharacterController extends \BaseController {
 
     $character->restore();
 
-    $alert_message = 'Character has been restored. (<a href="' . route("edit_character", [$notebookId, $characterId]) . '">edit</a>)';
-
-    return Redirect::route('view_characters', ['type' => 'trashed', 'notebookId' => $notebookId])
-			->with('alert_success', $alert_message);
+    return Redirect::route('view_character', $notebookId)
+			->with('flash_success', trans('character.restored'));
   }
 
 	/**
@@ -205,8 +201,8 @@ class CharacterController extends \BaseController {
 	{
     Character::withTrashed()->where('id', $characterId)->forceDelete();
 
-    return Redirect::route('view_characters', ['type' => 'trashed', 'notebookId' => $notebookId])
-			->with('alert_danger', 'Character has been destroyed');
+    return Redirect::route('view_characters', $notebookId)
+			->with('flash_danger', trans('character.destroyed'));
 	}
 
 }

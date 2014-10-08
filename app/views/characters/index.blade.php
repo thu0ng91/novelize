@@ -113,9 +113,9 @@
         @else
 
           <div class="empty-message">
-            <h2 class="empty-message__title">No one is home</h2>
+            <h2 class="empty-message__title">You Have No Characters Yet</h2>
 
-            <p class="empty-message__text">Why don't you {{ link_to_route('create_character', 'create', $notebook->id) }} your first character.</p>
+            <p class="empty-message__text">Why don't you {{ link_to_route('create_character', 'create', $notebook->id) }} your first character?</p>
           </div>
 
         @endif

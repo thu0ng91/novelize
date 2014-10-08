@@ -5,7 +5,7 @@
 
   @else
 
-    <p>There isn't a description for this notebook, yet. You can write one when you {{ link_to_route('edit_notebook', 'manage', $notebook->id) }} your notebook.</p>
+    <p>This notebook doesn't have a description yet. You can write it when you {{ link_to_route('edit_notebook', 'manage', $notebook->id) }} your notebook.</p>
 
   @endif
 </aside>

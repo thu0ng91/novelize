@@ -110,7 +110,7 @@ class NotebookController extends \BaseController {
 
 		// Return
 		return Redirect::route('view_notebooks')
-			->with('alert_message', 'notebook has been added');
+			->with('flash_success', trans('notebook.stored'));
 	}
 
 	/**
@@ -142,7 +142,7 @@ class NotebookController extends \BaseController {
 
 		// Return
 		return Redirect::route('view_notebooks')
-			->with('alert_message', 'Notebook has been updated');
+			->with('flash_success', trans('notebook.updated'));
 	}
 
   /**
@@ -161,13 +161,13 @@ class NotebookController extends \BaseController {
     if( $notebook->novels->count() > 0 )
     {
       return Redirect::route('view_notebooks')
-      ->with('alert_danger', 'Please delete all the Novels associated with this Notebook before deleting the Notebook');
+      ->with('alert_danger', trans('notebook.delete_novels'));
     }
 
     Notebook::find($notebookId)->delete();
 
     return Redirect::route('view_notebooks')
-			->with('alert_message', 'Notebook has been trashed');
+			->with('alert_danger', trans('notebook.trashed', ['route' => route('restore_notebook', $notebookId)]));
   }
 
   /**
@@ -184,7 +184,7 @@ class NotebookController extends \BaseController {
     Notebook::withTrashed()->where('id', $notebookId)->restore();
 
     return Redirect::route('view_notebooks')
-			->with('alert_message', 'Notebook has been restored');
+			->with('flash_success', trans('notebook.restored'));
   }
 
 	/**
@@ -201,7 +201,7 @@ class NotebookController extends \BaseController {
     Notebook::withTrashed()->where('id', $notebookId)->forceDelete();
 
     return Redirect::route('view_notebooks')
-			->with('alert_message', 'Notebook has been destroyed');
+			->with('flash_danger', trans('notebook.destroyed'));
 	}
 
 }

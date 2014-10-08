@@ -41,7 +41,7 @@ class SessionsController extends \BaseController {
 		{
 			return Redirect::back()
 				->withInput()
-        ->with('alert_danger', 'Username/Password invalid.');
+        ->with('alert_danger', trans('session.invalid'));
 		}
 
 		return Redirect::route('home');

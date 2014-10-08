@@ -16,7 +16,7 @@
 @section('page_content')
 <!--
   Filters ============================================= -->
-  <div class="filters">
+  <div class="filters--admin">
     <ul class="filters__types">
 
       @if($type == 'trashed')

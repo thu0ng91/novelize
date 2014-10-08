@@ -103,7 +103,7 @@ class NoteController extends \BaseController {
 
 		// Return
 		return Redirect::route('edit_note', $notebookId, $note->id)
-			->with('flash_success', 'note has been added');
+			->with('flash_success', trans('note.stored'));
 	}
 
 	/**
@@ -137,7 +137,7 @@ class NoteController extends \BaseController {
 
 		// Return
 		return Redirect::route('edit_note', [$notebookId, $noteId])
-			->with('flash_success', 'Note has been updated');
+			->with('flash_success', trans('note.updated'));
 	}
 
   /**
@@ -156,10 +156,8 @@ class NoteController extends \BaseController {
 
     $note->delete();
 
-    $alert_message = $note->name . ' has been trashed. (<a href="' . route("restore_note", [$notebookId, $noteId]) . '">undo</a>)';
-
     return Redirect::route('view_notes', $notebookId)
-			->with('alert_warning', $alert_message);
+			->with('alert_danger', trans('note.trashed', ['route' => route('restore_note', [$notebookId, $noteId])]));
   }
 
   /**
@@ -178,10 +176,8 @@ class NoteController extends \BaseController {
 
     $note->restore();
 
-    $alert_message = 'Note has been restored. (<a href="' . route("edit_note", [$notebookId, $noteId]) . '">edit</a>)';
-
-    return Redirect::route('view_notes', ['type' => 'trashed', 'notebookId' => $notebookId])
-			->with('alert_success', $alert_message);
+    return Redirect::route('view_notes', $notebookId)
+			->with('flash_success', trans('note.restored'));
   }
 
 	/**
@@ -198,8 +194,8 @@ class NoteController extends \BaseController {
 	{
     Note::withTrashed()->where('id', $noteId)->forceDelete();
 
-    return Redirect::route('view_notes', ['type' => 'trashed', 'notebookId' => $notebookId])
-			->with('alert_danger', 'Note has been destroyed');
+    return Redirect::route('view_notes', $notebookId)
+			->with('flash_danger', trans('note.destroyed'));
 	}
 
 }

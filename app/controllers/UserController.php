@@ -110,7 +110,7 @@ class UserController extends \BaseController {
 
     // Return
     return Redirect::route('view_users')
-      ->with('alert_info', 'User has been added');
+      ->with('flash_success', trans('user.stored'));
 	}
 
   /**
@@ -149,8 +149,8 @@ class UserController extends \BaseController {
     Auth::login($user);
 
     // Return
-    return Redirect::route('view_notebooks')
-      ->with('alert_info', 'Welcome to Novelize, I recommend you start by creating a Notebook to associate with your first Novel');
+    return Redirect::route('create_notebook')
+      ->with('alert_info', trans('user.welcomed'));
   }
 
 	/**
@@ -182,7 +182,7 @@ class UserController extends \BaseController {
 
 		// Return
 		return Redirect::route('view_users')
-			->with('alert_info', 'User has been updated');
+			->with('flash_success', trans('user.updated'));
 	}
 
   /**
@@ -199,7 +199,7 @@ class UserController extends \BaseController {
     User::find($userId)->delete();
 
     return Redirect::route('view_users')
-			->with('alert_info', 'User has been trashed');
+			->with('alert_danger', trans('user.trashed', ['route' => route('restore_user', $userId)]));
   }
 
   /**
@@ -215,8 +215,8 @@ class UserController extends \BaseController {
   {
     User::withTrashed()->where('id', $userId)->restore();
 
-    return Redirect::route('view_users', ['type' => 'trashed'])
-			->with('alert_info', 'User has been restored');
+    return Redirect::route('view_users')
+			->with('flash_success', trans('user.restored'));
   }
 
 	/**
@@ -233,7 +233,7 @@ class UserController extends \BaseController {
     User::withTrashed()->where('id', $userId)->forceDelete();
 
     return Redirect::route('view_users', ['type' => 'trashed'])
-			->with('alert_info', 'User has been destroyed');
+			->with('flash_danger', trans('user.destroyed'));
 	}
 
 }

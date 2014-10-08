@@ -103,7 +103,7 @@ class ItemController extends \BaseController {
 
 		// Return
 		return Redirect::route('edit_item', $notebookId, $item->id)
-			->with('flash_success', 'item has been added');
+			->with('flash_success', trans('item.stored'));
 	}
 
 	/**
@@ -137,7 +137,7 @@ class ItemController extends \BaseController {
 
 		// Return
 		return Redirect::route('edit_item', [$notebookId, $itemId])
-			->with('flash_success', 'Item has been updated');
+			->with('flash_success', trans('item.updated'));
 	}
 
   /**
@@ -156,10 +156,8 @@ class ItemController extends \BaseController {
 
     $item->delete();
 
-    $alert_message = $item->name . ' has been trashed. (<a href="' . route("restore_item", [$notebookId, $itemId]) . '">undo</a>)';
-
     return Redirect::route('view_items', $notebookId)
-			->with('alert_warning', $alert_message);
+			->with('alert_danger', trans('item.trashed', ['route' => route('restore_item', [$notebookId, $itemId])]));
   }
 
   /**
@@ -178,10 +176,8 @@ class ItemController extends \BaseController {
 
     $item->restore();
 
-    $alert_message = 'Item has been restored. (<a href="' . route("edit_item", [$notebookId, $itemId]) . '">edit</a>)';
-
-    return Redirect::route('view_items', ['type' => 'trashed', 'notebookId' => $notebookId])
-			->with('alert_success', $alert_message);
+    return Redirect::route('view_items', $notebookId)
+			->with('flash_success', trans('item.restored'));
   }
 
 	/**
@@ -198,8 +194,8 @@ class ItemController extends \BaseController {
 	{
     Item::withTrashed()->where('id', $itemId)->forceDelete();
 
-    return Redirect::route('view_items', ['type' => 'trashed', 'notebookId' => $notebookId])
-			->with('alert_danger', 'Item has been destroyed');
+    return Redirect::route('view_items', $notebookId)
+			->with('flash_danger', trans('item.destroyed'));
 	}
 
 }

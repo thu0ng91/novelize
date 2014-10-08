@@ -14,7 +14,7 @@ class ProfileController extends \BaseController {
     if($data['username'] != $user->username && $data['email'] == $user->email) // !username and email
     {
     	$rules = Profile::$rulesAccountUniqueUser;
-    } 
+    }
     else if($data['username'] == $user->username && $data['email'] != $user->email)  // username and !email
     {
     	$rules = Profile::$rulesAccountUniqueEmail;
@@ -43,7 +43,7 @@ class ProfileController extends \BaseController {
 
     // Return
     return Redirect::route('view_profile', $user->id)
-      ->with('alert_success', 'Your Account Information has been updated');
+      ->with('flash_success', trans('profile.account_updated'));
   }
 
 
@@ -68,16 +68,18 @@ class ProfileController extends \BaseController {
     if (!Hash::check($data['password'], $user->password))
     {
       return Redirect::back()
-        ->with('alert_danger', 'The current password is wrong, try again.' )
+        ->with('alert_danger', trans('profile.password_invalid'))
         ->withInput();
     }
 
     // Action
-    $user->update($data);
+    $user->password = $data['newPassword'];
+
+    $user->save();
 
     // Return
     return Redirect::route('view_profile', $user->id)
-      ->with('alert_success', 'Your Password has been changed');
+      ->with('flash_success', trans('profile.password_updated'));
   }
 
 
@@ -104,7 +106,7 @@ class ProfileController extends \BaseController {
 
 		// Return
 		return Redirect::route('view_profile', $profile->user->id)
-			->with('alert_success', 'Your profile information has been updated');
+			->with('flash_success', trans('profile.profile_updated'));
 	}
 
 }

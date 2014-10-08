@@ -12,7 +12,7 @@
   @else
 
     <div class="empty-message--notebook-sidebar">
-      <p class="empty-message__text">There aren't any novels here, you can create a new novel below.</p>
+      <p class="empty-message__text">You don't have any novels  yet.</p>
     </div>
 
   @endif

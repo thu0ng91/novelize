@@ -66,7 +66,7 @@ class NovelController extends \BaseController {
     if(! $notebooks->count())
     {
       return Redirect::route('create_notebook')
-        ->with('alert_info', 'Please create a notebook to store your first Novel. Don\'t worry about the name too much, it can always be changed later.');
+        ->with('alert_info', trans('novel.notebook_first'));
     }
 
     return View::make('novels.create', compact('notebooks', 'genres', 'name'));
@@ -243,7 +243,7 @@ class NovelController extends \BaseController {
 
 		// Return
 		return Redirect::route('write_novel', [$new_novel->id, $new_scene->id] )
-			->with('alert_success', 'novel has been added');
+			->with('flash_success', trans('novel.stored'));
 	}
 
 	/**
@@ -275,7 +275,7 @@ class NovelController extends \BaseController {
 
 		// Return
 		return Redirect::route('edit_novel', $novel->id)
-			->with('alert_success', 'novel has been updated');
+			->with('flash_success', trans('novel.updated'));
 	}
 
   /**
@@ -292,7 +292,7 @@ class NovelController extends \BaseController {
     Novel::find($novelId)->delete();
 
     return Redirect::route('view_novels')
-			->with('alert_success', 'novel has been trashed');
+			->with('alert_danger', trans('novel.trashed', ['route' => route('restore_novel', $novelId)]));
   }
 
   /**
@@ -308,8 +308,8 @@ class NovelController extends \BaseController {
   {
     Novel::withTrashed()->where('id', $novelId)->restore();
 
-    return Redirect::route('view_novels', ['type' => 'trashed'])
-			->with('alert_success', 'novel has been restored');
+    return Redirect::route('view_novels')
+			->with('flash_success', trans('novel.restored'));
   }
 
 	/**
@@ -325,8 +325,8 @@ class NovelController extends \BaseController {
 	{
     Novel::withTrashed()->where('id', $novelId)->forceDelete();
 
-    return Redirect::route('view_novels', ['type' => 'trashed'])
-			->with('alert_success', 'novel has been destroyed');
+    return Redirect::route('view_novels')
+			->with('flash_danger', trans('novel.destroyed'));
 	}
 
 }

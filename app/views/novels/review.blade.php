@@ -36,7 +36,16 @@
 
   <div class="novel-mode-empty">
     <div class="empty-message--main-box">
-      <h2 class="empty-message__title">There's nothing here.</h2>
+      <h2 class="empty-message__title">Review Features Coming Soon</h2>
+
+      <p class="empty-message__text">You will be able to...</p>
+
+      <ul class="empty-message__list">
+        <li>Spell and grammar check your work</li>
+        <li>Utilize additional editing options for your scenes</li>
+        <li>Highlight text for future changes</li>
+        <li>and more...</li>
+      </ul>
     </div>
   </div>
 

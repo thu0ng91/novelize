@@ -47,7 +47,7 @@ class MailController extends \BaseController {
 
     // Return
     return Redirect::route('view_contact', [Auth::user()->id, 'type' => 'general'])
-      ->with('alert_success', 'Your message has been sent');
+      ->with('alert_success', trans('mail.general_sent'));
   }
 
 
@@ -97,7 +97,7 @@ class MailController extends \BaseController {
 
     // Return
     return Redirect::route('view_contact', [Auth::user()->id, 'type' => 'support'])
-      ->with('alert_success', 'Your request has been submitted');
+      ->with('alert_success', trans('mail.support_sent'));
   }
 
 
@@ -147,7 +147,7 @@ class MailController extends \BaseController {
 
     // Return
     return Redirect::route('view_contact', [Auth::user()->id, 'type' => 'feedback'])
-      ->with('alert_success', 'Your feedback has been sent');
+      ->with('alert_success', trans('mail.feedback_sent'));
   }
 
 
@@ -200,7 +200,7 @@ class MailController extends \BaseController {
 
     // Return
     return Redirect::route('view_contact', [Auth::user()->id, 'type' => 'bug'])
-      ->with('alert_success', 'The report has been sent');
+      ->with('alert_success', trans('mail.bug_sent'));
   }
 
 }

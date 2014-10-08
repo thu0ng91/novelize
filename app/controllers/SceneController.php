@@ -3,23 +3,6 @@
 class SceneController extends \BaseController {
 
   /**
-   * Show the form for creating a new resource.
-   *
-   * GET /novel/{novelId}/chapter/{chapterId}/scene/create
-   * ROUTE create_scene
-   *
-   * @param  int  $novelId
-   * @return Response
-   */
-  public function create($novelId, $chapterId)
-  {
-    $novel = Novel::findOrFail($novelId);
-    $chapter = Chapter::with('scenes')->findOrFail($chapterId);
-
-    return View::make('scenes.create', compact('novel', 'chapter'));
-  }
-
-  /**
    * Store a newly created resource in storage.
    *
    * POST novel/{novelId}/chapter/{chapterId}/scene/store
@@ -42,7 +25,7 @@ class SceneController extends \BaseController {
 
     // Return
     return Redirect::route('write_novel', [$novelId, $scene->id])
-      ->with('flash_success', 'Scene has been created');
+      ->with('flash_success', trans('scene.stored'));
   }
 
   /**
@@ -75,7 +58,7 @@ class SceneController extends \BaseController {
 
     // Return
     return Redirect::route('write_novel', [$novelId, $sceneId])
-      ->with('alert_success', 'Scene has been updated');
+      ->with('flash_success', trans('scene.updated'));
   }
 
   /**
@@ -94,13 +77,13 @@ class SceneController extends \BaseController {
     if( $novel->scenes->count() == 1 )
     {
       return Redirect::route('write_novel', [$novel->id, $sceneId])
-      ->with('alert_danger', 'This is the last scene of the novel and can\'t be deleted.');
+      ->with('alert_danger', trans('scene.last_scene'));
     }
 
     Scene::find($sceneId)->delete();
 
     return Redirect::route('write_novel', [$novel->id, $novel->scenes->first()['id']])
-      ->with('alert_success', 'scene has been trashed');
+      ->with('alert_danger', trans('scene.trashed', ['route' => route('restore_scene', [$novelId, $sceneId])]));
   }
 
   /**
@@ -119,7 +102,7 @@ class SceneController extends \BaseController {
     Scene::withTrashed()->where('id', $sceneId)->restore();
 
     return Redirect::route('write_novel', [$novel->id, $novel->scenes->first()['id']])
-      ->with('alert_success', 'novel has been restored');
+      ->with('flash_success', trans('scene.restored'));
   }
 
   /**
@@ -138,7 +121,7 @@ class SceneController extends \BaseController {
     Scene::withTrashed()->where('id', $sceneId)->forceDelete();
 
     return Redirect::route('write_novel', [$novel->id, $novel->scenes->first()['id']])
-      ->with('alert_success', 'novel has been destroyed');
+      ->with('flash_danger', trans('scene.destroyed'));
   }
 
 }

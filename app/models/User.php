@@ -39,8 +39,7 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
   ];
 
   public static $rulesUpdate = [
-    'email' => 'required|email',
-    'password' => 'required'
+    'email' => 'required|email'
   ];
 
 	/**

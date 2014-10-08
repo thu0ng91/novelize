@@ -111,9 +111,9 @@
         @else
 
           <div class="empty-message">
-            <h2 class="empty-message__title">There's no where to go</h2>
+            <h2 class="empty-message__title">You Don't Have Any Locations</h2>
 
-            <p class="empty-message__text">Why don't you {{ link_to_route('create_location', 'create', $notebook->id) }} your first location.</p>
+            <p class="empty-message__text">Why don't you {{ link_to_route('create_location', 'create', $notebook->id) }} your first location?</p>
           </div>
 
         @endif

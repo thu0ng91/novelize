@@ -11,7 +11,7 @@
 
     <div class="auth-box__notice">
       <h2>Beta Version</h2>
-      <p>The beta version is free for everyone. Please understand that Novelize isn't fully functional yet. Read our <a href="">blog post</a> for more info.</p>
+      <p>The beta version is free for everyone. Please understand that Novelize doesn't have all its features yet. Read our <a href="">blog post</a> for more info.</p>
       <h5>We welcome your feedback!</h5>
     </div>
 

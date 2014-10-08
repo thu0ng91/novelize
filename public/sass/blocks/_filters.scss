@@ -3,6 +3,10 @@
   padding: 6px 8px;
   visibility: hidden;
 }
+.filters--admin {
+  @extend .filters;
+  visibility: visible;
+}
 
 .filters__types {
   margin: 0;

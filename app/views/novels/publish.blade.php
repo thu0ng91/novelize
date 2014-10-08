@@ -36,7 +36,17 @@
 
   <div class="novel-mode-empty">
     <div class="empty-message--main-box">
-      <h2 class="empty-message__title">There's nothing here.</h2>
+      <h2 class="empty-message__title">Publish Features Coming Soon</h2>
+
+      <p class="empty-message__text">You will be able to...</p>
+
+      <ul class="empty-message__list">
+        <li>Change novel font families</li>
+        <li>Change font sizes</li>
+        <li>Choose whether to publish chapter and scene titles</li>
+        <li>Publish to multiple formats</li>
+        <li>and more...</li>
+      </ul>
     </div>
   </div>
 

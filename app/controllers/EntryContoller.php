@@ -82,7 +82,7 @@ class EntryController extends \BaseController {
 
 		// Return
 		return Redirect::route('edit_entry', $entry->id)
-			->with('alert_info', 'Your entry has been added');
+			->with('flash_success', trans('entry.stored'));
 	}
 
 	/**
@@ -114,7 +114,7 @@ class EntryController extends \BaseController {
 
 		// Return
 		return Redirect::route('edit_entry', $entry->id)
-			->with('alert_info', 'Your entry has been updated');
+			->with('flash_success', trans('entry.updated'));
 	}
 
   /**
@@ -131,7 +131,7 @@ class EntryController extends \BaseController {
     Entry::find($entryId)->delete();
 
     return Redirect::route('view_journal')
-			->with('alert_danger', 'Your entry has been trashed');
+			->with('alert_danger',  trans('entry.trashed', ['route' => route('restore_entry', $entryId)]));
   }
 
   /**
@@ -147,8 +147,8 @@ class EntryController extends \BaseController {
   {
     Entry::withTrashed()->where('id', $entryId)->restore();
 
-    return Redirect::route('view_journal', ['type' => 'trashed'])
-			->with('alert_info', 'Your entry has been restored');
+    return Redirect::route('view_journal')
+			->with('flash_success', trans('entry.restored'));
   }
 
 	/**
@@ -164,8 +164,8 @@ class EntryController extends \BaseController {
 	{
     Entry::withTrashed()->where('id', $entryId)->forceDelete();
 
-    return Redirect::route('view_journal', ['type' => 'trashed'])
-			->with('alert_info', 'Your entry has been destroyed');
+    return Redirect::route('view_journal')
+			->with('flash_danger', trans('entry.destroyed'));
 	}
 
 }

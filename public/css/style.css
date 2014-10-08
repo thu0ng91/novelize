@@ -673,6 +673,10 @@ body {
   line-height: 1.4;
 }
 
+.empty-message, .empty-message--main-box {
+  text-align: center;
+}
+
 .empty-message--main-box {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
@@ -707,6 +711,14 @@ body {
   text-align: center;
 }
 
+.empty-message__list {
+  display: inline-block;
+}
+.empty-message__list li {
+  line-height: 1.4;
+  text-align: left;
+}
+
 .feedback-link {
   display: block;
   position: fixed;
@@ -730,13 +742,17 @@ body {
   background-color: #686868;
 }
 
-.filters {
+.filters, .filters--admin {
   width: 90%;
   max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding: 6px 8px;
   visibility: hidden;
+}
+
+.filters--admin {
+  visibility: visible;
 }
 
 .filters__types {
@@ -2153,7 +2169,7 @@ select:focus {
 .notebook-page__main {
   padding: 0 220px 0 260px;
 }
-.notebook-page__main .filters {
+.notebook-page__main .filters, .notebook-page__main .filters--admin {
   width: 100%;
 }
 

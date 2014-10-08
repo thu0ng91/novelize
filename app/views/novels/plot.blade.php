@@ -36,7 +36,18 @@
 
   <div class="novel-mode-empty">
     <div class="empty-message--main-box">
-      <h2 class="empty-message__title">There's nothing here.</h2>
+      <h2 class="empty-message__title">Plot Features Coming Soon</h2>
+
+      <p class="empty-message__text">You will be able to...</p>
+
+      <ul class="empty-message__list">
+        <li>Add/Remove chapters and scenes with ease</li>
+        <li>Change chapter titles</li>
+        <li>Move scenes between chapters</li>
+        <li>Change the order of your chapters and scenes</li>
+        <li>Manage scene descriptions</li>
+        <li>and more...</li>
+      </ul>
     </div>
   </div>
 

@@ -40,8 +40,8 @@ class LocationController extends \BaseController {
 	/**
 	 * Show the form for creating a new resource.
 	 *
-	 * GET /notebook/{notebookId}/character/create
-	 * ROUTE create_character
+	 * GET /notebook/{notebookId}/location/create
+	 * ROUTE create_location
 	 *
 	 * @param  int  $notebookId
 	 * @return Response
@@ -56,27 +56,27 @@ class LocationController extends \BaseController {
 	/**
 	 * Show the form for editing the specified resource.
 	 *
-	 * GET /notebook/{notebookId}/character/{characterId}/edit
-	 * ROUTE edit_character
+	 * GET /notebook/{notebookId}/location/{locationId}/edit
+	 * ROUTE edit_location
 	 *
 	 * @param  int  $notebookId
-	 * @param  int  $characterId
+	 * @param  int  $locationId
 	 * @return Response
 	 */
-	public function edit($notebookId, $characterId)
+	public function edit($notebookId, $locationId)
 	{
     $notebook = Notebook::findOrFail($notebookId);
 
-    $character = Location::findOrFail($characterId);
+    $location = Location::findOrFail($locationId);
 
-    return View::make('locations.edit', compact('notebook', 'character'));
+    return View::make('locations.edit', compact('notebook', 'location'));
 	}
 
 	/**
 	 * Store a newly created resource in storage.
 	 *
-	 * POST /notebook/{notebookId}/character/store
-	 * ROUTE store_character
+	 * POST /notebook/{notebookId}/location/store
+	 * ROUTE store_location
 	 *
 	 * @param  int  $notebookId
 	 * @return Response
@@ -99,26 +99,26 @@ class LocationController extends \BaseController {
     $data = array_add($data, 'notebook_id', $notebookId);
 
 		// Action
-		$character = Location::create($data);
+		$location = Location::create($data);
 
 		// Return
-		return Redirect::route('edit_character', $notebookId, $character->id)
-			->with('flash_success', 'character has been added');
+		return Redirect::route('edit_location', [$notebookId, $location->id])
+			->with('flash_success', trans('location.stored'));
 	}
 
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * PUT /notebook/{notebookId}/character/{characterId}/update
-	 * ROUTE update_character
+	 * PUT /notebook/{notebookId}/location/{locationId}/update
+	 * ROUTE update_location
 	 *
 	 * @param  int  $notebookId
-	 * @param  int  $characterId
+	 * @param  int  $locationId
 	 * @return Response
 	 */
-	public function update($notebookId, $characterId)
+	public function update($notebookId, $locationId)
 	{
-		$character = Location::findOrFail($characterId);
+		$location = Location::findOrFail($locationId);
 
 		$data = Input::all();
 
@@ -133,73 +133,69 @@ class LocationController extends \BaseController {
 		}
 
 		// Action
-		$character->update($data);
+		$location->update($data);
 
 		// Return
-		return Redirect::route('edit_character', [$notebookId, $characterId])
-			->with('flash_success', 'Location has been updated');
+		return Redirect::route('edit_location', [$notebookId, $locationId])
+			->with('flash_success', trans('location.updated'));
 	}
 
   /**
-   * Put the character in trash.
+   * Put the location in trash.
 	 *
-   * GET /notebook/{notebookId}/character/{characterId}/trash
-	 * ROUTE trash_character
+   * GET /notebook/{notebookId}/location/{locationId}/trash
+	 * ROUTE trash_location
    *
 	 * @param  int  $notebookId
-   * @param  int  $characterId
+   * @param  int  $locationId
    * @return Response
    */
-  public function trash($notebookId, $characterId)
+  public function trash($notebookId, $locationId)
   {
-    $character = Location::find($characterId);
+    $location = Location::find($locationId);
 
-    $character->delete();
-
-    $alert_message = $character->name . ' has been trashed. (<a href="' . route("restore_character", [$notebookId, $characterId]) . '">undo</a>)';
+    $location->delete();
 
     return Redirect::route('view_locations', $notebookId)
-			->with('alert_warning', $alert_message);
+			->with('alert_danger', trans('location.trashed', ['route' => route('restore_location', [$notebookId, $locationId])]));
   }
 
   /**
-   * Restore the character from trash.
+   * Restore the location from trash.
 	 *
-   * GET /notebook/{notebookId}/character/{characterId}/restore
-	 * ROUTE restore_character
+   * GET /notebook/{notebookId}/location/{locationId}/restore
+	 * ROUTE restore_location
    *
 	 * @param  int  $notebookId
-   * @param  int  $characterId
+   * @param  int  $locationId
    * @return Response
    */
-  public function restore($notebookId, $characterId)
+  public function restore($notebookId, $locationId)
   {
-    $character = Location::withTrashed()->where('id', $characterId);
+    $location = Location::withTrashed()->where('id', $locationId);
 
-    $character->restore();
+    $location->restore();
 
-    $alert_message = 'Location has been restored. (<a href="' . route("edit_character", [$notebookId, $characterId]) . '">edit</a>)';
-
-    return Redirect::route('view_locations', ['type' => 'trashed', 'notebookId' => $notebookId])
-			->with('alert_success', $alert_message);
+    return Redirect::route('view_locations', $notebookId)
+			->with('flash_success', trans('location.restored'));
   }
 
 	/**
-	 * Remove the character from storage.
+	 * Remove the location from storage.
 	 *
-	 * GET /notebook/{notebookId}/character/{characterId}/destroy
-	 * ROUTE destroy_character
+	 * GET /notebook/{notebookId}/location/{locationId}/destroy
+	 * ROUTE destroy_location
 	 *
 	 * @param  int  $notebookId
-	 * @param  int  $characterId
+	 * @param  int  $locationId
 	 * @return Response
 	 */
-	public function destroy($notebookId, $characterId)
+	public function destroy($notebookId, $locationId)
 	{
-    Location::withTrashed()->where('id', $characterId)->forceDelete();
+    Location::withTrashed()->where('id', $locationId)->forceDelete();
 
-    return Redirect::route('view_locations', ['type' => 'trashed', 'notebookId' => $notebookId])
-			->with('alert_danger', 'Location has been destroyed');
+    return Redirect::route('view_locations', $notebookId)
+			->with('flash_danger', trans('location.destroyed'));
 	}
 
 }

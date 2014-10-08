@@ -38,7 +38,7 @@ class Profile extends \Eloquent {
 
   public static $rulesPassword = [
     'password' => 'required',
-    'newPassword' => 'sometimes|confirmed|min:8'
+    'newPassword' => 'required|confirmed|min:8'
   ];
 
 

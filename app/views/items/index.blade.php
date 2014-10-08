@@ -111,9 +111,9 @@
         @else
 
           <div class="empty-message">
-            <h2 class="empty-message__title">There's nothing here</h2>
+            <h2 class="empty-message__title">You Have No Items</h2>
 
-            <p class="empty-message__text">Why don't you {{ link_to_route('create_item', 'create', $notebook->id) }} your first item.</p>
+            <p class="empty-message__text">Why don't you {{ link_to_route('create_item', 'create', $notebook->id) }} your first item?</p>
           </div>
 
         @endif

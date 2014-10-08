@@ -1,7 +1,9 @@
 .empty-message {
+	text-align: center;
 }
 
 .empty-message--main-box {
+	@extend .empty-message;
   @include main-box;
   @include container;
   padding: 60px;
@@ -30,4 +32,12 @@
 	@include font-size(1.25);
 	line-height: 1.2;
 	text-align: center;
+}
+.empty-message__list {
+	display: inline-block;
+
+	li {
+		line-height: 1.4;
+		text-align: left;
+	}
 }
