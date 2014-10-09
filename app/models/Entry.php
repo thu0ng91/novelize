@@ -35,13 +35,13 @@ class Entry extends \Eloquent {
     {
       if($params['type'] == 'trashed')
       {
-        return Entry::onlyTrashed()->paginate($recordPerPage);
+        return Entry::where('owner_id', '=', Auth::user()->id)->onlyTrashed()->paginate($recordPerPage);
       }
 
-      return Entry::orderBy('updated_at', 'DESC')->paginate($recordPerPage);
+      return Entry::where('owner_id', '=', Auth::user()->id)->orderBy('updated_at', 'DESC')->paginate($recordPerPage);
     }
 
-    return Entry::orderBy('updated_at', 'DESC')->paginate($recordPerPage);
+    return Entry::where('owner_id', '=', Auth::user()->id)->orderBy('updated_at', 'DESC')->paginate($recordPerPage);
   }
 
 }
