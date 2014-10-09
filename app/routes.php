@@ -45,6 +45,7 @@ require (__DIR__."/routes/sessions.php");
 require (__DIR__."/routes/mail.php");
 
 require (__DIR__."/routes/users.php");
+require (__DIR__."/routes/admin.php");
 require (__DIR__."/routes/account.php");
 
 require (__DIR__."/routes/entries.php");

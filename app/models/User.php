@@ -101,17 +101,22 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
     return $this->belongsTo('Profile');
   }
 
+
   public function notebooks()
   {
-    return $this->hasMany('Notebook');
+    return $this->hasMany('Notebook', 'owner_id', 'id');
   }
+
+
   public function novels()
   {
-    return $this->hasMany('Novel');
+    return $this->hasMany('Novel', 'owner_id', 'id');
   }
+
+
   public function entries()
   {
-    return $this->hasMany('Entry');
+    return $this->hasMany('Entry', 'owner_id', 'id');
   }
 
 }

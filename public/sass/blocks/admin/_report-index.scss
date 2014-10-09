@@ -1,0 +1,44 @@
+.report__wrapper {
+	@include main-box;
+	@include container;
+	margin-top: 20px;
+	padding: 40px;
+}
+
+
+.report-stats {
+	max-width: 300px;
+	margin: 0 0 20px;
+	list-style: none;
+}
+.report-stats__item {
+	margin-bottom: 10px;
+
+	span {
+		float: right;
+	}
+}
+
+
+.report-index {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.report-index__row {
+	&:hover {
+		background-color: $greyLightest;
+	}
+}
+
+.report-index__cell {
+	padding: 4px;
+	border: 1px solid $c_userIndexCellBorder;
+}
+
+.report-index__head-cell {
+	padding: 8px;
+	background-color: $offWhite;
+	border: 1px solid $c_userIndexCellBorder;
+}
+
