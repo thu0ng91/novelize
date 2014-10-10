@@ -11,6 +11,10 @@ Route::get( '/notebook/create', [
     'as' => 'create_notebook',
     'uses' => 'NotebookController@create'
 ]);
+Route::get( '/notebook/{notebookId}/new_notebook', [
+    'as' => 'new_notebook',
+    'uses' => 'NotebookController@new_notebook'
+]);
 Route::get( '/notebook/{notebookId}/edit', [
     'as' => 'edit_notebook',
     'uses' => 'NotebookController@edit'

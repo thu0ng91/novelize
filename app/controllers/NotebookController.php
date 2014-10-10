@@ -49,6 +49,21 @@ class NotebookController extends \BaseController {
 	}
 
 	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * GET /app/notebook/{notebookId}/new_notebook
+	 * ROUTE create_notebook
+	 *
+	 * @return Response
+	 */
+	public function new_notebook($notebookId)
+	{
+    $notebook = Notebook::findOrFail($notebookId);
+
+    return View::make('notebooks.new', compact('notebook'));
+	}
+
+	/**
 	 * Display the specified resource.
 	 *
 	 * GET /app/notebook/{notebookId}/show
@@ -106,11 +121,10 @@ class NotebookController extends \BaseController {
     $data = array_add($data, 'owner_id', Auth::user()->id);
 
 		// Action
-		Notebook::create($data);
+		$notebook = Notebook::create($data);
 
 		// Return
-		return Redirect::route('view_notebooks')
-			->with('flash_success', trans('notebook.stored'));
+		return Redirect::route('new_notebook', $notebook->id);
 	}
 
 	/**

@@ -1,0 +1,75 @@
+.new-notebook__wrapper {
+  @include main-box;
+  @include container;
+  margin-top: 20px;
+  padding: 40px;
+}
+
+.new-notebook {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.new-notebook__title {
+	margin-bottom: 30px;
+	text-align: center;
+}
+.new-notebook__text {
+	margin-bottom: 60px;
+	line-height: 1.4;
+}
+
+.new-notebook__buttons {
+	@include clearfix;
+	margin: 0;
+	list-style: none;
+	padding-bottom: 30px;
+	border-bottom: 1px solid $c_newNotebookBorder;
+
+	li {
+		float: left;
+		width: 50%;
+		padding: 0 2%;
+		margin-bottom: 30px;
+	}
+}
+.new-notebook__button {
+	display: block;
+	padding: 20px 12px;
+	border: 1px solid $c_buttonBorder-secondary;
+	@include font-size(1.25);
+	text-align: center;
+	@include link-colors($c_buttonLink-primary, $c_buttonLink-hover);
+
+	&:hover {
+		background-color: $c_buttonBkgd-hover;
+		border-color: $c_buttonBorder-hover;
+	}
+}
+.new-notebook__button--character {
+	@extend .new-notebook__button;
+}
+.new-notebook__button--location {
+	@extend .new-notebook__button;
+}
+.new-notebook__button--item {
+	@extend .new-notebook__button;
+}
+.new-notebook__button--note {
+	@extend .new-notebook__button;
+}
+
+.new-notebook__create-novel {
+	display: block;
+	margin: 60px 0;
+	padding: 20px 12px;
+	border: 1px solid $c_buttonBorder-primary;
+	@include font-size(1.5);
+	text-align: center;
+	@include link-colors($c_buttonLink-primary, $c_buttonLink-hover);
+
+	&:hover {
+		background-color: $c_buttonBkgd-hover;
+		border-color: $c_buttonBorder-hover;
+	}
+}

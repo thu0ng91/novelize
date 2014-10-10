@@ -1844,6 +1844,96 @@ select:focus {
   border-top: none;
 }
 
+.new-notebook__wrapper {
+  background-color: white;
+  box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
+  width: 90%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20px;
+  padding: 40px;
+}
+
+.new-notebook {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.new-notebook__title {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.new-notebook__text {
+  margin-bottom: 60px;
+  line-height: 1.4;
+}
+
+.new-notebook__buttons {
+  content: "";
+  display: table;
+  width: 100%;
+  margin: 0;
+  list-style: none;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eeeeee;
+}
+.new-notebook__buttons:after {
+  clear: both;
+}
+.new-notebook__buttons li {
+  float: left;
+  width: 50%;
+  padding: 0 2%;
+  margin-bottom: 30px;
+}
+
+.new-notebook__button, .new-notebook__button--character, .new-notebook__button--location, .new-notebook__button--item, .new-notebook__button--note {
+  display: block;
+  padding: 20px 12px;
+  border: 1px solid #dddddd;
+  font-size: 20px;
+  font-size: 1.25rem;
+  text-align: center;
+}
+.new-notebook__button:link, .new-notebook__button--character:link, .new-notebook__button--location:link, .new-notebook__button--item:link, .new-notebook__button--note:link, .new-notebook__button:visited, .new-notebook__button--character:visited, .new-notebook__button--location:visited, .new-notebook__button--item:visited, .new-notebook__button--note:visited {
+  color: #e25822;
+}
+.new-notebook__button:active, .new-notebook__button--character:active, .new-notebook__button--location:active, .new-notebook__button--item:active, .new-notebook__button--note:active, .new-notebook__button.active, .active.new-notebook__button--character, .active.new-notebook__button--location, .active.new-notebook__button--item, .active.new-notebook__button--note {
+  color: inherit;
+}
+.new-notebook__button:hover, .new-notebook__button--character:hover, .new-notebook__button--location:hover, .new-notebook__button--item:hover, .new-notebook__button--note:hover {
+  color: white;
+}
+.new-notebook__button:hover, .new-notebook__button--character:hover, .new-notebook__button--location:hover, .new-notebook__button--item:hover, .new-notebook__button--note:hover {
+  background-color: #e25822;
+  border-color: #e25822;
+}
+
+.new-notebook__create-novel {
+  display: block;
+  margin: 60px 0;
+  padding: 20px 12px;
+  border: 1px solid #e25822;
+  font-size: 24px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.new-notebook__create-novel:link, .new-notebook__create-novel:visited {
+  color: #e25822;
+}
+.new-notebook__create-novel:active, .new-notebook__create-novel.active {
+  color: inherit;
+}
+.new-notebook__create-novel:hover {
+  color: white;
+}
+.new-notebook__create-novel:hover {
+  background-color: #e25822;
+  border-color: #e25822;
+}
+
 .notebook-description {
   margin-bottom: 20px;
   padding: 0 10px 20px;
