@@ -22,3 +22,23 @@ $('.js-descriptionButton').click(function(e) {
 		$('.js-descriptionButton').text('SHOW DESCRIPTION');
 	}
 });
+
+
+/**
+ * Toolbar Position
+ */
+function positionWriteScreen(){
+
+	var writeForm = $(".write-scene");
+	var writeFormHeight = viewportSize().height - 154;
+	var writeFormWidth = writeForm.outerWidth();
+
+	writeForm.css('min-height', writeFormHeight);
+	$('.write-scene__toolbar__wrapper').css('width', writeFormWidth);
+}
+
+positionWriteScreen();
+$(window).resize(function() {
+	positionWriteScreen()
+});
+

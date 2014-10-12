@@ -10,14 +10,14 @@
   line-height: 1.4;
 }
 
-.form-button, .form-button--secondary, .message__button, .page-header__button, .side-panel__toggle, .novel-sidebar__button, .table-of-contents__toolbar button, .write-scene__description-button, .item-index__toolbar__button, .novel-list__link {
+.form-button, .form-button--secondary, .message__button, .page-header__button, .side-panel__toggle, .novel-sidebar__button, .table-of-contents__toolbar button, .write-scene__description-button, .write-scene__save-button, .item-index__toolbar__button, .novel-list__link {
   display: block;
   background-color: transparent;
   border: none;
   text-decoration: none;
   text-align: center;
 }
-.form-button:focus, .form-button--secondary:focus, .message__button:focus, .page-header__button:focus, .side-panel__toggle:focus, .novel-sidebar__button:focus, .table-of-contents__toolbar button:focus, .write-scene__description-button:focus, .item-index__toolbar__button:focus, .novel-list__link:focus {
+.form-button:focus, .form-button--secondary:focus, .message__button:focus, .page-header__button:focus, .side-panel__toggle:focus, .novel-sidebar__button:focus, .table-of-contents__toolbar button:focus, .write-scene__description-button:focus, .write-scene__save-button:focus, .item-index__toolbar__button:focus, .novel-list__link:focus {
   outline: none;
 }
 
@@ -210,16 +210,11 @@ body {
   background-color: whitesmoke;
 }
 
-.container {
-  padding-bottom: 40px;
-}
-
 .page-content {
   content: "";
   display: table;
   width: 100%;
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 10px;
@@ -643,7 +638,6 @@ body {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
@@ -681,7 +675,6 @@ body {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding: 60px;
@@ -723,7 +716,7 @@ body {
   display: block;
   position: fixed;
   bottom: 0;
-  right: 0;
+  left: 0;
   z-index: 99;
   padding: 8px 12px;
   background-color: #e25822;
@@ -744,7 +737,6 @@ body {
 
 .filters, .filters--admin {
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding: 6px 8px;
@@ -1013,7 +1005,6 @@ select:focus {
 
 .message, .message--info, .message--success, .message--warning, .message--danger {
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   position: relative;
@@ -1097,7 +1088,6 @@ select:focus {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding: 15px;
@@ -1389,7 +1379,6 @@ select:focus {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding: 60px 0 0 30px;
@@ -1587,7 +1576,6 @@ select:focus {
 
 .write-scene__wrapper {
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   position: relative;
@@ -1599,7 +1587,7 @@ select:focus {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   position: relative;
-  padding: 10px 80px 20px 20px;
+  padding: 10px 20px 57px;
 }
 .write-scene .form-button, .write-scene .form-button--secondary,
 .write-scene .form-button--secondary {
@@ -1608,30 +1596,6 @@ select:focus {
 
 .write-scene__label {
   cursor: pointer;
-}
-
-.write-scene__breadcrumbs {
-  margin-bottom: 10px;
-  font-size: 12px;
-  font-size: 0.75rem;
-  color: #cacaca;
-}
-
-.write-scene__delete-button {
-  position: absolute;
-  top: 10px;
-  right: 80px;
-  font-size: 14px;
-  font-size: 0.875rem;
-}
-.write-scene__delete-button:link, .write-scene__delete-button:visited {
-  color: #cacaca;
-}
-.write-scene__delete-button:active, .write-scene__delete-button.active {
-  color: inherit;
-}
-.write-scene__delete-button:hover {
-  color: #e25822;
 }
 
 .write-scene__details {
@@ -1673,39 +1637,74 @@ select:focus {
   color: #e25822;
 }
 
-.write-scene__to-bottom,
-.write-scene__to-top {
-  display: block;
-  position: absolute;
-  right: 10px;
-  width: 40px;
-  height: 40px;
-  background-image: url(../img/icons/up-down-arrows.png);
-}
-.write-scene__to-bottom:hover,
-.write-scene__to-top:hover {
-  border: 1px solid #dddddd;
-}
-.write-scene__to-bottom:focus,
-.write-scene__to-top:focus {
-  outline: none;
+.write-scene__toolbar__wrapper {
+  position: fixed;
+  bottom: 0;
+  width: 930px;
+  margin-left: -20px;
+  padding: 0 10px;
+  transition: padding 0.5s;
 }
 
-.write-scene__to-bottom {
-  top: 10px;
-  background-position: center bottom;
+.write-scene__toolbar {
+  content: "";
+  display: table;
+  width: 100%;
+  padding: 8px;
+  background-color: white;
+  border-top: 1px solid #ababab;
+}
+.write-scene__toolbar:after {
+  clear: both;
 }
 
-.write-scene__to-top {
-  bottom: 10px;
-  background-position: center top;
+.write-scene__breadcrumbs {
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-size: 0.75rem;
+  color: #cacaca;
+}
+
+.write-scene__delete-button {
+  float: left;
+  padding: 6px;
+  border: 1px solid #ababab;
+  line-height: 1;
+}
+.write-scene__delete-button:link, .write-scene__delete-button:visited {
+  color: #ababab;
+}
+.write-scene__delete-button:active, .write-scene__delete-button.active {
+  color: inherit;
+}
+.write-scene__delete-button:hover {
+  color: white;
+}
+.write-scene__delete-button:hover {
+  background-color: #e25822;
+}
+
+.write-scene__word-count {
+  float: right;
+  padding: 7px 10px;
+}
+
+.write-scene__save-button {
+  float: right;
+  width: 80px;
+  border: 1px solid #e25822;
+  color: #e25822;
+  line-height: 1;
+}
+.write-scene__save-button:hover {
+  background-color: #e25822;
+  color: white;
 }
 
 .notebook-index {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding: 60px 0 0 30px;
@@ -1848,7 +1847,6 @@ select:focus {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
@@ -2044,7 +2042,6 @@ select:focus {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding: 2px 40px;
@@ -2130,7 +2127,6 @@ select:focus {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
@@ -2166,7 +2162,7 @@ select:focus {
 }
 
 .admin-bar {
-  display: block;
+  display: none;
   position: fixed;
   bottom: -27px;
   left: 0;
@@ -2204,7 +2200,6 @@ select:focus {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 20px;
@@ -2248,7 +2243,6 @@ select:focus {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   padding: 40px;
@@ -2284,7 +2278,6 @@ select:focus {
 
 .user-form {
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   background-color: white;
@@ -2316,7 +2309,6 @@ select:focus {
 
 .notebook-page {
   width: 90%;
-  max-width: 1200px;
   margin-right: auto;
   margin-left: auto;
   position: relative;

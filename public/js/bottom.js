@@ -7,6 +7,7 @@
 //
 //@prepros-append vendor/smoothScroll.js
 //@prepros-append vendor/autosize.js
+//@prepros-append vendor/countable.js
 //
 //@prepros-append vendor/medium-editor.js
 //@prepros-append modules/editor.js

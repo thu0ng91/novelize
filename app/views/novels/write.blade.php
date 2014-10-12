@@ -50,11 +50,7 @@
 
       {{ Form::hidden('scene_order') }}
 
-      <a href="#bottom" name="top" class="write-scene__to-bottom"></a>
-
       <p class="write-scene__breadcrumbs">Chapter {{ $currentScene->chapter->chapter_order }} / Scene {{ $currentScene->scene_order }}</p>
-
-      {{ link_to_route('trash_scene', 'DELETE SCENE', [$novel->id, $currentScene->id], ['class' => 'write-scene__delete-button']) }}
 
       <div class="write-scene__details">
         {{ Form::text('title', null, ['id' => 'title', 'class' => 'write-scene__title', 'placeholder' => 'Scene ' . $currentScene->scene_order]) }}
@@ -69,12 +65,17 @@
         {{ Form::textarea('body', null, ['class' => 'editable']) }}
       </div>
 
-      <div class="form-block--buttons">
-        {{ link_to_route('write_novel', 'CANCEL', [$novel->id, $currentScene->id], ['class' => 'form-button--secondary']) }}
-        {{ Form::submit('SAVE SCENE', ['class' => 'form-button']) }}
-      </div>
+      <div class="write-scene__toolbar__wrapper">
+        <div class="write-scene__toolbar">
 
-      <a href="#top" name="bottom" class="write-scene__to-top"></a>
+          {{ link_to_route('trash_scene', 'DELETE SCENE', [$novel->id, $currentScene->id], ['class' => 'write-scene__delete-button']) }}
+
+          {{ Form::submit('SAVE', ['class' => 'write-scene__save-button']) }}
+
+          <p class="write-scene__word-count"><span id="word-count"></span> Words</p>
+
+        </div>
+      </div>
 
     </form>
 

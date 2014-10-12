@@ -8,7 +8,7 @@
 .write-scene {
 	@include main-box;
 	position: relative;
-	padding: 10px 80px 20px 20px;
+	padding: 10px 20px 57px;
 
 	.form-button,
 	.form-button--secondary {
@@ -17,22 +17,6 @@
 }
 .write-scene__label {
 	cursor: pointer;
-}
-
-// Breadcrumb
-.write-scene__breadcrumbs {
-	margin-bottom: 10px;
-	@include font-size(0.75);
-	color: $c_lightText;
-}
-
-// Delete Button
-.write-scene__delete-button {
-	position: absolute;
-	top: 10px;
-	right: 80px;
-	@include font-size(0.875);
-	@include link-colors($greyLight, $orange);
 }
 
 // Details
@@ -73,30 +57,61 @@
 }
 
 
-.write-scene__to-bottom,
-.write-scene__to-top {
-	display: block;
-	position: absolute;
-	right: 10px;
-	width: 40px;
-	height: 40px;
-	background-image: url(../img/icons/up-down-arrows.png);
+
+
+.write-scene__toolbar__wrapper {
+	position: fixed;
+	bottom: 0;
+	width: 930px;
+	margin-left: -20px;
+	padding: 0 10px;
+	transition: padding 0.5s;
+}
+
+.write-scene__toolbar {
+	@include clearfix;
+	padding: 8px;
+	background-color: white;
+	border-top: 1px solid $grey;
+}
+
+// Breadcrumb
+.write-scene__breadcrumbs {
+	margin-bottom: 10px;
+	@include font-size(0.75);
+	color: $c_lightText;
+}
+
+// Delete Button
+.write-scene__delete-button {
+	float: left;
+	padding: 6px;
+	border: 1px solid $grey;
+	@include link-colors($grey, $white);
+	line-height: 1;
 
 	&:hover {
-		border: 1px solid $greyLighter;
-	}
-
-	&:focus {
-		outline: none;
+		background-color: $orange;
 	}
 }
 
-.write-scene__to-bottom {
-	top: 10px;
-	background-position: center bottom;
+// Word Count
+.write-scene__word-count {
+	float: right;
+	padding: 7px 10px;
 }
 
-.write-scene__to-top {
-	bottom: 10px;
-	background-position: center top;
+// Save Button
+.write-scene__save-button {
+	@extend %button-reset;
+	float: right;
+	width: 80px;
+	border: 1px solid $orange;
+	color: $orange;
+	line-height: 1;
+
+	&:hover {
+		background-color: $orange;
+		color: $white;
+	}
 }

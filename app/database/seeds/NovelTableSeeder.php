@@ -14,14 +14,6 @@ class NovelTableSeeder extends Seeder {
       'author' => 'Josh Evensen',
       'genre_id' => 8
     ));
-    Novel::create(array(
-      'id' => 2,
-      'owner_id' => 1,
-      'notebook_id' => 1,
-      'title' => 'Survivors War',
-      'author' => 'Anita Evensen',
-      'genre_id' => 8
-    ));
   }
 
-} 
+}

@@ -10,11 +10,7 @@
 
   <title>Novelize Writing App</title>
 
-
-  {{ HTML::style('css/style.css')}}
-  <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700|Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
-  @yield('head_styles')
-
+  @include('layouts.partials.styles')
 
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   @yield('head_scripts')

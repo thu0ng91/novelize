@@ -4,7 +4,7 @@ $('.editable').each(function() {
   $this.wrap('<div class="editable-wrapper"/>');
   var $w = $(this).parent();
 
-  $w.prepend('<div class="editable">' + $this.val()+'</div>');
+  $w.prepend('<div id="js-countable" class="editable">' + $this.val()+'</div>');
 
   $this.hide();
 
