@@ -17,6 +17,19 @@
 @section('page_content')
   {{-- Form --}}
   <div class="user-form">
+
+    <div class="user-form__details">
+      <h5>Name</h5>
+      <p>{{ $user->first_name }} {{ $user->last_name }}</p>
+
+      <h5>Account Created</h5>
+      <p>{{ date('M, dS Y', strtotime($user->created_at)) }}</p>
+
+      <h5>User Id</h5>
+      <p>{{ $user->id }}</p>
+    </div>
+
+
     {{ Form::model($user, ['method' => 'PUT', 'route' => ['update_user', $user->id]]) }}
 
       <div class="form-block">

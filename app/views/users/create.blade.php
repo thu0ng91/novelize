@@ -25,6 +25,18 @@
       </div>
 
       <div class="form-block">
+        {{ Form::label('first_name', 'First Name') }}
+        {{ errors_for('first_name', $errors) }}
+        {{ Form::text('first_name') }}
+      </div>
+
+      <div class="form-block">
+        {{ Form::label('last_name', 'Last Name') }}
+        {{ errors_for('last_name', $errors) }}
+        {{ Form::text('last_name') }}
+      </div>
+
+      <div class="form-block">
         {{ Form::label('password', 'Password') }}
         {{ errors_for('password', $errors) }}
         {{ Form::text('password') }}

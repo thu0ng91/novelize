@@ -4,3 +4,21 @@
 	margin-top: 20px;
 	padding: 40px;
 }
+
+.user-form__details {
+	h5 {
+		padding: 4px 0;
+		@include font-size();
+		font-weight: $f_normal;
+		color: $c_labelText;
+
+	}
+
+	p {
+		width: 100%;
+		margin-bottom: 14px;
+		padding: 6px;
+		border: 1px solid lighten($c_formBorder, 10%);
+		color: $c_bodyText;
+	}
+}
