@@ -63,6 +63,8 @@
 
             <h2 class="novel-index__title">{{ $novel->title }}</h2>
 
+            <p class="novel-index__word-count">{{ $novel->word_count($novel->id) }} Words</p>
+
             <ul class="novel-index__buttons">
               @if($type == 'trashed')
 

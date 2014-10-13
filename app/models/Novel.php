@@ -53,4 +53,23 @@ class Novel extends \Eloquent {
     return $this->hasManyThrough('Scene', 'Chapter')->orderBy('scene_order', 'asc');
   }
 
+  public function word_count($novelId)
+  {
+    $novel = Novel::findOrFail($novelId)->with('scenes')->get();
+
+    $scenes_text = '';
+
+    foreach($novel->first()->scenes as $scene) {
+      $scenes_text .= $scene->body;
+    }
+
+    $scenes_text = strip_tags($scenes_text);
+
+    $word_count = str_word_count($scenes_text);
+
+    $word_count = number_format($word_count);
+
+    return $word_count;
+  }
+
 }

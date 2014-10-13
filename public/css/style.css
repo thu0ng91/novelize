@@ -1531,7 +1531,7 @@ select:focus {
 }
 
 .novel-index__title {
-  height: 220px;
+  height: 200px;
   padding: 10px;
   font-size: 32px;
   font-size: 2rem;
@@ -1539,6 +1539,13 @@ select:focus {
   color: #686868;
   line-height: 1.2;
   text-align: center;
+}
+
+.novel-index__word-count {
+  padding-bottom: 10px;
+  font-size: 14.4px;
+  font-size: 0.9rem;
+  color: #ababab;
 }
 
 .novel-index__buttons {

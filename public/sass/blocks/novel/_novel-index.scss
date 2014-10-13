@@ -62,13 +62,19 @@
 }
 
 .novel-index__title {
-  height: 220px;
+  height: 200px;
   padding: 10px;
   @include font-size(2);
   font-weight: $f_normal;
   color: $c_novelIndexTitle;
   line-height: 1.2;
   text-align: center;
+}
+
+.novel-index__word-count {
+  padding-bottom: 10px;
+  @include font-size(0.9);
+  color: $c_novelIndexNotebook;
 }
 
 .novel-index__buttons {
