@@ -7,9 +7,9 @@ class MailController extends \BaseController {
    */
   public function general()
   {
-    $user = User::with('profile')->findOrFail(Auth::user()->id);
+    $user = User::findOrFail(Auth::user()->id);
     $email = $user->email;
-    $name = $user->profile->first_name . $user->profile->last_name;
+    $name = $user->first_name . $user->last_name;
 
     $data =
     [
@@ -17,8 +17,8 @@ class MailController extends \BaseController {
       'subject' => Input::get('subject'),
       'body' => Input::get('body'),
       'userId' => $user->id,
-      'firstName' => $user->profile->first_name,
-      'lastName' => $user->profile->last_name,
+      'firstName' => $user->first_name,
+      'lastName' => $user->last_name,
     ];
 
     $rules = [
@@ -58,9 +58,9 @@ class MailController extends \BaseController {
    */
   public function support()
   {
-    $user = User::with('profile')->findOrFail(Auth::user()->id);
+    $user = User::findOrFail(Auth::user()->id);
     $email = $user->email;
-    $name = $user->profile->first_name . $user->profile->last_name;
+    $name = $user->first_name . $user->last_name;
 
     $data =
     [
@@ -68,8 +68,8 @@ class MailController extends \BaseController {
       'question' => Input::get('question'),
       'details' => Input::get('details'),
       'userId' => $user->id,
-      'firstName' => $user->profile->first_name,
-      'lastName' => $user->profile->last_name,
+      'firstName' => $user->first_name,
+      'lastName' => $user->last_name,
     ];
 
     $rules = [
@@ -108,9 +108,9 @@ class MailController extends \BaseController {
    */
   public function feedback()
   {
-    $user = User::with('profile')->findOrFail(Auth::user()->id);
+    $user = User::findOrFail(Auth::user()->id);
     $email = $user->email;
-    $name = $user->profile->first_name . $user->profile->last_name;
+    $name = $user->first_name . $user->last_name;
 
     $data =
     [
@@ -119,8 +119,8 @@ class MailController extends \BaseController {
       'hate' => Input::get('hate'),
       'comments' => Input::get('comments'),
       'userId' => $user->id,
-      'firstName' => $user->profile->first_name,
-      'lastName' => $user->profile->last_name,
+      'firstName' => $user->first_name,
+      'lastName' => $user->last_name,
     ];
 
     $rules = [
@@ -158,9 +158,9 @@ class MailController extends \BaseController {
    */
   public function bug()
   {
-    $user = User::with('profile')->findOrFail(Auth::user()->id);
+    $user = User::findOrFail(Auth::user()->id);
     $email = $user->email;
-    $name = $user->profile->first_name . $user->profile->last_name;
+    $name = $user->first_name . $user->last_name;
 
     $data =
     [
@@ -169,8 +169,8 @@ class MailController extends \BaseController {
       'os' => Input::get('os'),
       'browser' => Input::get('browser'),
       'userId' => $user->id,
-      'firstName' => $user->profile->first_name,
-      'lastName' => $user->profile->last_name,
+      'firstName' => $user->first_name,
+      'lastName' => $user->last_name,
     ];
 
     $rules = [
