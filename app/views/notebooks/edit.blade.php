@@ -19,6 +19,11 @@
 @section('page_content')
   {{-- Form --}}
   <div class="basic-form__wrapper">
+
+    <div class="notebook-index__explanation">
+      @include('notebooks.partials.explanation')
+    </div>
+
     {{ Form::model($notebook, ['method' => 'PUT', 'route' => ['update_notebook', $notebook->id], 'class' => 'basic-form']) }}
       @include('notebooks.partials.form')
 

@@ -1,0 +1,64 @@
+.welcome {
+	@include main-box;
+	@include container;
+	max-width: 800px;
+	padding: 30px 40px 60px;
+
+	p {
+		line-height: 1.6;
+	}
+}
+
+.welcome__title {
+	margin-bottom: 12px;
+	@include font-size(3);
+	font-family: $f_serif;
+	font-weight: $f_normal;
+	color: $orange;
+}
+
+.welcome__title,
+.welcome__intro {
+	padding: 0 20px;
+}
+
+.welcome__section {
+	margin-top: 30px;
+	padding: 30px 20px 0;
+	border-top: 1px solid $greyLighter;
+
+	h2, p {
+		margin-bottom: 20px;
+	}
+
+	img {
+		float: right;
+		height: 180px;
+		margin: -10px 0 10px 20px;
+		padding: 0 0 10px 10px;
+	}
+}
+.welcome__section--left {
+	@extend .welcome__section;
+
+	img {
+		float: left;
+		margin: -10px 20px 10px 0;
+		padding: 0 10px 10px 0;
+	}
+}
+
+.welcome__button {
+  @extend %button-reset;
+  clear: both;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border: 1px solid $c_buttonBorder-primary;
+  @include font-size(1.5);
+  @include link-colors($c_buttonLink-primary, $c_buttonLink-hover);
+
+  &:hover {
+    background-color: $c_buttonBkgd-hover;
+    border-color: $c_buttonBorder-hover;
+  }
+}

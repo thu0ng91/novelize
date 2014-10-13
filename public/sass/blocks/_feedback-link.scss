@@ -1,13 +1,6 @@
 .feedback-link {
-	display: block;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	z-index: 99;
-	padding: 8px 12px;
 	background-color: $c_editLinkBkgd;
 	@include link-colors($c_editLink, $c_editLink);
-	text-decoration: none;
 
 	&:hover {
 		background-color: $c_editLinkBkgd-hover;

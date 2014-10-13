@@ -44,7 +44,7 @@ class SessionsController extends \BaseController {
         ->with('alert_danger', trans('session.invalid'));
 		}
 
-		return Redirect::route('home');
+		return Redirect::intended('/');
 	}
 
 	/**

@@ -1,12 +1,45 @@
-.entries-index {
-  margin: 0;
-  list-style: none;
-}
-
 .entries-index__wrapper {
   @include main-box;
   @include container;
-  padding: 2px 40px;
+  position: relative;
+  min-height: 460px;
+  padding: 2px 20px 2px 240px;
+
+  .empty-message {
+    margin-top: 40px;
+  }
+}
+
+.entries-index__explanation {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 0 20px 20px 0;
+  border-right: 1px solid $c_notebookIndexBorder;
+
+  img {
+    display: block;
+    width: 90%;
+    margin: 0 auto 10px;
+  }
+
+  p {
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  ul {
+    margin-left: 1.5em;
+  }
+  li {
+    line-height: 1.5;
+  }
+}
+
+.entries-index {
+  margin: 0;
+  list-style: none;
 }
 
 .entries-index__item {

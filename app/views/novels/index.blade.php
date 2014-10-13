@@ -45,51 +45,59 @@
 
 <!--
   Index ============================================= -->
-  @if ($novels->count())
+  <div class="novel-index">
 
-    <ul class="novel-index">
-
-      @foreach($novels as $novel)
-
-        <li class="novel-index__item">
-
-          <p class="novel-index__notebook">{{ $novel->notebook->name }}</p>
-
-          <h2 class="novel-index__title">{{ $novel->title }}</h2>
-
-          <ul class="novel-index__buttons">
-            @if($type == 'trashed')
-
-              <li class="novel-index__buttons__item">{{ link_to_route('destroy_novel', '', $novel->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY'] ) }}</li>
-              <li class="novel-index__buttons__item">{{ link_to_route('restore_novel', '', $novel->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE'] ) }}</li>
-
-            @else
-
-              <li class="novel-index__buttons__item">{{ link_to_route('trash_novel', '', $novel->id, ['class' => 'icon-index--trash', 'title' => 'TRASH'] ) }}</li>
-              <li class="novel-index__buttons__item">{{ link_to_route('edit_novel', '', $novel->id, ['class' => 'icon-index--settings', 'title' => 'UPDATE SETTINGS'] ) }}</li>
-              <li class="novel-index__buttons__item">{{ link_to_route('write_novel', '', [$novel->id, $novel->scenes->first()['id']], ['class' => 'icon-index--edit', 'title' => 'WRITE'] ) }}</li>
-
-            @endif
-          </ul>
-
-        </li>
-
-      @endforeach
-
-    </ul>
-
-  @else
-
-    <div class="empty-message--main-box">
-      <h2 class="empty-message__title">You Have No Novels</h2>
-
-      @if( $notebookCount > 0 )
-        <p class="empty-message__text">Why don't you {{ link_to_route('create_novel', 'create') }} your first Novel?</p>
-      @else
-        <p class="empty-message__text">Make sure you've got a {{ link_to_route('create_notebook', 'Notebook') }} set up before you create your first Novel.</p>
-      @endif
+    <div class="novel-index__explanation">
+      @include('novels.partials.explanation')
     </div>
 
-  @endif
+    @if ($novels->count())
+
+      <ul class="novel-index__list">
+
+        @foreach($novels as $novel)
+
+          <li class="novel-index__item">
+
+            <p class="novel-index__notebook">{{ $novel->notebook->name }}</p>
+
+            <h2 class="novel-index__title">{{ $novel->title }}</h2>
+
+            <ul class="novel-index__buttons">
+              @if($type == 'trashed')
+
+                <li class="novel-index__buttons__item">{{ link_to_route('destroy_novel', '', $novel->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY'] ) }}</li>
+                <li class="novel-index__buttons__item">{{ link_to_route('restore_novel', '', $novel->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE'] ) }}</li>
+
+              @else
+
+                <li class="novel-index__buttons__item">{{ link_to_route('trash_novel', '', $novel->id, ['class' => 'icon-index--trash', 'title' => 'TRASH'] ) }}</li>
+                <li class="novel-index__buttons__item">{{ link_to_route('edit_novel', '', $novel->id, ['class' => 'icon-index--settings', 'title' => 'UPDATE SETTINGS'] ) }}</li>
+                <li class="novel-index__buttons__item">{{ link_to_route('write_novel', '', [$novel->id, $novel->scenes->first()['id']], ['class' => 'icon-index--edit', 'title' => 'WRITE'] ) }}</li>
+
+              @endif
+            </ul>
+
+          </li>
+
+        @endforeach
+
+      </ul>
+
+    @else
+
+      <div class="empty-message">
+        <h2 class="empty-message__title">You Have No Novels</h2>
+
+        @if( $notebookCount > 0 )
+          <p class="empty-message__text">Why don't you {{ link_to_route('create_novel', 'create') }} your first Novel?</p>
+        @else
+          <p class="empty-message__text">Make sure you've got a {{ link_to_route('create_notebook', 'Notebook') }} set up before you create your first Novel.</p>
+        @endif
+      </div>
+
+    @endif
+
+  </div>
 
 @stop

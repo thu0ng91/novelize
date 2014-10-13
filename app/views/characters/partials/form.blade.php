@@ -1,14 +1,13 @@
 <div class="form-block">
-  {{ Form::label('name', 'Name') }}
-  {{ Form::text('name') }}
+  <label for="name">Name <span class="required">Required</span></label>
+  {{ Form::text('name', null, ['required']) }}
   {{ errors_for('name', $errors) }}
-  <p class="help-text">Required.</p>
 </div>
 
 <div class="form-group">
 
 	<div class="form-block">
-	  <label for="type_id">Character Type</label>
+	  <label for="type_id">Character Type <span class="required">Required</span></label>
 	  <select name="type_id">
 	    @foreach($types as $type)
 	      @if($character->type_id == $type->id )
@@ -18,11 +17,11 @@
 	      @endif
 	    @endforeach
 	  </select>
-	  <p class="help-text">Required.</p>
+    <p class="help-text">Don't see what you want, {{ link_to_route('view_contact', 'give a little feedback', [$currentUser->id, 'feedback']) }}</p>
 	</div>
 
 	<div class="form-block">
-	  {{ Form::label('description', 'Description') }}
+    <label for="description">Description <span>Optional</span></label>
 	  {{ Form::textarea('description') }}
 	  {{ errors_for('description', $errors) }}
 	</div>
@@ -32,37 +31,37 @@
 <div class="form-group">
 
 	<div class="form-block--inline-label">
-	  {{ Form::label('height', 'Height') }}
+    <label for="height">Height <span>Optional</span></label>
 	  {{ Form::text('height') }}
 	  {{ errors_for('height', $errors) }}
 	</div>
 
 	<div class="form-block--inline-label">
-	  {{ Form::label('weight', 'Weight') }}
+    <label for="weight">Weight <span>Optional</span></label>
 	  {{ Form::text('weight') }}
 	  {{ errors_for('weight', $errors) }}
 	</div>
 
 	<div class="form-block--inline-label">
-	  {{ Form::label('eyes', 'Eye Color') }}
+    <label for="eyes">Eye Color <span>Optional</span></label>
 	  {{ Form::text('eyes') }}
 	  {{ errors_for('eyes', $errors) }}
 	</div>
 
 	<div class="form-block--inline-label">
-	  {{ Form::label('hair', 'Hair Color') }}
+    <label for="hair">Hair Color <span>Optional</span></label>
 	  {{ Form::text('hair') }}
 	  {{ errors_for('hair', $errors) }}
 	</div>
 
 	<div class="form-block--inline-label">
-	  {{ Form::label('skin', 'Skin Color') }}
+    <label for="skin">Skin Color <span>Optional</span></label>
 	  {{ Form::text('skin') }}
 	  {{ errors_for('skin', $errors) }}
 	</div>
 
 	<div class="form-block--inline-label">
-	  {{ Form::label('date_of_birth', 'Birthday') }}
+    <label for="date_of_birth">Birthday <span>Optional</span></label>
 	  {{ Form::text('date_of_birth') }}
 	  {{ errors_for('date_of_birth', $errors) }}
 	</div>

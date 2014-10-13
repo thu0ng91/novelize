@@ -30,24 +30,21 @@
           <h3 class="profile-section__heading">Account Info</h3>
 
           <div class="form-block">
-            {{ Form::label('email', 'Email') }}
-            {{ Form::email('email') }}
+            <label for="email">Email <span class="required">Required</span></label>
+            {{ Form::email('email', null, ['required']) }}
             {{ errors_for('email', $errors) }}
-            <div class="help-text">Required.</div>
           </div>
 
           <div class="form-block">
-            {{ Form::label('first_name', 'First Name') }}
-            {{ Form::text('first_name') }}
+            <label for="first_name">First Name <span class="required">Required</span></label>
+            {{ Form::text('first_name', null, ['required']) }}
             {{ errors_for('first_name', $errors) }}
-            <div class="help-text">Required.</div>
           </div>
 
           <div class="form-block">
-            {{ Form::label('last_name', 'Last Name') }}
-            {{ Form::text('last_name') }}
+            <label for="last_name">Last Name <span class="required">Required</span></label>
+            {{ Form::text('last_name', null, ['required']) }}
             {{ errors_for('last_name', $errors) }}
-            <div class="help-text">Required.</div>
           </div>
 
           <div class="form-block--submit">
@@ -78,24 +75,21 @@
           <h3 class="profile-section__heading">Change Password</h3>
 
           <div class="form-block">
-            {{ Form::label('password', 'Current Password') }}
-            {{ Form::password('password') }}
+            <label for="password">Current Password <span class="required">Required</span></label>
+            {{ Form::password('password', null, ['required']) }}
             {{ errors_for('password', $errors) }}
-            <div class="help-text">Required.</div>
           </div>
 
           <div class="form-block">
-            {{ Form::label('newPassword', 'New Password') }}
-            {{ Form::password('newPassword') }}
+            <label for="newPassword">New Password <span class="required">Required</span></label>
+            {{ Form::password('newPassword', null, ['required']) }}
             {{ errors_for('newPassword', $errors) }}
-            <div class="help-text">Required.</div>
           </div>
 
           <div class="form-block">
-            {{ Form::label('newPassword_confirmation', 'Confirm New Password') }}
-            {{ Form::password('newPassword_confirmation') }}
+            <label for="newPassword_confirmation">Confirm New Password <span class="required">Required</span></label>
+            {{ Form::password('newPassword_confirmation', null, ['required']) }}
             {{ errors_for('newPassword_confirmation', $errors) }}
-            <div class="help-text">Required.</div>
           </div>
 
           <div class="form-block--submit">

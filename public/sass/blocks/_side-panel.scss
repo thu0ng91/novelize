@@ -43,7 +43,7 @@
 	background-position: 8px center;
 	background-size: 30px 30px;
 	font-size: 22px;
-	color: $greyDark;
+	color: $greyLight;
 
 	img {
 		vertical-align: middle;
@@ -78,10 +78,12 @@
 
 	h2 {
 		margin: 20px 0;
+		color: $greyLight;
 		text-align: center;
 		line-height: 1.2;
 	}
 	p {
+		color: $greyLight;
 		line-height: 1.4;
 	}
 }

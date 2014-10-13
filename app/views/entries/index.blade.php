@@ -41,55 +41,59 @@
 
 <!--
   Main ============================================= -->
-  @if ($entries->count())
-
   <div class="entries-index__wrapper">
-    <div class="pagination__wrapper">
-      {{ $entries->appends(Request::except('page'))->links() }}
+
+    <div class="entries-index__explanation">
+      @include('entries.partials.explanation')
     </div>
 
-    <ul class="entries-index">
+    @if ($entries->count())
 
-      @foreach($entries as $entry)
-        <li class="entries-index__item">
-          <div class="entries-index__date">
-            <p class="entries-index__month">{{ date('M', strtotime($entry->created_at)) }}</p>
-            <p class="entries-index__day">{{ date('d', strtotime($entry->created_at)) }}</p>
-          </div>
+      <div class="pagination__wrapper">
+        {{ $entries->appends(Request::except('page'))->links() }}
+      </div>
 
-          <h2 class="entries-index__title">{{ $entry->title }}</h2>
+      <ul class="entries-index">
 
-          <ul class="entries-index__buttons">
-            @if($type == 'trashed')
+        @foreach($entries as $entry)
+          <li class="entries-index__item">
+            <div class="entries-index__date">
+              <p class="entries-index__month">{{ date('M', strtotime($entry->created_at)) }}</p>
+              <p class="entries-index__day">{{ date('d', strtotime($entry->created_at)) }}</p>
+            </div>
 
-              <li class="entries-index__buttons__item">{{ link_to_route('destroy_entry', '', $entry->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY'] ) }}</li>
-              <li class="entries-index__buttons__item">{{ link_to_route('restore_entry', '', $entry->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE'] ) }}</li>
+            <h2 class="entries-index__title">{{ $entry->title }}</h2>
 
-            @else
+            <ul class="entries-index__buttons">
+              @if($type == 'trashed')
 
-              <li class="entries-index__buttons__item">{{ link_to_route('trash_entry', '', $entry->id, ['class' => 'icon-index--trash', 'title' => 'TRASH'] ) }}</li>
-              <li class="entries-index__buttons__item">{{ link_to_route('edit_entry', '', $entry->id, ['class' => 'icon-index--edit', 'title' => 'WRITE'] ) }}</li>
+                <li class="entries-index__buttons__item">{{ link_to_route('destroy_entry', '', $entry->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY'] ) }}</li>
+                <li class="entries-index__buttons__item">{{ link_to_route('restore_entry', '', $entry->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE'] ) }}</li>
 
-            @endif
-          </ul>
-        </li>
-      @endforeach
+              @else
 
-    </ul>
+                <li class="entries-index__buttons__item">{{ link_to_route('trash_entry', '', $entry->id, ['class' => 'icon-index--trash', 'title' => 'TRASH'] ) }}</li>
+                <li class="entries-index__buttons__item">{{ link_to_route('edit_entry', '', $entry->id, ['class' => 'icon-index--edit', 'title' => 'WRITE'] ) }}</li>
 
-    <div class="pagination__wrapper">
-      {{ $entries->appends(Request::except('page'))->links() }}
-    </div>
+              @endif
+            </ul>
+          </li>
+        @endforeach
+
+      </ul>
+
+      <div class="pagination__wrapper">
+        {{ $entries->appends(Request::except('page'))->links() }}
+      </div>
+
+    @else
+
+      <div class="empty-message">
+        <h2 class="empty-message__title">Your Journal Is a Little Sparse</h2>
+
+        <p class="empty-message__text">Why don't you {{ link_to_route('create_entry', 'write') }} your first entry?</p>
+      </div>
+
+    @endif
   </div>
-
-  @else
-
-    <div class="empty-message--main-box">
-      <h2 class="empty-message__title">Your Journal Is a Little Sparse</h2>
-
-      <p class="empty-message__text">Why don't you {{ link_to_route('create_entry', 'write') }} your first entry?</p>
-    </div>
-
-  @endif
-
 @stop

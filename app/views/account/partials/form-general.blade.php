@@ -3,17 +3,15 @@
   {{ Form::hidden('email', $user->email) }}
 
 	<div class="form-block">
-	  {{ Form::label('subject', 'Subject') }}
-	  {{ Form::text('subject') }}
+    <label for="subject">Subject <span class="required">Required</span></label>
+	  {{ Form::text('subject', null, ['required']) }}
 	  {{ errors_for('subject', $errors) }}
-	  <p class="help-text">Required.</p>
 	</div>
 
 	<div class="form-block">
-	  {{ Form::label('body', 'Message') }}
-	  {{ Form::textarea('body', null, ['class' => 'medium']) }}
+    <label for="body">Message <span class="required">Required</span></label>
+	  {{ Form::textarea('body', null, ['class' => 'medium', 'required']) }}
 	  {{ errors_for('body', $errors) }}
-	  <p class="help-text">Required.</p>
 	</div>
 
 	<div class="form-bloc--submit">

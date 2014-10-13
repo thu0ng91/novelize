@@ -9,6 +9,17 @@ class AccountController extends \BaseController {
   }
 
   /**
+   * Display the welcome screen
+   * GET /welcome
+   *
+   * @return Response
+   */
+  public function welcome()
+  {
+    return View::make('account.welcome');
+  }
+
+  /**
    * Display the users profile
    * GET /profile
    *

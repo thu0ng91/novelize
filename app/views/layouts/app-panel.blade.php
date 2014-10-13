@@ -35,8 +35,6 @@
 
 @include('layouts.partials.side-panel')
 
-{{ link_to_route('view_contact', 'GOT FEEDBACK?', [$currentUser->id, 'feedback'], ['class' => 'feedback-link']) }}
-
 @if($currentUser->role_id > 30)
   @include('layouts.partials.adminBar')
 @endif

@@ -1,6 +1,14 @@
 <?php
 
 /*
+ * Welcome Routes
+ */
+Route::get( '/welcome', [
+  'as' => 'view_welcome',
+  'uses' => 'AccountController@welcome'
+]);
+
+/*
  * Profile Routes
  */
 Route::get( '/profile/{userId}', [

@@ -3,16 +3,16 @@
   {{ Form::hidden('email', $user->email) }}
 
 	<div class="form-block">
-	  {{ Form::label('question', "What's your question?") }}
-	  {{ Form::text('question') }}
+    <label for="question">Question <span class="required">Required</span></label>
+	  {{ Form::text('question', null, ['required']) }}
 	  {{ errors_for('question', $errors) }}
-	  <p class="help-text">Required.</p>
 	</div>
 
 	<div class="form-block">
-	  {{ Form::label('details', 'Details') }}
+    <label for="details">Details <span>Optional</span></label>
 	  {{ Form::textarea('details', null, ['class' => 'medium']) }}
 	  {{ errors_for('details', $errors) }}
+	  <p class="help-text">Give me any details that pertain to your question.</p>
 	</div>
 
 	<div class="form-bloc--submit">

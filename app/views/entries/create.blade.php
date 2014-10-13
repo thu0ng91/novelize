@@ -19,6 +19,11 @@
 @section('page_content')
 
   <div class="basic-form__wrapper">
+
+    <div class="entries-index__explanation">
+      @include('entries.partials.explanation')
+    </div>
+
     {{ Form::open(['route' => 'store_entry', 'class' => 'basic-form']) }}
 
       @include('entries.partials.form')

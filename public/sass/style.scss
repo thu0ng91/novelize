@@ -44,7 +44,6 @@
 @import "blocks/basic-form";
 @import "blocks/editable";
 @import "blocks/empty-message";
-@import "blocks/feedback-link";
 @import "blocks/filters";
 @import "blocks/forms";
 @import "blocks/header";
@@ -59,6 +58,7 @@
 // Blocks- Account
 @import "blocks/account/profile-section";
 @import "blocks/account/support-form";
+@import "blocks/account/welcome";
 
 // Blocks- Novel
 @import "blocks/novel/novel-index";

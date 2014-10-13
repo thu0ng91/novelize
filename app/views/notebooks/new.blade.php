@@ -19,6 +19,7 @@
 @section('page_content')
   {{-- Form --}}
   <div class="new-notebook__wrapper">
+
     <div class="new-notebook">
       <h2 class="new-notebook__title">Your Notebook Has Been Created!</h2>
 

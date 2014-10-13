@@ -38,6 +38,16 @@
 	label {
 		float: left;
 		width: 37%;
+
+		span {
+			position: static;
+			&:before {
+				content: '( ';
+			}
+			&:after {
+				content: ' )';
+			}
+		}
 	}
 	input {
 		float: right;
@@ -69,8 +79,20 @@
 
 
 label {
+	position: relative;
 	padding: 4px 0;
 	color: $c_labelText;
+
+	span {
+		position: absolute;
+		bottom: 4px;
+		right: 0;
+		font-size: 70%;
+
+		&.required {
+			color: $redDark;
+		}
+	}
 }
 
 .help-text {
@@ -78,6 +100,11 @@ label {
 	color: $c_helpText;
 	@include font-size(0.875);
 	text-align: right;
+
+	a {
+		@include link-colors(inherit, $orange);
+		text-decoration: underline;
+	}
 }
 
 .error-message {

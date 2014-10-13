@@ -1,12 +1,12 @@
 <div class="form-block">
-  {{ Form::label('name', 'Name') }}
-  {{ Form::text('name') }}
+   <label for="name">Name <span class="required">Required</span></label>
+  {{ Form::text('name', null, ['required']) }}
   {{ errors_for('name', $errors) }}
-  <p class="help-text">Required.</p>
 </div>
 
 <div class="form-block">
-  {{ Form::label('description', 'Description') }}
+   <label for="description">Description <span>Optional</span></label>
   {{ Form::textarea('description') }}
   {{ errors_for('description', $errors) }}
+  <p class="help-text">This is to help you remember the purpose behind the notebook.</p>
 </div>

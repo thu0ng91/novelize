@@ -10,14 +10,14 @@
   line-height: 1.4;
 }
 
-.form-button, .form-button--secondary, .message__button, .page-header__button, .side-panel__toggle, .novel-sidebar__button, .table-of-contents__toolbar button, .write-scene__description-button, .write-scene__save-button, .item-index__toolbar__button, .novel-list__link {
+.form-button, .form-button--secondary, .message__button, .page-header__button, .side-panel__toggle, .welcome__button, .novel-sidebar__button, .table-of-contents__toolbar button, .write-scene__description-button, .write-scene__save-button, .item-index__toolbar__button, .novel-list__link {
   display: block;
   background-color: transparent;
   border: none;
   text-decoration: none;
   text-align: center;
 }
-.form-button:focus, .form-button--secondary:focus, .message__button:focus, .page-header__button:focus, .side-panel__toggle:focus, .novel-sidebar__button:focus, .table-of-contents__toolbar button:focus, .write-scene__description-button:focus, .write-scene__save-button:focus, .item-index__toolbar__button:focus, .novel-list__link:focus {
+.form-button:focus, .form-button--secondary:focus, .message__button:focus, .page-header__button:focus, .side-panel__toggle:focus, .welcome__button:focus, .novel-sidebar__button:focus, .table-of-contents__toolbar button:focus, .write-scene__description-button:focus, .write-scene__save-button:focus, .item-index__toolbar__button:focus, .novel-list__link:focus {
   outline: none;
 }
 
@@ -640,8 +640,10 @@ body {
   width: 90%;
   margin-right: auto;
   margin-left: auto;
+  position: relative;
   margin-top: 20px;
-  padding: 40px 20px;
+  min-height: 480px;
+  padding: 20px 20px 40px 240px;
 }
 
 .basic-form {
@@ -650,7 +652,7 @@ body {
 }
 
 .editable {
-  min-height: 200px;
+  min-height: 300px;
   margin-bottom: 20px;
   padding: 0 10px;
 }
@@ -710,29 +712,6 @@ body {
 .empty-message__list li {
   line-height: 1.4;
   text-align: left;
-}
-
-.feedback-link {
-  display: block;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 99;
-  padding: 8px 12px;
-  background-color: #e25822;
-  text-decoration: none;
-}
-.feedback-link:link, .feedback-link:visited {
-  color: white;
-}
-.feedback-link:active, .feedback-link.active {
-  color: inherit;
-}
-.feedback-link:hover {
-  color: white;
-}
-.feedback-link:hover {
-  background-color: #686868;
 }
 
 .filters, .filters--admin {
@@ -818,6 +797,15 @@ body {
   float: left;
   width: 37%;
 }
+.form-block--inline-label label span {
+  position: static;
+}
+.form-block--inline-label label span:before {
+  content: '( ';
+}
+.form-block--inline-label label span:after {
+  content: ' )';
+}
 .form-block--inline-label input {
   float: right;
   width: 60%;
@@ -842,8 +830,18 @@ body {
 }
 
 label {
+  position: relative;
   padding: 4px 0;
   color: #909090;
+}
+label span {
+  position: absolute;
+  bottom: 4px;
+  right: 0;
+  font-size: 70%;
+}
+label span.required {
+  color: #cd0000;
 }
 
 .help-text {
@@ -852,6 +850,18 @@ label {
   font-size: 14px;
   font-size: 0.875rem;
   text-align: right;
+}
+.help-text a {
+  text-decoration: underline;
+}
+.help-text a:link, .help-text a:visited {
+  color: inherit;
+}
+.help-text a:active, .help-text a.active {
+  color: inherit;
+}
+.help-text a:hover {
+  color: #e25822;
 }
 
 .error-message {
@@ -1001,6 +1011,18 @@ select:focus {
 .nav-menu__item a:hover {
   background-color: #e25822;
   border-color: #dddddd;
+}
+.nav-menu__item .feedback-link {
+  border-color: #e25822;
+}
+.nav-menu__item .feedback-link:link, .nav-menu__item .feedback-link:visited {
+  color: #e25822;
+}
+.nav-menu__item .feedback-link:active, .nav-menu__item .feedback-link.active {
+  color: inherit;
+}
+.nav-menu__item .feedback-link:hover {
+  color: white;
 }
 
 .message, .message--info, .message--success, .message--warning, .message--danger {
@@ -1224,7 +1246,7 @@ select:focus {
   height: 40px;
   width: 30px;
   margin-top: -20px;
-  background-color: #dddddd;
+  background-color: #909090;
   background-image: url("../img/icons/side-panel-toggle.png");
   background-position: center bottom;
   border: none;
@@ -1240,7 +1262,7 @@ select:focus {
   right: -350px;
   width: 360px;
   padding: 10px 20px;
-  background-color: #dddddd;
+  background-color: #909090;
   border-right: none;
   border-bottom: none;
   transition: right 0.5s;
@@ -1254,7 +1276,7 @@ select:focus {
   background-position: 8px center;
   background-size: 30px 30px;
   font-size: 22px;
-  color: #909090;
+  color: #cacaca;
 }
 .side-panel__heading img {
   vertical-align: middle;
@@ -1290,10 +1312,12 @@ select:focus {
 }
 .side-panel__content h2 {
   margin: 20px 0;
+  color: #cacaca;
   text-align: center;
   line-height: 1.2;
 }
 .side-panel__content p {
+  color: #cacaca;
   line-height: 1.4;
 }
 
@@ -1375,13 +1399,118 @@ select:focus {
   margin-bottom: 12px;
 }
 
+.welcome {
+  background-color: white;
+  box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 800px;
+  padding: 30px 40px 60px;
+}
+.welcome p {
+  line-height: 1.6;
+}
+
+.welcome__title {
+  margin-bottom: 12px;
+  font-size: 48px;
+  font-size: 3rem;
+  font-family: "PT Serif", "Book Antiqua", Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+  font-weight: 400;
+  color: #e25822;
+}
+
+.welcome__title,
+.welcome__intro {
+  padding: 0 20px;
+}
+
+.welcome__section, .welcome__section--left {
+  margin-top: 30px;
+  padding: 30px 20px 0;
+  border-top: 1px solid #dddddd;
+}
+.welcome__section h2, .welcome__section--left h2, .welcome__section p, .welcome__section--left p {
+  margin-bottom: 20px;
+}
+.welcome__section img, .welcome__section--left img {
+  float: right;
+  height: 180px;
+  margin: -10px 0 10px 20px;
+  padding: 0 0 10px 10px;
+}
+
+.welcome__section--left img {
+  float: left;
+  margin: -10px 20px 10px 0;
+  padding: 0 10px 10px 0;
+}
+
+.welcome__button {
+  clear: both;
+  margin-top: 30px;
+  padding: 16px 20px;
+  border: 1px solid #e25822;
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+.welcome__button:link, .welcome__button:visited {
+  color: #e25822;
+}
+.welcome__button:active, .welcome__button.active {
+  color: inherit;
+}
+.welcome__button:hover {
+  color: white;
+}
+.welcome__button:hover {
+  background-color: #e25822;
+  border-color: #e25822;
+}
+
 .novel-index {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
   margin-right: auto;
   margin-left: auto;
-  padding: 60px 0 0 30px;
+  position: relative;
+  min-height: 460px;
+  padding: 20px 20px 20px 240px;
+}
+.novel-index .empty-message, .novel-index .empty-message--main-box {
+  margin-top: 40px;
+}
+
+.novel-index__explanation {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 0 20px 20px 0;
+  border-right: 1px solid #cacaca;
+}
+.novel-index__explanation img {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+}
+.novel-index__explanation p {
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.novel-index__explanation ul {
+  margin-left: 1.5em;
+}
+.novel-index__explanation li {
+  line-height: 1.5;
+}
+
+.novel-index__list {
+  margin: 0;
+  padding: 30px 0 0 30px;
   list-style: none;
   text-align: center;
 }
@@ -1389,7 +1518,7 @@ select:focus {
 .novel-index__item {
   display: inline-block;
   width: 220px;
-  margin: 0 30px 60px 0;
+  margin: 0 30px 30px 0;
   padding: 4px 8px;
   background-color: #eeeeee;
 }
@@ -1707,7 +1836,42 @@ select:focus {
   width: 90%;
   margin-right: auto;
   margin-left: auto;
-  padding: 60px 0 0 30px;
+  position: relative;
+  min-height: 460px;
+  padding: 20px 20px 20px 240px;
+}
+.notebook-index .empty-message, .notebook-index .empty-message--main-box {
+  margin-top: 40px;
+}
+
+.notebook-index__explanation {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 0 20px 20px 0;
+  border-right: 1px solid #cacaca;
+}
+.notebook-index__explanation img {
+  display: block;
+  width: 80%;
+  margin: 0 auto 10px;
+}
+.notebook-index__explanation p {
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.notebook-index__explanation ul {
+  margin-left: 1.5em;
+}
+.notebook-index__explanation li {
+  line-height: 1.5;
+}
+
+.notebook-index__list {
+  margin: 0;
+  padding: 30px 0 0 30px;
   list-style: none;
   text-align: center;
 }
@@ -1715,8 +1879,8 @@ select:focus {
 .notebook-index__item {
   position: relative;
   display: inline-block;
-  width: 400px;
-  margin: 0 30px 60px 0;
+  width: 360px;
+  margin: 0 30px 30px 0;
   padding: 4px 8px 4px 148px;
   background-color: #eeeeee;
 }
@@ -1736,7 +1900,7 @@ select:focus {
   top: 8px;
   bottom: 8px;
   left: 0;
-  width: 140px;
+  width: 130px;
   margin: 0;
   padding: 8px;
   border-right: 1px solid #cacaca;
@@ -2033,18 +2197,48 @@ select:focus {
   border-color: #e25822;
 }
 
-.entries-index {
-  margin: 0;
-  list-style: none;
-}
-
 .entries-index__wrapper {
   background-color: white;
   box-shadow: 0 0 3px 3px rgba(237, 237, 237, 0.37);
   width: 90%;
   margin-right: auto;
   margin-left: auto;
-  padding: 2px 40px;
+  position: relative;
+  min-height: 460px;
+  padding: 2px 20px 2px 240px;
+}
+.entries-index__wrapper .empty-message, .entries-index__wrapper .empty-message--main-box {
+  margin-top: 40px;
+}
+
+.entries-index__explanation {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: 200px;
+  padding: 0 20px 20px 0;
+  border-right: 1px solid #cacaca;
+}
+.entries-index__explanation img {
+  display: block;
+  width: 90%;
+  margin: 0 auto 10px;
+}
+.entries-index__explanation p {
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.entries-index__explanation ul {
+  margin-left: 1.5em;
+}
+.entries-index__explanation li {
+  line-height: 1.5;
+}
+
+.entries-index {
+  margin: 0;
+  list-style: none;
 }
 
 .entries-index__item {
@@ -2162,9 +2356,9 @@ select:focus {
 }
 
 .admin-bar {
-  display: none;
+  display: block;
   position: fixed;
-  bottom: -27px;
+  bottom: -28px;
   left: 0;
   right: 0;
   height: 34px;

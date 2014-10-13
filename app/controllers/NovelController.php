@@ -51,16 +51,9 @@ class NovelController extends \BaseController {
     $genres = Genre::all();
 
     // Pass profile name to Author as default if available
-    $profile = Profile::findOrFail(Auth::user()->id);
+    $user = User::findOrFail(Auth::user()->id);
 
-    if($profile['first_name'] && $profile['last_name'])
-    {
-      $name = $profile['first_name'] . " " . $profile['last_name'];
-    }
-    else
-    {
-      $name = null;
-    }
+    $name = $user['first_name'] . " " . $user['last_name'];
 
     // If there are no notebooks require them to create one first.
     if(! $notebooks->count())

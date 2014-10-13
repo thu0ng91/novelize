@@ -58,4 +58,9 @@
       border-color: $c_menuLinkBorder-hover;
     }
   }
+
+  .feedback-link {
+    border-color: $orange;
+    @include link-colors($orange, $white);
+  }
 }

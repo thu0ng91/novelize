@@ -43,51 +43,58 @@
 
 <!--
   Index ============================================= -->
-  @if ($notebooks->count())
+  <div class="notebook-index">
 
-    <ul class="notebook-index">
-
-      @foreach($notebooks as $notebook)
-
-        <li class="notebook-index__item">
-          <h2 class="notebook-index__name">{{ $notebook->name }}</h2>
-
-          <ul class="notebook-index__counts">
-            <li class="notebook-index__counts__item--novels">Novels <span>{{ $notebook->novels->count() }}</span></li>
-            <li class="notebook-index__counts__item">Characters <span>{{ $notebook->characters->count() }}</span></li>
-            <li class="notebook-index__counts__item">Locations <span>{{ $notebook->locations->count() }}</span></li>
-            <li class="notebook-index__counts__item">Items <span>{{ $notebook->items->count() }}</span></li>
-            <li class="notebook-index__counts__item">Notes <span>{{ $notebook->notes->count() }}</span></li>
-          </ul>
-
-          <ul class="notebook-index__buttons">
-            @if($type == 'trashed')
-
-              <li class="notebook-index__buttons__item">{{ link_to_route('destroy_notebook', '', $notebook->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY'] ) }}</li>
-              <li class="notebook-index__buttons__item">{{ link_to_route('restore_notebook', '', $notebook->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE'] ) }}</li>
-
-            @else
-
-              <li class="notebook-index__buttons__item">{{ link_to_route('trash_notebook', '', $notebook->id, ['class' => 'icon-index--trash', 'title' => 'TRASH'] ) }}</li>
-              <li class="notebook-index__buttons__item">{{ link_to_route('edit_notebook', '', $notebook->id, ['class' => 'icon-index--settings', 'title' => 'UPDATE SETTINGS'] ) }}</li>
-              <li class="notebook-index__buttons__item">{{ link_to_route('view_characters', '', $notebook->id, ['class' => 'icon-index--edit', 'title' => 'MANAGE'] ) }}</li>
-
-            @endif
-          </ul>
-
-        </li>
-      @endforeach
-
-    </ul>
-
-  @else
-
-    <div class="empty-message--main-box">
-      <h2 class="empty-message__title">No Notebooks Here</h2>
-
-      <p class="empty-message__text">{{ link_to_route('create_notebook', 'Create') }} your first notebook to get things rolling.</p>
+    <div class="notebook-index__explanation">
+      @include('notebooks.partials.explanation')
     </div>
 
-  @endif
+    @if ($notebooks->count())
+
+      <ul class="notebook-index__list">
+
+        @foreach($notebooks as $notebook)
+
+          <li class="notebook-index__item">
+            <h2 class="notebook-index__name">{{ $notebook->name }}</h2>
+
+            <ul class="notebook-index__counts">
+              <li class="notebook-index__counts__item--novels">Novels <span>{{ $notebook->novels->count() }}</span></li>
+              <li class="notebook-index__counts__item">Characters <span>{{ $notebook->characters->count() }}</span></li>
+              <li class="notebook-index__counts__item">Locations <span>{{ $notebook->locations->count() }}</span></li>
+              <li class="notebook-index__counts__item">Items <span>{{ $notebook->items->count() }}</span></li>
+              <li class="notebook-index__counts__item">Notes <span>{{ $notebook->notes->count() }}</span></li>
+            </ul>
+
+            <ul class="notebook-index__buttons">
+              @if($type == 'trashed')
+
+                <li class="notebook-index__buttons__item">{{ link_to_route('destroy_notebook', '', $notebook->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY'] ) }}</li>
+                <li class="notebook-index__buttons__item">{{ link_to_route('restore_notebook', '', $notebook->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE'] ) }}</li>
+
+              @else
+
+                <li class="notebook-index__buttons__item">{{ link_to_route('trash_notebook', '', $notebook->id, ['class' => 'icon-index--trash', 'title' => 'TRASH'] ) }}</li>
+                <li class="notebook-index__buttons__item">{{ link_to_route('edit_notebook', '', $notebook->id, ['class' => 'icon-index--settings', 'title' => 'UPDATE SETTINGS'] ) }}</li>
+                <li class="notebook-index__buttons__item">{{ link_to_route('view_characters', '', $notebook->id, ['class' => 'icon-index--edit', 'title' => 'MANAGE'] ) }}</li>
+
+              @endif
+            </ul>
+
+          </li>
+        @endforeach
+
+      </ul>
+
+    @else
+
+      <div class="empty-message">
+        <h2 class="empty-message__title">No Notebooks Here</h2>
+
+        <p class="empty-message__text">{{ link_to_route('create_notebook', 'Create') }} your first notebook to get things rolling.</p>
+      </div>
+
+    @endif
+  </div>
 
 @stop

@@ -19,6 +19,7 @@
 
     <!-- Logout -->
     <ul class="nav-menu__logout">
+      <li class="nav-menu__item">{{ link_to_route('view_contact', 'GOT FEEDBACK?', [$currentUser->id, 'feedback'], ['class' => 'feedback-link']) }}</li>
       <li class="nav-menu__item">{{ link_to_route('logout', 'LOGOUT') }}</li>
     </ul>
   </nav>

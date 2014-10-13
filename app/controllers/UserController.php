@@ -149,8 +149,7 @@ class UserController extends \BaseController {
     Auth::login($user);
 
     // Return
-    return Redirect::route('create_notebook')
-      ->with('alert_info', trans('user.welcomed'));
+    return Redirect::route('view_welcome');
   }
 
 	/**
