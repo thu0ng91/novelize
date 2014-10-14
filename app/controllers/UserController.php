@@ -145,6 +145,26 @@ class UserController extends \BaseController {
     // Create User
     $user = User::create($data);
 
+    // Send Welcome Email
+    $email_data =
+    [
+      'first_name' => $user->first_name,
+      'user_id' => $user->id,
+    ];
+
+    $email = $user->email;
+    $name = $user->first_name . ' ' . $user->last_name;
+
+    // Action
+    Mail::send('emails.auth.welcome', $email_data, function($message) use ($email, $name)
+    {
+      $message
+        ->from('josh@getnovelize.com', 'Josh at Novelize')
+        ->to($email, $name)
+        ->subject('Welcome to Novelize');
+    });
+
+
     // Login User
     Auth::login($user);
 

@@ -37,7 +37,7 @@
 
       {{ HTML::image('img/stock/journal.png') }}
 
-      <p>Novelize includes a journal to allow you to record ideas that just don't fit into your notebook. Mabye you have an idea for a future novel that you don't want to forget. Maybe you need a place to keep important grammar rules. In the end, it's up to you.</p>
+      <p>Novelize includes a journal to allow you to record ideas that just don't fit into your notebook. Maybe you have an idea for a future novel that you don't want to forget. Maybe you need a place to keep important grammar rules. In the end, it's up to you.</p>
 
       {{ link_to_route('create_entry', 'CREATE AN ENTRY', null, ['class' => 'welcome__button']) }}
     </section>

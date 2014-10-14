@@ -203,32 +203,4 @@ class MailController extends \BaseController {
       ->with('alert_success', trans('mail.bug_sent'));
   }
 
-  /*
-   * Welcome email
-   */
-  public function welcome()
-  {
-
-    $data =
-    [
-      'first_name' => 'Josh',
-      'email_address' => 'josh@even7.com',
-    ];
-
-    $email = 'josh@even7.com';
-    $name = 'Josh Evensen';
-
-    // Action
-    Mail::send('emails.auth.welcome', $data, function($message) use ($email, $name)
-    {
-      $message
-        ->from('josh@getnovelize.com', 'Josh at Novelize')
-        ->to($email, $name)
-        ->subject('Welcome to Novelize');
-    });
-
-    // Return
-    return 'success';
-  }
-
 }
