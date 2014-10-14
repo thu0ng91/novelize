@@ -11,31 +11,42 @@
 		<tbody>
 			<tr>
 				<td>
-					<p>Howdy {{ $first_name }},</p>
+					<p>{{ $first_name }},</p>
 
-    			<p class="welcome__intro">Novelize helps you keep track of your fictional world in notebooks, write your novels without distractions, and organize your thoughts inside the journal.</p>
+    			<p class="welcome__intro">Thanks for signing up for a Novelize beta account. You may log in using this email address as your login and the password you created in the registration process.</p>
 
-		      <h3>First Create a Notebook</h3>
+    			<p>While Novelize is built to be simple and easy to use, I thought I'd take a moment and go over the main ideas behind Novelize.</p>
 
-		      <p>Notebooks are the place to create your fictional world, including characters bios, story locations, important items, and research notes. One notebook can lead to several novels that take place in the same world.</p>
 
-		      <p>You need to create a notebook before you start writing a novel. Then you can build your world or start writing.</p>
+		      <h3>Notebooks</h3>
 
-		      {{ link_to_route('create_notebook', 'CREATE A NOTEBOOK', null, ['style' => 'color: #E25822']) }}
+		      <p>Notebooks are the place to create your fictional world, including characters bios, story locations, important items, and research notes. Each notebook is tied to one or more novels, making it easy to keep related books together with one notebook.</p>
 
-		      <h3>Start Your First Novel</h3>
+		      <p>{{ link_to_route('create_notebook', 'Creating a notebook', null, ['style' => 'color: #E25822']) }} is the first step to working with Novelize.</p>
 
-		      <p>After creating your notebook, you can start writing your first novel. With Novelize, your story is broken down into scenes and you decide how many scenes are in each chapter.</p>
 
-		      <p>The main idea behind Novelize is to keep you on track with your writing goals. That's why you will find separate modes in which you can plot, write, review, and publish your work.</p>
+		      <h3>Novels</h3>
 
-		      {{ link_to_route('create_novel', 'CREATE A NOVEL', null, ['style' => 'color: #E25822']) }}
+		      <p>After you create your notebook, you can {{ link_to_route('create_novel', 'create', null, ['style' => 'color: #E25822']) }} your first novel. Soon, you can display notebook information on the side panel while you're writing.</p>
 
-		      <h3>Keep a Journal</h3>
+		      <p>Novelize breaks your writing process down into four parts: plot, write, review, and publish. This allows you to focus on what you're doing so you don't get stuck editing when you're supposed to be writing.</p>
 
-		      <p>Novelize includes a journal to allow you to record ideas that just don't fit into your notebook. Mabye you have an idea for a future novel that you don't want to forget. Maybe you need a place to keep important grammar rules. In the end, it's up to you.</p>
 
-		      {{ link_to_route('create_entry', 'CREATE AN ENTRY', null, ['style' => 'color: #E25822']) }}
+		      <h3>Journal</h3>
+
+		      <p>Novelize also includes a journal for you to record ideas that just don't fit into your notebooks. Mabye you have an idea for a future novel that you don't want to forget. Maybe you need a place to keep important grammar rules. In the end, it's up to you what you {{ link_to_route('create_entry', 'write', null, ['style' => 'color: #E25822']) }} in your journal entries.</p>
+
+
+					<h3>Give Feedback</h3>
+
+					<p>Since Novelize is in beta at the moment, I would appreciate for you to  {{ link_to_route('view_contact', 'give feedback', [$currentUser->id, 'feedback'], ['class' => 'feedback-link']) }} often so I can turn Novelize into the perfect app. In order to do that I need to know what you like, what you hate, and anything else you care to share about Novelize.</p>
+
+					<p>Thanks for your support and enjoy Novelize!</p>
+
+					<p>Josh Evensen<br/>
+						 josh@getnovelize.com<br/>
+						 <a href="https://www.facebook.com/novelizeapp">Facebook</a> | <a href="https://twitter.com/NovelizeIt">Twitter</a></p>
+
 				</td>
 			</tr>
 		</tbody>

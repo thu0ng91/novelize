@@ -212,6 +212,7 @@ class MailController extends \BaseController {
     $data =
     [
       'first_name' => 'Josh',
+      'email_address' => 'josh@even7.com',
     ];
 
     $email = 'josh@even7.com';
