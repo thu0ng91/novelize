@@ -37,13 +37,13 @@
 
 					<h3>Give Feedback</h3>
 
-					<p>Since Novelize is in beta at the moment, I would appreciate for you to  {{ link_to_route('view_contact', 'give feedback', [$user_id, 'feedback'], ['class' => 'feedback-link']) }} often so I can turn Novelize into the perfect app. In order to do that I need to know what you like, what you hate, and anything else you care to share about Novelize.</p>
+					<p>Since Novelize is in beta at the moment, I would appreciate for you to  {{ link_to_route('view_contact', 'give feedback', [$user_id, 'feedback'], ['class' => 'feedback-link', 'style' => 'color: #E25822']) }} often so I can turn Novelize into the perfect app. In order to do that I need to know what you like, what you hate, and anything else you care to share about Novelize.</p>
 
 					<p>Thanks for your support and enjoy Novelize!</p>
 
 					<p>Josh Evensen<br/>
 						 josh@getnovelize.com<br/>
-						 <a href="https://www.facebook.com/novelizeapp">Facebook</a> | <a href="https://twitter.com/NovelizeIt">Twitter</a></p>
+						 <a href="https://www.facebook.com/novelizeapp" style="color: #E25822">Facebook</a> | <a href="https://twitter.com/NovelizeIt" style="color: #E25822">Twitter</a></p>
 
 				</td>
 			</tr>
