@@ -1,18 +1,25 @@
-<!DOCTYPE html>
-<html lang="en-US">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-	<meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width"/>
 </head>
 
-
 <body>
-	<h2>Novelize| Password Reset</h2>
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tbody>
+			<tr>
+				<td>
+					<h2>Novelize| Password Reset</h2>
 
-	<div>
-		To reset your Novelize password, follow this link and complete the new password form: {{ URL::route('reset_page', array($token)) }}.<br/>
-		This link will expire in {{ Config::get('auth.reminder.expire', 60) }} minutes.
-	</div>
+					<p>To reset your Novelize password, follow this link and complete the new password form:<br/>
+					   {{ URL::route('reset_page', array($token)) }}.</p>
+					<p>This link will expire in {{ Config::get('auth.reminder.expire', 60) }} minutes.</p>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 
 </html>

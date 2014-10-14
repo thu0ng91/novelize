@@ -21,6 +21,11 @@ Route::get('/', array(
   }
 ));
 
+Route::get('/send_welcome_email', [
+  'as' => 'send_welcome',
+  'uses' => 'MailController@welcome'
+]);
+
 /*
  * 404 route
  */
