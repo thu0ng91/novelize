@@ -26,7 +26,7 @@
 
       {{-- Account Info --}}
       <section class="profile-section">
-        {{ Form::model($user, ['method' => 'PUT', 'route' => ['update_account', $user->id]]) }}
+        {{ Form::model($user, ['method' => 'PUT', 'route' => 'update_account']) }}
           <h3 class="profile-section__heading">Account Info</h3>
 
           <div class="form-block">
@@ -71,7 +71,7 @@
 
       {{-- Change Password --}}
       <section class="profile-section">
-        {{ Form::model($user, ['method' => 'PUT', 'route' => ['change_password', $user->id]]) }}
+        {{ Form::model($user, ['method' => 'PUT', 'route' => 'change_password']) }}
           <h3 class="profile-section__heading">Change Password</h3>
 
           <div class="form-block">

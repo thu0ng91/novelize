@@ -6,8 +6,8 @@
   <nav class="nav-menu">
     <!-- Account -->
     <ul class="nav-menu__account">
-      <li class="nav-menu__item">{{ HTML::link_to_active_route('view_profile', 'PROFILE', $currentUser->id) }}</li>
-      <li class="nav-menu__item">{{ HTML::link_to_active_route('view_contact', 'CONTACT', [$currentUser->id, 'general']) }}</li>
+      <li class="nav-menu__item">{{ HTML::link_to_active_route('view_profile', 'PROFILE') }}</li>
+      <li class="nav-menu__item">{{ HTML::link_to_active_route('view_contact', 'CONTACT', 'general') }}</li>
     </ul>
 
     <!-- Sections -->
@@ -19,7 +19,7 @@
 
     <!-- Logout -->
     <ul class="nav-menu__logout">
-      <li class="nav-menu__item">{{ link_to_route('view_contact', 'GOT FEEDBACK?', [$currentUser->id, 'feedback'], ['class' => 'feedback-link']) }}</li>
+      <li class="nav-menu__item">{{ link_to_route('view_contact', 'GOT FEEDBACK?', 'feedback', ['class' => 'feedback-link']) }}</li>
       <li class="nav-menu__item">{{ link_to_route('logout', 'LOGOUT') }}</li>
     </ul>
   </nav>

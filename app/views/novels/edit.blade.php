@@ -67,7 +67,7 @@
             @endforeach
           </select>
           {{ errors_for('genre_id', $errors) }}
-          <p class="help-text">Don't see your genre, {{ link_to_route('view_contact', 'give a little feedback', [$currentUser->id, 'feedback']) }}.</p>
+          <p class="help-text">Don't see your genre, {{ link_to_route('view_contact', 'give a little feedback', 'feedback') }}.</p>
         </div>
       </div>
 

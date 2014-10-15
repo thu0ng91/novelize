@@ -25,9 +25,9 @@ class AccountController extends \BaseController {
    *
    * @return Response
    */
-  public function profile($userId)
+  public function profile()
   {
-    $user = User::with('profile')->findOrFail($userId);
+    $user = User::with('profile')->findOrFail(Auth::id());
 
     return View::make('account.profile', compact('user'));
   }
@@ -38,9 +38,9 @@ class AccountController extends \BaseController {
    *
    * @return Response
    */
-  public function contact($userId, $type)
+  public function contact($type)
   {
-    $user = User::findOrFail($userId);
+    $user = User::findOrFail(Auth::id());
 
     return View::make('account.contact', compact('user', 'type'));
   }
@@ -50,9 +50,9 @@ class AccountController extends \BaseController {
   /**
    * Update Account Info
    */
-  public function updateAccount($userId)
+  public function updateAccount()
   {
-    $user = User::findOrFail($userId);
+    $user = User::findOrFail(Auth::id());
     $data = Input::all();
 
     if($data['email'] == $user->email)
@@ -78,7 +78,7 @@ class AccountController extends \BaseController {
     $user->update($data);
 
     // Return
-    return Redirect::route('view_profile', $user->id)
+    return Redirect::route('view_profile')
       ->with('flash_success', trans('profile.account_updated'));
   }
 
@@ -86,9 +86,9 @@ class AccountController extends \BaseController {
   /**
    * Change Password
    */
-  public function changePassword($userId)
+  public function changePassword()
   {
-    $user = User::findOrFail($userId);
+    $user = User::findOrFail(Auth::id());
     $data = Input::all();
 
     if (!Hash::check($data['password'], $user->password))
@@ -114,7 +114,7 @@ class AccountController extends \BaseController {
     $user->save();
 
     // Return
-    return Redirect::route('view_profile', $user->id)
+    return Redirect::route('view_profile')
       ->with('flash_success', trans('profile.password_updated'));
   }
 

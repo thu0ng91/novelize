@@ -7,7 +7,7 @@ class MailController extends \BaseController {
    */
   public function general()
   {
-    $user = User::findOrFail(Auth::user()->id);
+    $user = User::findOrFail(Auth::id());
     $email = $user->email;
     $name = $user->first_name . $user->last_name;
 
@@ -46,7 +46,7 @@ class MailController extends \BaseController {
     });
 
     // Return
-    return Redirect::route('view_contact', [Auth::user()->id, 'type' => 'general'])
+    return Redirect::route('view_contact', [Auth::id(), 'type' => 'general'])
       ->with('alert_success', trans('mail.general_sent'));
   }
 
@@ -58,7 +58,7 @@ class MailController extends \BaseController {
    */
   public function support()
   {
-    $user = User::findOrFail(Auth::user()->id);
+    $user = User::findOrFail(Auth::id());
     $email = $user->email;
     $name = $user->first_name . $user->last_name;
 
@@ -96,7 +96,7 @@ class MailController extends \BaseController {
     });
 
     // Return
-    return Redirect::route('view_contact', [Auth::user()->id, 'type' => 'support'])
+    return Redirect::route('view_contact', [Auth::id(), 'type' => 'support'])
       ->with('alert_success', trans('mail.support_sent'));
   }
 
@@ -108,7 +108,7 @@ class MailController extends \BaseController {
    */
   public function feedback()
   {
-    $user = User::findOrFail(Auth::user()->id);
+    $user = User::findOrFail(Auth::id());
     $email = $user->email;
     $name = $user->first_name . $user->last_name;
 
@@ -146,7 +146,7 @@ class MailController extends \BaseController {
     });
 
     // Return
-    return Redirect::route('view_contact', [Auth::user()->id, 'type' => 'feedback'])
+    return Redirect::route('view_contact', [Auth::id(), 'type' => 'feedback'])
       ->with('alert_success', trans('mail.feedback_sent'));
   }
 
@@ -158,7 +158,7 @@ class MailController extends \BaseController {
    */
   public function bug()
   {
-    $user = User::findOrFail(Auth::user()->id);
+    $user = User::findOrFail(Auth::id());
     $email = $user->email;
     $name = $user->first_name . $user->last_name;
 
@@ -199,7 +199,7 @@ class MailController extends \BaseController {
     });
 
     // Return
-    return Redirect::route('view_contact', [Auth::user()->id, 'type' => 'bug'])
+    return Redirect::route('view_contact', [Auth::id(), 'type' => 'bug'])
       ->with('alert_success', trans('mail.bug_sent'));
   }
 

@@ -58,7 +58,7 @@
             <option value="{{ $genre->id }}">{{ $genre->name }}</option>
             @endforeach
           </select>
-          <p class="help-text">Don't see your genre, {{ link_to_route('view_contact', 'give a little feedback', [$currentUser->id, 'feedback']) }}.</p>
+          <p class="help-text">Don't see your genre, {{ link_to_route('view_contact', 'give a little feedback', 'feedback') }}.</p>
         </div>
       </div>
 
@@ -66,7 +66,7 @@
         <label for="author">Author <span>Optional</span></label>
         {{ Form::text('author', $name) }}
         {{ errors_for('author', $errors) }}
-        <p class="help-text">This is pulled from your {{ link_to_route('view_profile', 'profile', $currentUser->id) }}, but feel free to change it.</p>
+        <p class="help-text">This is pulled from your {{ link_to_route('view_profile', 'profile') }}, but feel free to change it.</p>
       </div>
 
       <div class="form-block">

@@ -15,33 +15,33 @@
 
     <p class="support-types">
       @if ($type == 'general')
-        {{ link_to_route('view_contact', 'General', [$user->id, 'general'], ['class' => 'active']) }}
+        {{ link_to_route('view_contact', 'General', 'general', ['class' => 'active']) }}
       @else
-        {{ link_to_route('view_contact', 'General', [$user->id, 'general']) }}
+        {{ link_to_route('view_contact', 'General', 'general') }}
       @endif
 
       <span>/</span>
 
       @if ($type == 'support')
-        {{ link_to_route('view_contact', 'Support', [$user->id, 'support'], ['class' => 'active']) }}
+        {{ link_to_route('view_contact', 'Support', 'support', ['class' => 'active']) }}
       @else
-        {{ link_to_route('view_contact', 'Support', [$user->id, 'support']) }}
+        {{ link_to_route('view_contact', 'Support', 'support') }}
       @endif
 
       <span>/</span>
 
       @if ($type == 'feedback')
-        {{ link_to_route('view_contact', 'Feedback', [$user->id, 'feedback'], ['class' => 'active']) }}
+        {{ link_to_route('view_contact', 'Feedback', 'feedback', ['class' => 'active']) }}
       @else
-        {{ link_to_route('view_contact', 'Feedback', [$user->id, 'feedback']) }}
+        {{ link_to_route('view_contact', 'Feedback', 'feedback') }}
       @endif
 
       <span>/</span>
 
       @if ($type == 'bug')
-        {{ link_to_route('view_contact', 'Report Bug', [$user->id, 'bug'], ['class' => 'active']) }}
+        {{ link_to_route('view_contact', 'Report Bug', 'bug', ['class' => 'active']) }}
       @else
-        {{ link_to_route('view_contact', 'Report Bug', [$user->id, 'bug']) }}
+        {{ link_to_route('view_contact', 'Report Bug', 'bug') }}
       @endif
       </li>
     </p>

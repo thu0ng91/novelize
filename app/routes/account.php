@@ -11,17 +11,17 @@ Route::get( '/welcome', [
 /*
  * Profile Routes
  */
-Route::get( '/profile/{userId}', [
+Route::get( '/profile', [
   'as' => 'view_profile',
   'uses' => 'AccountController@profile'
 ]);
 
 
-Route::put( 'account/{userId}/update', [
+Route::put( 'account/update', [
   'as' => 'update_account',
   'uses' => 'AccountController@updateAccount'
 ]);
-Route::put( 'password/{userId}/update', [
+Route::put( 'password/update', [
   'as' => 'change_password',
   'uses' => 'AccountController@changePassword'
 ]);
@@ -29,7 +29,7 @@ Route::put( 'password/{userId}/update', [
 /*
  * Contact Routes
  */
-Route::get( '/contact/{userId}/{type}', [
+Route::get( '/contact/{type}', [
   'as' => 'view_contact',
   'uses' => 'AccountController@contact'
 ]);
