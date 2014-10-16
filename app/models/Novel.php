@@ -55,11 +55,11 @@ class Novel extends \Eloquent {
 
   public function word_count($novelId)
   {
-    $novel = Novel::findOrFail($novelId)->with('scenes')->get();
+    $novel = Novel::with('scenes')->findOrFail($novelId);
 
     $scenes_text = '';
 
-    foreach($novel->first()->scenes as $scene) {
+    foreach($novel->scenes as $scene) {
       $scenes_text .= $scene->body;
     }
 

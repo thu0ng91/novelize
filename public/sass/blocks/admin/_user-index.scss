@@ -18,10 +18,13 @@
 .user-index__cell {
 	padding: 8px;
 	border: 1px solid $c_userIndexCellBorder;
+	a {
+		display: block;
+	}
 }
 .user-index__cell--buttons {
 	@extend .user-index__cell;
-	width: 110px;
+	width: 60px;
 
 	a {
 		display: inline-block;

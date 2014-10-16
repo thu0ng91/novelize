@@ -57,16 +57,21 @@
           @foreach($users as $user)
             <tr class="user-index__row">
               <td class="user-index__cell">{{ $user->id }}</td>
-              <td class="user-index__cell">{{ $user->first_name }}</td>
-              <td class="user-index__cell">{{ $user->last_name }}</td>
-              <td class="user-index__cell">{{ $user->email }}</td>
+              <td class="user-index__cell">
+                {{ link_to_route('edit_user', $user->first_name, $user->id) }}
+              </td>
+              <td class="user-index__cell">
+                {{ link_to_route('edit_user', $user->last_name, $user->id) }}
+              </td>
+              <td class="user-index__cell">
+                {{ link_to_route('edit_user', $user->email, $user->id) }}
+              </td>
               <td class="user-index__cell">{{ $user->role->name }}</td>
               <td  class="user-index__cell--buttons">
                 @if($type == 'trashed')
                   {{ link_to_route('destroy_user', '', $user->id, ['class' => 'icon-index--destroy', 'title' => 'DESTROY']) }}
                   {{ link_to_route('restore_user', '', $user->id, ['class' => 'icon-index--restore', 'title' => 'RESTORE']) }}
                 @else
-                  {{ link_to_route('trash_user', '', $user->id, ['class' => 'icon-index--trash', 'title' => 'TRASH']) }}
                   {{ link_to_route('edit_user', '', $user->id, ['class' => 'icon-index--edit', 'title' => 'EDIT']) }}
                 @endif
               </td>

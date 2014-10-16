@@ -110,17 +110,13 @@
 }
 .icon--panel-locations {
 	@extend .icon--panel;
-	background-position: center 40px;
+	background-position: center 160px;
 }
 .icon--panel-items {
 	@extend .icon--panel;
-	background-position: center 80px;
+	background-position: center 120px;
 }
 .icon--panel-notes {
 	@extend .icon--panel;
-	background-position: center 120px;
-}
-.icon--panel-novels {
-	@extend .icon--panel;
-	background-position: center 160px;
+	background-position: center 80px;
 }

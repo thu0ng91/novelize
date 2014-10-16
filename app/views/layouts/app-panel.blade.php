@@ -33,7 +33,7 @@
 
 </div>
 
-@include('layouts.partials.side-panel')
+@include('sidepanel.panel')
 
 @if($currentUser->role_id > 30)
   @include('layouts.partials.adminBar')

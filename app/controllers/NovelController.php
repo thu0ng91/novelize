@@ -129,7 +129,8 @@ class NovelController extends \BaseController {
     	->get();
 
     $notebookId = $novel->notebook_id;
-    $notebook = Notebook::findOrFail($notebookId);
+    $notebook = Notebook::with('characters', 'characters.type', 'locations', 'items', 'notes')
+      ->findOrFail($notebookId);
 
     $currentScene = Scene::with('chapter')->findOrFail($sceneId);
 
