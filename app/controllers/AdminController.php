@@ -3,6 +3,11 @@
 
 class AdminController extends \BaseController {
 
+  public function __construct()
+  {
+    $this->beforeFilter('auth');
+  }
+
   /**
    * Display the users profile
    * GET /reports

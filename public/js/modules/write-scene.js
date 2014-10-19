@@ -41,4 +41,3 @@ positionWriteScreen();
 $(window).resize(function() {
 	positionWriteScreen()
 });
-

@@ -2,6 +2,11 @@
 
 class MailController extends \BaseController {
 
+  public function __construct()
+  {
+    $this->beforeFilter('auth');
+  }
+
   /*
    * Contact - General Form
    */

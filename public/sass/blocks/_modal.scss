@@ -1,0 +1,51 @@
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 99999;
+	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+	position: fixed;
+	top: 155px;
+	left: 50%;
+	z-index: 999999;
+  width: 400px;
+  margin-left: -200px;
+  padding: 20px 20px 0;
+  background-color: $greyDarker;
+  color: $white;
+}
+.modal__text {
+	margin-bottom: 12px;
+	@include font-size(1.125);
+	line-height: 1.4;
+	text-align: center;
+}
+
+.modal__button {
+	margin-top: 40px;
+}
+.modal__button {
+	@extend %button-reset;
+	width: 100%;
+	margin: 20px 0;
+	padding: 12px 8px;
+	background-color: $greyDark;
+	@include font-size(1.125);
+	color: $white;
+
+	&:hover {
+		background-color: $orange;
+	}
+
+}
+.modal__button--primary {
+	@extend .modal__button;
+}
+.modal__button--secondary {
+	@extend .modal__button;
+}

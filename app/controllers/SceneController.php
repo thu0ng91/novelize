@@ -2,6 +2,11 @@
 
 class SceneController extends \BaseController {
 
+  public function __construct()
+  {
+    $this->beforeFilter('auth');
+  }
+
   /**
    * Store a newly created resource in storage.
    *

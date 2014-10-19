@@ -62,7 +62,7 @@
 
       <div class="form-block">
         {{ errors_for('body', $errors) }}
-        {{ Form::textarea('body', null, ['class' => 'editable']) }}
+        {{ Form::textarea('body', null, ['class' => 'editable js-remote']) }}
       </div>
 
       <div class="write-scene__toolbar__wrapper">

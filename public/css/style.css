@@ -10,14 +10,14 @@
   line-height: 1.4;
 }
 
-.form-button, .form-button--secondary, .message__button, .page-header__button, .side-panel__toggle, .welcome__button, .novel-sidebar__button, .table-of-contents__toolbar button, .write-scene__description-button, .write-scene__save-button, .item-index__toolbar__button, .novel-list__link {
+.form-button, .form-button--secondary, .message__button, .modal__button, .modal__button--primary, .modal__button--secondary, .page-header__button, .side-panel__toggle, .welcome__button, .novel-sidebar__button, .table-of-contents__toolbar button, .write-scene__description-button, .write-scene__save-button, .item-index__toolbar__button, .novel-list__link {
   display: block;
   background-color: transparent;
   border: none;
   text-decoration: none;
   text-align: center;
 }
-.form-button:focus, .form-button--secondary:focus, .message__button:focus, .page-header__button:focus, .side-panel__toggle:focus, .welcome__button:focus, .novel-sidebar__button:focus, .table-of-contents__toolbar button:focus, .write-scene__description-button:focus, .write-scene__save-button:focus, .item-index__toolbar__button:focus, .novel-list__link:focus {
+.form-button:focus, .form-button--secondary:focus, .message__button:focus, .modal__button:focus, .modal__button--primary:focus, .modal__button--secondary:focus, .page-header__button:focus, .side-panel__toggle:focus, .welcome__button:focus, .novel-sidebar__button:focus, .table-of-contents__toolbar button:focus, .write-scene__description-button:focus, .write-scene__save-button:focus, .item-index__toolbar__button:focus, .novel-list__link:focus {
   outline: none;
 }
 
@@ -1097,6 +1097,53 @@ select:focus {
 }
 .message--danger .message__button:hover {
   background-color: #cd0000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 99999;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+  position: fixed;
+  top: 155px;
+  left: 50%;
+  z-index: 999999;
+  width: 400px;
+  margin-left: -200px;
+  padding: 20px 20px 0;
+  background-color: #686868;
+  color: white;
+}
+
+.modal__text {
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.modal__button, .modal__button--primary, .modal__button--secondary {
+  margin-top: 40px;
+}
+
+.modal__button, .modal__button--primary, .modal__button--secondary {
+  width: 100%;
+  margin: 20px 0;
+  padding: 12px 8px;
+  background-color: #909090;
+  font-size: 18px;
+  font-size: 1.125rem;
+  color: white;
+}
+.modal__button:hover, .modal__button--primary:hover, .modal__button--secondary:hover {
+  background-color: #e25822;
 }
 
 .page-header {
