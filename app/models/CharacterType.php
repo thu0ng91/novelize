@@ -10,7 +10,7 @@ class CharacterType extends \Eloquent {
   ];
 
   public static $rules = [
-    'name' => 'required|unique:chracter_types'
+    'name' => 'required|unique:character_types'
   ];
 
   /**

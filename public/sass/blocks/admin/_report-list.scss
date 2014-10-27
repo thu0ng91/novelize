@@ -1,0 +1,25 @@
+.report-list {
+	margin: 40px auto 0;
+	list-style: none;
+}
+
+.report-list__item {
+	margin-bottom: 40px;
+	text-align: center;
+}
+
+.report-list__button {
+	@extend %button-reset;
+	display: inline-block;
+	width: 360px;
+	padding: 12px 8px;
+	background-color: $orange;
+	@include font-size(1.125);
+	@include link-colors($white, $white);
+	transition: all 0.5s;
+
+	&:hover {
+		background-color: $orangeLight;
+		border-radius: 14px;
+	}
+}

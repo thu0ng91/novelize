@@ -19,11 +19,44 @@
   background-color: $greyDarker;
   color: $white;
 }
+
+.modal--register {
+	@extend .modal;
+	width: 500px;
+	margin-left: -250px;
+}
+
+.modal__title {
+	margin-bottom: 20px;
+	color: $white;
+	line-height: 1.3;
+	text-align: center;
+}
 .modal__text {
 	margin-bottom: 12px;
 	@include font-size(1.125);
 	line-height: 1.4;
 	text-align: center;
+}
+.modal__note {
+	margin: 30px 0 20px;
+	@include font-size(1);
+	text-align: center;
+
+	a:link,
+	a:visited {
+		color: $white;
+		text-decoration: underline;
+	}
+	a:hover,
+	a:active {
+		color: $orange;
+	}
+}
+
+.modal__form {
+	width: 80%;
+	margin: 40px auto 0;
 }
 
 .modal__button {
@@ -48,4 +81,16 @@
 }
 .modal__button--secondary {
 	@extend .modal__button;
+}
+.modal__button--register {
+	@extend .modal__button;
+	background-color: $orange;
+	padding: 8px;
+	line-height: 1.5;
+	transition: all 0.5s;
+
+	&:hover {
+		background-color: $orangeLight;
+		border-radius: 14px;
+	}
 }

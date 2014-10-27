@@ -3,6 +3,39 @@
 
 @section('content')
 
+  <div class="modal-overlay">
+    <div class="modal--register">
+      <h1 class="modal__title">Open Registration is Closed</h1>
+      <p class="modal__text">Beta testing is over. Enter your email address below, and we'll let you know when you can register for a Novelize account.</p>
+
+      <!-- Begin MailChimp Signup Form -->
+      <div id="mc_embed_signup">
+        <form action="//getnovelize.us8.list-manage.com/subscribe/post?u=d93bceaebb62b2ee85581f7ca&amp;id=cbe0d9a128" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="modal__form validate" target="_blank" novalidate>
+          <div id="mc_embed_signup_scroll">
+
+            <div class="mc-field-group">
+              <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email Address">
+            </div>
+
+            <div id="mce-responses" class="clear">
+              <div class="response" id="mce-error-response" style="display:none"></div>
+              <div class="response" id="mce-success-response" style="display:none"></div>
+            </div>
+
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;"><input type="text" name="b_d93bceaebb62b2ee85581f7ca_cbe0d9a128" tabindex="-1" value=""></div>
+
+            <div class="clear"><input type="submit" value="SIGN UP FOR UPDATES" name="subscribe" id="mc-embedded-subscribe" class="modal__button--register"></div>
+          </div>
+        </form>
+
+        <p class="modal__note">Already have an account? {{ link_to_route('login_page', 'Login') }}</p>
+      </div>
+      <!--End mc_embed_signup-->
+
+    </div>
+  </div>
+
   <div class="auth-box--wide">
 
     <div class="auth-box__logo">
@@ -17,7 +50,8 @@
 
     @include('layouts.partials.messages')
 
-    {{ Form::open(['route' => 'register_user', 'class' => 'auth-box__form']) }}
+    <form>
+    {{-- Form::open(['route' => 'register_user', 'class' => 'auth-box__form']) --}}
 
       <div class="form-group--two-column">
         <div class="form-block">

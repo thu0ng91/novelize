@@ -56,5 +56,7 @@
        {{ Form::submit('UPDATE', ['class' => 'form-button']) }}
       </div>
     {{ Form::close() }}
+
+    {{ link_to_route('trash_user', 'TRASH USER', $user->id, ['class' => 'user-form__delete-link']) }}
   </div>
 @stop

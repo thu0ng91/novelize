@@ -82,9 +82,11 @@
 
 // Blocks- Admin
 @import "blocks/admin/admin-bar";
-@import "blocks/admin/report-index";
 @import "blocks/admin/user-index";
 @import "blocks/admin/user-form";
+@import "blocks/admin/report-list";
+@import "blocks/admin/report-index";
+@import "blocks/admin/settings-index";
 
 
 
@@ -93,3 +95,9 @@
 @import "pages/auth";
 @import "pages/notebook";
 @import "pages/account";
+
+
+
+//
+// Queries
+@import "queries/560";

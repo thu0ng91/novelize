@@ -32,8 +32,10 @@
     {{ link_to_route('remind_page', 'Forgot Password?', null, ['class' => 'auth-box__link']) }}
   </div>
 
+  {{--
   <div class="auth-box__bottom">
     <p>Need an Account? {{ link_to_route('register_page', 'Sign Up') }}</p>
   </div>
+  --}}
 
 @stop

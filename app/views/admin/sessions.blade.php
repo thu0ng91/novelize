@@ -5,6 +5,10 @@
 @section('page_header')
   <div class="page-header">
     <h2 class="page-header__title">Session Log</h2>
+
+    <ul class="page-header__buttons">
+      <li>{{ link_to_route('view_reports', 'REPORTS', null, ['class' => 'page-header__button']) }}</li>
+    </ul>
   </div>
 @stop
 

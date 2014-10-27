@@ -2,10 +2,20 @@
 	@include container;
 	@include main-box;
 	margin-top: 20px;
-	padding: 40px;
+	padding: 40px 0;
+
+	form {
+		width: 60%;
+		margin: 0 auto;
+	}
 }
 
 .user-form__details {
+	width: 60%;
+	margin: 0 auto 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid $greyLighter;
+
 	h5 {
 		padding: 4px 0;
 		@include font-size();
@@ -18,7 +28,16 @@
 		width: 100%;
 		margin-bottom: 14px;
 		padding: 6px;
-		border: 1px solid lighten($c_formBorder, 10%);
+		border: 1px solid lighten($c_formBorder, 12%);
 		color: $c_bodyText;
 	}
+}
+
+
+.user-form__delete-link {
+	display: block;
+	width: 200px;
+	margin: 20px auto 0;
+	padding: 8px;
+	text-align: center;
 }
