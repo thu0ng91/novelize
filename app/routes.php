@@ -48,7 +48,7 @@ require (__DIR__."/routes/users.php");
 require (__DIR__."/routes/admin.php");
 require (__DIR__."/routes/account.php");
 
-require (__DIR__."/routes/entries.php");
+// require (__DIR__."/routes/entries.php");
 require (__DIR__."/routes/notebooks.php");
 require (__DIR__."/routes/novels.php");
 

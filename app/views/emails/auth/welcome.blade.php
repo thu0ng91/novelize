@@ -30,11 +30,6 @@
 		      <p>Novelize breaks down your writing process into four parts: plot, write, review, and publish. This allows you to focus on what you're doing so you don't get stuck editing when you're supposed to be writing.</p>
 
 
-		      <h3>Journal</h3>
-
-		      <p>Novelize also includes a journal for you to record ideas that just don't fit into your notebooks. Maybe you have an idea for a future novel that you don't want to forget. Maybe you need a place to keep important grammar rules. In the end, it's up to you what you {{ link_to_route('create_entry', 'write', null, ['style' => 'color: #E25822']) }} about in your journal entries.</p>
-
-
 					<h3>Give Feedback</h3>
 
 					<p>Since Novelize is in beta at the moment, I would appreciate for you to  {{ link_to_route('view_contact', 'give feedback', 'feedback', ['class' => 'feedback-link', 'style' => 'color: #E25822']) }} often so I can turn Novelize into the perfect app. In order to do that I need to know what you like, what you hate, and anything else you care to share about Novelize.</p>

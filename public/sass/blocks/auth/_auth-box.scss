@@ -19,6 +19,24 @@
   text-align: center;
 }
 
+.auth-box__title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.auth-box__text {
+  line-height: 1.4;
+}
+
+.auth-box__list {
+  margin-top: 20px;
+
+  li {
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+}
+
 .auth-box__notice {
   margin: -10px 0 30px;
   padding: 10px;

@@ -14,7 +14,6 @@
     <ul class="nav-menu__sections">
       <li class="nav-menu__item">{{ HTML::link_to_active_route('view_novels', 'NOVELS') }}</li>
       <li class="nav-menu__item">{{ HTML::link_to_active_route('view_notebooks', 'NOTEBOOKS') }}</li>
-      <li class="nav-menu__item">{{ HTML::link_to_active_route('view_journal', 'JOURNAL') }}</li>
     </ul>
 
     <!-- Logout -->
