@@ -31,7 +31,7 @@ Route::get( 'admin/settings', [
 
 
 
-Route::get( 'admin/settings/character_types', [
+Route::get( 'admin/settings/genres', [
   'as' => 'view_character_types',
   'uses' => 'CharacterTypeController@index'
 ]);
@@ -42,4 +42,19 @@ Route::post( 'admin/settings/character_types/store', [
 Route::put( 'admin/settings/character_types/{characterTypeId}/update', [
   'as' => 'update_character_type',
   'uses' => 'CharacterTypeController@update'
+]);
+
+
+
+Route::get( 'admin/settings/genres', [
+  'as' => 'view_genres',
+  'uses' => 'GenreController@index'
+]);
+Route::post( 'admin/settings/genres/store', [
+  'as' => 'store_genre',
+  'uses' => 'GenreController@store'
+]);
+Route::put( 'admin/settings/genres/{genreId}/update', [
+  'as' => 'update_genre',
+  'uses' => 'GenreController@update'
 ]);
