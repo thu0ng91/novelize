@@ -31,7 +31,7 @@ Route::get( 'admin/settings', [
 
 
 
-Route::get( 'admin/settings/genres', [
+Route::get( 'admin/settings/character_types', [
   'as' => 'view_character_types',
   'uses' => 'CharacterTypeController@index'
 ]);
